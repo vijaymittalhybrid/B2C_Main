@@ -13,7 +13,7 @@
         select_state:'',
         select_city:'',
         zip_code:'',
-        mobile_number:'',
+        mobile_number:(localStorage.getItem("userMobile") !== '') ?  localStorage.getItem("userMobile") : '',
         select_b_l_s:'',
         industry:'',
         sub_industry:'',
@@ -1444,7 +1444,7 @@
                 that.set("select_state",'');
                 that.set("select_city",'');
                 that.set("zip_code","");
-                that.set("mobile_number","");
+                that.set("mobile_number",(localStorage.getItem("userMobile") !== '') ?  localStorage.getItem("userMobile") : '');
                 that.set("select_b_l_s","");
                 that.set("industry","");
                 that.set("sub_industry","");

@@ -3387,6 +3387,7 @@ html body #aplicn_frm ul.low_creditop li.opt2 label.error {font-size:11px;}
 #aplicn_frm #debtwrapper p .IN5 { width:100%; margin-right:0;}
 #aplicn_frm #debtwrapper .addons p.imp40 {width:100% !important;}
 #homePage .testimonials h2 { font-size:1.3em; background-size:8%;margin: 0 0 25px;padding: 2% 0 2% 10%;}
+#aplicn_frm .rws.rw1 .IN1 {width: 100%;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}

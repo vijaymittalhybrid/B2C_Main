@@ -393,6 +393,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #homePage .testimonials .test-content .test-r p {color:#666; margin:15px 0 25px; font-style:italic; font-size:1.4em;}
 #homePage .testimonials .test-content .test-r span { font-size:1.5em; display:block; color:#333;}
 
-#MatchesList .bmatches {display:block;}
-#MatchesList .bmatches p { font-size:1em; color:#333; line-height: 1.4em;text-align: justify;}
-#MatchesList .bmatches p span { color:#8ab514;font-weight: bold;}
+#MatchesListnew .bmatches {display:block;}
+#MatchesListnew .bmatches p { font-size:1em; color:#333; line-height: 1.4em;text-align: justify;}
+#MatchesListnew .bmatches p span { color:#8ab514;font-weight: bold;}
