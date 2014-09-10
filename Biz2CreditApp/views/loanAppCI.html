@@ -287,7 +287,7 @@
                                 <div class="lftit">Ownership Percentage</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" data-bind="value:own_percent"   name="own_percent" id="own_percent" required>
+                                        <select class="IN1b ipsm3" data-bind="value:own_percent"   name="own_percent" id="own_percent" onchange="javascript:ownerpValidate()" required>
                                             <option selected="selected" value="">Ownership Percentage</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -453,15 +453,42 @@
             $("#loader").remove();
             $('#own_city'+NumOfDiv+'').removeAttr("disabled");
             $('#own_state'+NumOfDiv+'').removeAttr("disabled");
-            if(NumOfDiv ==='')
+            if(NumOfDiv ==='' && sessionStorage.getItem("setprefilStatus").trim()==='true')
             {
+                $("select#own_state option[value='"+app.loansetting.viewModel.select_state+"']").prop('selected',true);
                 $("select#own_city option[value='"+app.loansetting.viewModel.select_city+"']").prop('selected',true);
-                $('#own_city'+NumOfDiv+'').attr("disabled","disabled");
-				$('#own_state'+NumOfDiv+'').attr("disabled","disabled");
+                $("#OwnZipCode").val(app.loansetting.viewModel.zip_code);
                 app.loanAppCI.viewModel.state_user=app.loansetting.viewModel.select_state;
             	app.loanAppCI.viewModel.cmbCity=app.loansetting.viewModel.select_city;
+                app.loanAppCI.viewModel.OwnZipCode = app.loansetting.viewModel.zip_code;
+
             }
 
         });
     }
+    
+    function ownerpValidate(){
+       var totaldivs = parseInt($('#totownerDiv').val());
+       var total_per = 0; 
+           for(var c=0; c<=totaldivs; c++){ 
+               if(c===0) {
+                   var index='';
+               } 
+               else {
+                   var index = c;
+               }            
+                if($("#own_percent"+index).length) {
+                	if(parseInt($('#own_percent'+index).val()) >0) {
+                		total_per = total_per + (parseInt($('#own_percent'+index).val()));
+                	}                                         
+               }
+
+           }               
+
+       if(total_per >=100){
+        	$('#add-ownerForm').hide();
+       } else {
+       	app.loanAppCI.viewModel.checkownerFlag();
+       }
+}
     </script>

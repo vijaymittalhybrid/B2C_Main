@@ -1329,15 +1329,17 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        $msg= "Business Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Business Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
+                        sessionStorage.setItem("setprefilStatus",'true');
                         app.loansetting.viewModel.SetCurrentfidStatus();
                         apps.navigate('views/loanAppCI.html');
                     }
                     else
                     {
                         $msg= "Business Information submitted successfully";
+                        localStorage.setItem("fid",data[0]['results']['fid']);
                         app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
@@ -1432,6 +1434,8 @@
 			{
                 var that = this;
                 localStorage.setItem("fid",'');
+                sessionStorage.setItem("setprefilStatus",false);
+                
                 $("#tabstrip-loanapp-bi").find(".km-scroll-container").css("-webkit-transform", "");
                 $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
                 $('#credit_show,#outsta_debt,#busInfobx,#busInfobx2').hide();

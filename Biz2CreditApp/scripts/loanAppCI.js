@@ -31,8 +31,11 @@
             
             e.sender.reload=false;
             e.view.reload=false;
-            $("select#own_state option[value='"+app.loansetting.viewModel.select_state+"']").prop('selected',true);
-            createCityCmb(app.loansetting.viewModel.select_state , '');
+            if(sessionStorage.getItem("setprefilStatus").trim()==='true')
+            {
+                createCityCmb(app.loansetting.viewModel.select_state , '');
+            }
+            
 			$(".km-scroll-container").css("-webkit-transform", ""); 
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
@@ -275,7 +278,6 @@
                     },
                     owner_year: {
                     	required: true,
-                    	dobminor: true
                     },
                     owner_month: {
                     	required: true
@@ -328,7 +330,6 @@
                     },
                     owner_year: {
                     	required:  "This value is required",
-                   	 dobminor: "Owner age should be greater than 18 years"
                     },
                     owner_month: {
                     	required: "This value is required"                                        
@@ -704,7 +705,7 @@
         },
         createOwnership:function (NumOfDiv){
             var str='';
-            str ="<select name='own_percent"+NumOfDiv+"' id='own_percent"+NumOfDiv+"' data-bind='value:own_percent"+NumOfDiv+"' original-title='Ownership Percentage' class='IN1b ipsm3'>";
+            str ="<select name='own_percent"+NumOfDiv+"' id='own_percent"+NumOfDiv+"' data-bind='value:own_percent"+NumOfDiv+"' original-title='Ownership Percentage' onchange='javascript:ownerpValidate()' class='IN1b ipsm3'>";
             str +='<option value="">Ownership Percentage</option>';        
             for(i=100; i>=1;i--){          
             str +='<option value="'+i+'">'+i+'</option>';
@@ -880,8 +881,9 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Contact Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        sessionStorage.setItem("setprefilStatus",false);
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
                         apps.navigate('views/loanAppPI.html');
                     }
