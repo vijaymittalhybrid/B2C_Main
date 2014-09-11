@@ -43,6 +43,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #row_owners .rw_lin.addons p {text-align: left;}
 #aplicn_frm .rws .rwfil label {font-size:11px;}
 #aplicn_frm .IN4 {width:168px;}
+#aplicn_frm .IN4c {width: 210px;}
+#busInfobx2 > .rw_lin > input.IN4c + label.error {position:absolute; top:48px; left:5px;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -245,6 +247,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #homePage .testimonials .test-content .test-l img { max-width:40%; margin:0 auto;}
 #homePage .testimonials .test-content .test-r span { text-align:center; font-size:1.1em;}
 #homePage .testimonials { padding:2% 3% 5%; }
+#busInfobx2 > .rw_lin > input.IN4c + label.error {position:inherit; top:0; left:0px;}
 }
 @media (min-width:0px) and (max-width:533px) { 
 #blackBlk .desbrdIcon {padding: 2%;display: block;}

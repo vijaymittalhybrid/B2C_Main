@@ -344,7 +344,7 @@ footer a{ color:#FFF}
 #aplicn_frm .IN4{ width:180px; margin-right:8px; margin-bottom:10px;}
 #aplicn_frm .IN4b { width:200px; margin-right:8px; margin-bottom:10px;}
 #aplicn_frm .IN4c { width:173px; margin-right:8px; margin-bottom:2px;}
-#aplicn_frm .showfilds_bx{ padding:10px 10px 6px 10px; margin-bottom:20px; background-color:#fffef2; border:1px solid #edd3aa;  -webkit-border-radius:5px; border-radius: 5px;  }
+#aplicn_frm .showfilds_bx{ padding:10px 10px 8px 10px; position:relative; margin-bottom:20px; background-color:#fffef2; border:1px solid #edd3aa;  -webkit-border-radius:5px; border-radius: 5px;  }
 #aplicn_frm .labl_tx{ padding:0px 0px 10px 0px; font-size:12px; font-family:'OpenSansBol', Arial, Helvetica, sans-serif; color:#333 }
 #aplicn_frm .labl_tx2{ padding:0px 0px 16px 0px; font-size:13px; font-family:'OpenSansReg', Arial, Helvetica, sans-serif; color:#333 }
 #aplicn_frm .rem_col{background-image: url("../styles/layout/ic_rem.png"); background-repeat: no-repeat; color: #f00;display: inline-block; float: right;font-family: 'open_sansbold',Arial,Helvetica,sans-serif; font-size: 12px;line-height: 12px;margin-top: 7px !important;padding: 0 0 0 19px;}
