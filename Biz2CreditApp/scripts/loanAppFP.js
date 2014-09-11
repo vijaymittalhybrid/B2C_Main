@@ -163,8 +163,9 @@
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-                    $msg= "Finacial Preference submitted successfully";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    //$msg= "Finacial Preference submitted successfully";
+                   // app.loginService.viewModel.mobileNotification($msg,'info');
+                    
                     app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                     app.homesetting.viewModel.homeShow(); 
                     apps.navigate('views/matches.html');
