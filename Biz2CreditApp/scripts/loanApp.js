@@ -962,7 +962,7 @@
         },
         	
 		loanAppBISubmit:function(e){
-           //apps.navigate('views/loanAppCI.html');
+          // apps.navigate('views/loanAppCI.html');
             dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {

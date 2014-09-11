@@ -772,9 +772,11 @@
             dataParam =  {};
             if(e.sender.element.context.dataset.name === "Next")
             {
+                
                 var status = $("#b2cApp1").valid();
                 if(status === false)
-                return status;  
+                $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
+                return false;  
                 dataParam['contact_act'] = 'Next';
             }
             else
