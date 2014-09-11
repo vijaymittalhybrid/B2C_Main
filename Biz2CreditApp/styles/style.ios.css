@@ -106,6 +106,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding:3% 0 2% 10%;background-size: 5%;background-position: 22px 10px;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:9%;display: block;padding:3% 11% 4%;color: #fff;font-size: 1.5em;}
 #tabstrip-Setting .docs-docu {padding: 2% 0 0 8px;font-size: 1.2em;}
+#aplicn_frm select.IN1b.ipsm3 {width: 156px;}
 }
 
 @media (min-width:0px) and (max-width:800px) {
@@ -144,9 +145,10 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm {padding: 30px 5%;}
 #aplicn_frm .IN1 {width: 320px;}
 #aplicn_frm .rws .lftit {width:100%;}
-#aplicn_frm .IN1.zipcod {width:200px;}
+#aplicn_frm .IN1.zipcod {width:150px;}
 #aplicn_frm .IN1.fund {width:345px;}
 #aplicn_frm .IN3.smOn {width:321px;}
+.IN1.smphone { width:160px!important;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -210,6 +212,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #dynamicCl.km-popup-wrapper {width: 220px !important;height: 220px !important;}
 #newuser ul.km-listinset li select {background-size:10%; }
 #aplicn_frm #credit_show p.mercPr .IN3 {width: 100%;}
+.IN1.smphone { width:100%!important;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin:1% auto;background-size: 50%; height:60px;}
@@ -379,6 +382,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #aplicn_frm .rws p.sixtPrst {width: 81%;}
 #aplicn_frm .IN3.smOn {width:100%;}
 }
+
 
 @media (min-width:0px) and (max-width:320px) { 
 #blackBlk .desbrdIcon .dasimg {width:19%;}

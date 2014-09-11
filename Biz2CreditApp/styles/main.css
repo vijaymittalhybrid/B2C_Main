@@ -263,6 +263,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 
 
 
+
 .documentContent .km-listview-wrapper ul li .sharedfolder {background-image: url(images/single-share-folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .Folder {background-image: url(images/folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .default-icon {background-image: url(images/unknown.png); background-repeat:no-repeat; background-size:43%; background-position:13px 7px;}
@@ -388,7 +389,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #homePage .testimonials h2 { font-size:1.8em; background-image: url(images/testmonial-icon.png); background-position: 0 center; background-repeat:no-repeat; background-size:7%; margin:0 0 30px; padding:2% 0 2% 10%; color:#333; }
 #homePage .testimonials .test-content { display:inline-block; width:100%;}
 #homePage .testimonials .test-content .test-l {width:23%; margin:0 4% 0 0; float:left; }
-#homePage .testimonials .test-content .test-l img {border-radius:50%; border:#ccc 5px solid; max-width:100%;width:100%; overflow:hidden;}
+#homePage .testimonials .test-content .test-l img {border-radius:50%; display:block;border:#ccc 5px solid ;background-clip: content-box;  box-sizing: border-box;  max-width:100%;width:100%; overflow:hidden;}
 #homePage .testimonials .test-content .test-r {float:right; width:73%; margin:0;}
 #homePage .testimonials .test-content .test-r p {color:#666; margin:15px 0 25px; font-style:italic; font-size:1.4em;}
 #homePage .testimonials .test-content .test-r span { font-size:1.5em; display:block; color:#333;}
