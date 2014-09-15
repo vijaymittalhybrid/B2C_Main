@@ -315,7 +315,7 @@
                        if(viewCModel.get('check_credit_score'+c)==='Y')
                         {
                             dataParam['check_credit_score'+c] = 'N';
-                            var check_value = [];
+                            check_value = [];
                             $("#ownercscore"+c+" .reset:checked").each(function() {
                             check_value.push($(this).val());
 
@@ -331,8 +331,10 @@
                         }
                         else
                         {
+                            check_value = [];
+                            check_value.push(15);
                             dataParam['check_credit_score'+c] = 'N';
-                            dataParam['chk_reason'+c] = '';
+                            dataParam['chk_reason'+c] =check_value;
                             dataParam['credittype'+c] = 600;
                             
                             
