@@ -26,7 +26,6 @@
         isCheckScore0:'',
         creditScore0:'',
         reasonlscore0:'',
-        
         show:function(e) {
             
             e.sender.reload=false;
@@ -151,7 +150,7 @@
                 } 
                 else 
                 {
-               	 var strdeldivids = "";
+               	  strdeldivids = "";
                 }
 
                 if(totaldivs >0) 
@@ -774,8 +773,8 @@
             {
                 
                 var status = $("#b2cApp1").valid();
-                if(status === false)
                 $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
+                if(status === false)
                 return false;  
                 dataParam['contact_act'] = 'Next';
             }
@@ -876,15 +875,15 @@
 
             });
             dataSource.fetch(function(){
-
+                
                 var data = this.data();
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        //$msg= "Contact Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Contact Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",false);
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);

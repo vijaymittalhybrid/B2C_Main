@@ -57,7 +57,7 @@ else{
 /*--------------function for radio--------------*/
 $('.se_radio').click(function(){
     var sel_value=$(this).val();
-if(sel_value==1){
+if(sel_value===1){
    $('#credit_show').show();
 }
 else{

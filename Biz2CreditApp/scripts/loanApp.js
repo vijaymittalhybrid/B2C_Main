@@ -70,7 +70,7 @@
             }
         },
         show:function(e) {
-            
+
             e.sender.reload=false;
             e.view.reload=false;
             $(".km-scroll-container").css("-webkit-transform", "");
@@ -217,7 +217,8 @@
             $('.businf').click(function() {
                 var sel_value = $(this).val();
                 if (sel_value==='2') {
-                    $('#busi_out_mort_type.input[type=radio]').attr("checked",true);
+                   // $('#busi_out_mort_type.input[type=radio]').attr("checked",true);
+                    $("#outstandingMortagageDiv").hide();
                 	$('#busInfobx').show();
                 	$('#busInfobx2').hide();
                 } else {
@@ -1324,13 +1325,14 @@
             dataSource.fetch(function(){
 
                 var data = this.data();
+               // console.log(data);
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         sessionStorage.setItem("setprefilStatus",'true');
                         app.loansetting.viewModel.SetCurrentfidStatus();

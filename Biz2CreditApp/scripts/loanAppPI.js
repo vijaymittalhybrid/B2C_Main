@@ -390,8 +390,8 @@
                 {
                     if(dataParam['personal_act'] === "Next")
                     {
-                        //$msg= "Personal Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                         apps.navigate('views/loanAppFP.html');
