@@ -79,15 +79,15 @@
     
     function getCheckcscore(index , sel_value){
      if(sel_value==='Y'){
-                  $('#crdscorerNo'+index).show();
-                  $('#crdscorerYes'+index).hide();
-                  $('#ifless'+index).removeClass('ifless');
-                }
-                else{
-                   $('#crdscorerNo'+index).hide();
+                 
+         $('#crdscorerNo'+index).hide();
                    $('#crdscorerYes'+index).show();
                              //$('.ifless').show();
                              $('#ifless'+index).addClass('ifless');
+                }
+                else{
+                  $('#crdscorerYes'+index).hide();
+                  $('#ifless'+index).removeClass('ifless');
                 }
 }
     function getCscore(index , sel_value){

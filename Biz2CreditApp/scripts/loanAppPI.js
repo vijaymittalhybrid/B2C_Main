@@ -62,19 +62,15 @@
                         html +='<div class="rwfil">';
                         html +='<div class="rw_lin clearfix">';
                         html +='<div  id="creditScoreTextOwn'+c+'" class="labl_tx2">Would you like us to check your credit score for free?*</div></div><div class="rw_lin clearfix opt lblBtM"> <span>';
-
-						html +='<input type="checkbox" name="cscoreknown'+c+'" onclick="KnownCheckcscore('+c+',this);" data-bind="value:cscoreknown'+c+'" id="cscoreknown'+c+'" value="Yes">';
 						html +=   '<label for="crdye">Do you know your credit score?</label>';
-                        html +=   '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"  style="display:none" data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="Y" class="crYes'+c+'" >';
-                        html +=   '<label for="crdye" style="display:none">Yes</label></span> <span>';
+                        
+                        html +=   '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"   data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="Y" class="crYes'+c+'" >';
+                        html +=   '<label for="crdye" >Yes</label></span> <span>';
 
-                        html += '<input name="check_credit_score'+c+'" style="display:none" onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="N" class="crYes'+c+'">';
-                        html +='<label for="crdno" style="display:none">No</label></span>';
+                        html += '<input name="check_credit_score'+c+'"  onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="N" class="crYes'+c+'">';
+                        html +='<label for="crdno" >No</label></span>';
 
                         html +='<input type="hidden" name="hownid'+c+'" data-bind="value:hownid'+c+'" id="hownid'+c+'" value=""></div><div class="rwfil lft"><div id="crdscorerYes'+c+'" class="showfilds_bx" style="display:none"><div class="rw_lin clearfix">';
-
-
-
 
                         html +='<select name="credittype'+c+'" onchange="getCscore('+c+',this.value);" data-bind="value:credittype'+c+'"  id="credittype'+c+'" class="IN3"  title="Select Personal Credit Score"  >';
                         html +='<option value="">Select Personal Credit Score</option>';
@@ -263,7 +259,7 @@
         addDynamicOwner:function(num)
         {
 			viewCModel['cscoreknown'+num] ='';
-            viewCModel['check_credit_score'+num] ='N';
+            viewCModel['check_credit_score'+num] ='';
             viewCModel['credittype'+num] ='';
             viewCModel['chk_reason'+num] =[];
         },
@@ -318,34 +314,27 @@
                     {  
                        if(viewCModel.get('check_credit_score'+c)==='Y')
                         {
-                            dataParam['check_credit_score'+c] = 'Y';
+                            dataParam['check_credit_score'+c] = 'N';
+                            var check_value = [];
+                            $("#ownercscore"+c+" .reset:checked").each(function() {
+                            check_value.push($(this).val());
+
+                            });
+                            
+                            dataParam['chk_reason'+c] = check_value;
+                            dataParam['credittype'+c] = viewCModel.get('credittype'+c);
+                            if(viewCModel.get('credittype'+c)>=659)
+                            {
+                                dataParam['chk_reason'+c]='';
+                            }
                             
                         }
                         else
                         {
                             dataParam['check_credit_score'+c] = 'N';
-                            var check_value = [];
-                            $("#ownercscore"+c+" .reset:checked").each(function() {
-                            	check_value.push($(this).val());
+                            dataParam['chk_reason'+c] = '';
+                            dataParam['credittype'+c] = 600;
                             
-                            });
-                            
-                            if(viewCModel.get('cscoreknown'+c) === '')
-                            {
-                                dataParam['chk_reason'+c] = '';
-                                dataParam['credittype'+c] = 600;
-                            }
-                            else
-                            {
-                                dataParam['chk_reason'+c] = check_value;
-                                dataParam['credittype'+c] = viewCModel.get('credittype'+c);
-                                if(viewCModel.get('credittype'+c)>=659)
-                                {
-                                    dataParam['chk_reason'+c]='';
-                                }
-                                
-                            }
-                            dataParam['cscoreknown'+c] = viewCModel.get('cscoreknown'+c);   
                             
                         }
                         if(c ===0)
