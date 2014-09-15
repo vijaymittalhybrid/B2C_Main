@@ -469,7 +469,7 @@
                 $("#OwnZipCode"+index).rules("add", {
                 number : true,
                 messages: {
-                required: "Please enter digits only"
+                number: "Please enter digits only"
                 }
                 });
 
@@ -882,8 +882,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                       // $msg= "Contact Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",false);
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);

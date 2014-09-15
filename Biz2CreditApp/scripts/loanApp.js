@@ -1049,7 +1049,7 @@
            
             if(document.getElementById('yettostart').checked)
             {
-                yettostart							  = that.get("yettostart").trim(),
+                yettostart							  = that.get("yettostart"),
                 dataParam['yettostart']				 = yettostart;   
                 dataParam['dbs_month']		= "";
                 dataParam['dbs_year']         = "";
@@ -1325,14 +1325,13 @@
             dataSource.fetch(function(){
 
                 var data = this.data();
-               // console.log(data);
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        $msg= "Business Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                       // $msg= "Business Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         sessionStorage.setItem("setprefilStatus",'true');
                         app.loansetting.viewModel.SetCurrentfidStatus();
@@ -1455,7 +1454,7 @@
                 that.set("sub_industry","");
                 that.set("select_buss_s_m","");
                 that.set("select_buss_s_y","");
-                that.set("yettostart","");
+                that.set("yettostart",1);
                 that.set("average_annual_revenue","");
                 that.set("buss_operating_expenses",""); 
                 that.set("acceptcard_yes",'Yes');
