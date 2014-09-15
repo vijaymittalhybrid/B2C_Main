@@ -264,6 +264,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 
 
 
+
 .documentContent .km-listview-wrapper ul li .sharedfolder {background-image: url(images/single-share-folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .Folder {background-image: url(images/folder.png); background-repeat:no-repeat; background-size:60%; background-position:5px 7px;}
 .documentContent .km-listview-wrapper ul li .default-icon {background-image: url(images/unknown.png); background-repeat:no-repeat; background-size:43%; background-position:13px 7px;}
@@ -397,3 +398,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #MatchesListnew .bmatches {display:block;}
 #MatchesListnew .bmatches p { font-size:1em; color:#333; line-height: 1.4em;text-align: justify;}
 #MatchesListnew .bmatches p span { color:#8ab514;font-weight: bold;}
+/************15-09-14*******************/
+.IN1.ac_input.error + label.error{ position:absolute; top:40px; left:0px;}
+#aplicn_frm > .warps > .rws > .lftitb + .rwfil { position:relative;} 
