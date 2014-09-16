@@ -124,7 +124,7 @@
             dataParam['priority1']=that.get("funding_priority");
             dataParam['ammount']=that.get("min_loan_amount").trim();
             dataParam['txtmaxammount']=that.get("max_loan_amount").trim();
-            $("#chkuseplan:checked").each(function() {
+            $(".useplan:checked").each(function() {
             	chkuseplan.push($(this).val());
             });
             dataParam['chkuseplan']=chkuseplan;
