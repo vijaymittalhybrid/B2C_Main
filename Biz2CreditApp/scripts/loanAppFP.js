@@ -138,7 +138,7 @@
             var dataSource = new kendo.data.DataSource({
                 transport: {
                 read: {
-                    url: "http://sandbox.biz2services.com/mobapp/api/loanapp",
+                    url: "https://www.biz2services.com/mobapp/api/loanapp",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: dataParam
@@ -163,8 +163,8 @@
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-                    //$msg= "Finacial Preference submitted successfully";
-                   // app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Finacial Preference submitted successfully";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     
                     app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                     app.homesetting.viewModel.homeShow(); 

@@ -855,7 +855,7 @@
             var dataSource = new kendo.data.DataSource({
                 transport: {
                 read: {
-                    url: "http://sandbox.biz2services.com/mobapp/api/loanapp",
+                    url: "https://www.biz2services.com/mobapp/api/loanapp",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: dataParam
@@ -882,8 +882,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                       // $msg= "Contact Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Contact Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",false);
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);

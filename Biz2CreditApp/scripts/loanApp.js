@@ -202,7 +202,7 @@
                 }
                 else{
                     if($('#currntControl').val()>0) {
-                    	alert('Please delete all existing debts information');
+                    	navigator.notification.alert('Please delete all existing debts information');
                     	$('input:radio[name=debttype]:nth(0)').prop('checked',true);
                         $('#outsta_debt').show();
                     } else {
@@ -251,7 +251,7 @@
                 }
             });
             $('.tpar').click(function() {
-            	alert('debug');
+            	//alert('debug');
             });
 
             $("#yettostart").click(function() {
@@ -1303,7 +1303,7 @@
             var dataSource = new kendo.data.DataSource({
                 transport: {
                 read: {
-                    url: "http://sandbox.biz2services.com/mobapp/api/loanapp",
+                    url: "https://www.biz2services.com/mobapp/api/loanapp",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: dataParam
@@ -1330,8 +1330,8 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                       // $msg= "Business Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         sessionStorage.setItem("setprefilStatus",'true');
                         app.loansetting.viewModel.SetCurrentfidStatus();

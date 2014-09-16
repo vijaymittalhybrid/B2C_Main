@@ -91,7 +91,7 @@
                     var dataSource = new kendo.data.DataSource({         
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder/",
+                        url: " https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
@@ -137,7 +137,7 @@
                     var dataSource = new kendo.data.DataSource({         
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder/",
+                        url: " https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
@@ -220,7 +220,7 @@
                     var dataSource = new kendo.data.DataSource({         
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder/",
+                        url: " https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId,parentName:parentName} // search for tweets that contain "html5"
@@ -261,7 +261,7 @@
                     var dataSource = new kendo.data.DataSource({         
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder/",
+                        url: " https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
@@ -558,7 +558,7 @@
                     var dataSource = new kendo.data.DataSource({
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder",
+                        url: " https://www.biz2services.com/mobapp/api/folder",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"deletefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),parentName:parentName}  // search for tweets that contain "html5"
@@ -578,7 +578,7 @@
                     var dataSource = new kendo.data.DataSource({
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder",
+                        url: " https://www.biz2services.com/mobapp/api/folder",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"deletefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId")}  // search for tweets that contain "html5"
@@ -651,7 +651,7 @@
                     var dataSource = new kendo.data.DataSource({
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/file",
+                        url: " https://www.biz2services.com/mobapp/api/file",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"deletefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),parentName:parentName}  // search for tweets that contain "html5"
@@ -671,7 +671,7 @@
                     var dataSource = new kendo.data.DataSource({
                     transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/file",
+                        url: " https://www.biz2services.com/mobapp/api/file",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"deletefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId")}  // search for tweets that contain "html5"
@@ -763,7 +763,7 @@
     		    var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder",
+                        url: " https://www.biz2services.com/mobapp/api/folder",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"renamefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),folderName:renameFolder,parentID:parentId}  // search for tweets that contain "html5"
@@ -864,7 +864,7 @@
     		    var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/file",
+                        url: " https://www.biz2services.com/mobapp/api/file",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"renamefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),fileName:renameFile+renameFileExt,parentID:parentId}  // search for tweets that contain "html5"
@@ -985,7 +985,7 @@
                 var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
-                        url: " http://sandbox.biz2services.com/mobapp/api/folder",
+                        url: " https://www.biz2services.com/mobapp/api/folder",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"addfolder",userID:localStorage.getItem("userID"),parentID:parentId,folderName:newFolderName}  // search for tweets that contain "html5"
