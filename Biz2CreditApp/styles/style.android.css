@@ -231,7 +231,7 @@ background-position:center 10px ;  text-align:center; width:22.5%; margin-right:
 #aplicn_frm .rw_lin.hlp p .IN6 {width: 100%;}
 #aplicn_frm .rws select, #aplicn_frm input[type="text"] { font-size:13px;}
 #blackBlk { margin:0 2%; width:96%;}
-#aplicn_frm .rw_lin.hlp p {width:85%;padding-right: 3%;float: left;}
+#aplicn_frm .rw_lin.hlp p {width:85%;padding-right: 3%;float: left; padding-bottom:3px;}
 #aplicn_frm .rw_lin.hlp p .IN5 {width: 100%;}
 #aplicn_frm .IN3 {width:100%;}
 #aplicn_frm .rws.rw1 p {display: block;float: none;width: 100%;}
@@ -705,5 +705,4 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-Setting .docs-back {width:18%;background-size:95%; height:50px;background-position: 5px 5px; background-position:left 7px;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:42px;display: block;padding: 15px 17%;color: #fff;font-size: 1.2em;background-position: left 4px;}
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-position: 14px 4px;padding: 5px 0;}
-
 }
