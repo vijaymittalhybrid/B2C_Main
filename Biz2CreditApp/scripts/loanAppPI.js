@@ -70,7 +70,7 @@
                         html += '<input name="check_credit_score'+c+'"  onclick="getCheckcscore('+c+',this.value);"  data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="N" class="crYes'+c+'">';
                         html +='<label for="crdno" >No</label></span>';
 
-                        html +='<input type="hidden" name="hownid'+c+'" data-bind="value:hownid'+c+'" id="hownid'+c+'" value=""></div><div class="rwfil lft"><div id="crdscorerYes'+c+'" class="showfilds_bx" style="display:none"><div class="rw_lin clearfix">';
+                        html +='<input type="hidden" name="hownid'+c+'" data-bind="value:hownid'+c+'" id="hownid'+c+'" value=""></div><div class="rwfil lft newChkBx"><div id="crdscorerYes'+c+'" class="showfilds_bx" style="display:none"><div class="rw_lin clearfix">';
 
                         html +='<select name="credittype'+c+'" onchange="getCscore('+c+',this.value);" data-bind="value:credittype'+c+'"  id="credittype'+c+'" class="IN3"  title="Select Personal Credit Score"  >';
                         html +='<option value="">Select Personal Credit Score</option>';
