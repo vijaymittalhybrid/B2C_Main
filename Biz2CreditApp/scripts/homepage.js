@@ -234,7 +234,7 @@
                     }
                 if(matchstatus===0 && matches===0) { 
                      dHeader= 'You have '+matches+' loan matches';
-                     dDescription='No worries! We are here to help you.Use BizAnalyzer to find ways to improve your business\'s finances and funding opportunities.';
+                     dDescription='No worries! We are here to help you. Use BizAnalyzer to find ways to improve your business\'s finances and funding opportunities.';
                      dButtonText = "Check your BizAnalyzer Score";
                      dButtonLink ="#tabstrip-mess-third";
                     }
