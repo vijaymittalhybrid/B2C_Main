@@ -401,3 +401,4 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 /************15-09-14*******************/
 .IN1.ac_input.error + label.error{ position:absolute; top:40px; left:0px;}
 #aplicn_frm > .warps > .rws > .lftitb + .rwfil { position:relative;} 
+.rw_lin.clearfix.opt.lblBtM > span > label.error { margin:0 0 0 182px;}
