@@ -81,6 +81,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm .rws .rwfil label{font-size:11px;}
 .newChkBx {width:85%!important;}
 #aplicn_frm ul.low_creditop li {width:48%;}
+#aplicn_frm .IN4c {width: 230px;}
+.rwfil.aut > p > .ipsm1 {width:220px!important;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -142,6 +144,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #aplicn_frm select.IN1b.ipsm3 {width:190px;}
 #aplicn_frm .rws .rwfil label{font-size: 0.7em; padding:0 10px 0 2px;}
 #aplicn_frm .ipsm13 {width: 130px;}
+#aplicn_frm .IN4c {width: 210px;}
 }
 
 @media screen and (max-width: 960px){ 
@@ -243,8 +246,9 @@ background-position:center 10px ;  text-align:center; width:22.5%; margin-right:
 #aplicn_frm .rws p.imp40 .IN5{ width:92%}
 #aplicn_frm .rws .rwfilbc span { width:210px;}
 .IN1.ac_input.error + label.error {position:static;}
-.newChkBx {width:100%!important;}
+.newChkBx, .rwfil.aut > p > .ipsm1 {width:100%!important;}
 #aplicn_tp ul.app_nav li.dn span {background-position: center 65px;}
+#aplicn_frm .IN4c {width:100%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
