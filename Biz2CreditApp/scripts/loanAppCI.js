@@ -882,7 +882,7 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
+                       $msg= "Contact Information submitted successfully";
                         app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",false);

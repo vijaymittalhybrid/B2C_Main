@@ -1,7 +1,7 @@
 {
   "ProjectGuid": "5d00feb1-1b03-4db5-ab13-880140c52318",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "AppIdentifier": "com.telerik.Biz2CreditApp",
+  "AppIdentifier": "com.biz2credit.docvault",
   "ProjectName": "Biz2CreditApp",
   "IsRunnable": "true",
   "FrameworkVersion": "3.2.0",
@@ -36,7 +36,7 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "BundleVersion": "1.3",
+  "BundleVersion": "1.4",
   "DisplayName": "",
   "Author": "",
   "Description": "Biz2CreditApp",
@@ -45,7 +45,7 @@
     "2"
   ],
   "iOSBackgroundMode": [],
-  "AndroidVersionCode": "6",
+  "AndroidVersionCode": "7",
   "WP8Requirements": [],
   "WP8Capabilities": [],
   "WP8TileTitle": "",
