@@ -35,8 +35,8 @@
                         <div class="rws clearfix">
                             <div class="lftitb">Legal Business Name</div>
                             <div class="rwfil">
-                                <p><input type="text" name="orgname" class="IN1 ac_input valid" id="orgname" title="Legal Business Name"  data-bind="value: legal_business_name" placeholder="Legal Business Name" required /></p>
-                                <p><input type="text" placeholder="DBA Name" id="dbaname" class="IN1 ipsm3" name="dbaname" data-bind="value: dba_name" original-title="DBA Name" value="Test"></p>
+                                <input type="text" name="orgname" class="IN1 ac_input valid" id="orgname" title="Legal Business Name"  data-bind="value: legal_business_name" placeholder="Legal Business Name" required />
+                                <input type="text" placeholder="DBA Name" id="dbaname" class="IN1 ipsm3" name="dbaname" data-bind="value: dba_name" original-title="DBA Name" value="Test">
                             </div>
                         </div>
 
@@ -1380,7 +1380,8 @@
             filter: { field: "state_id", operator: "eq", value: val }
             });
             dataSource.fetch(function(){
-                var view = dataSource.view();
+                var view = dataSource.view().sort();
+                view.sort(SortByName);
                 var html='<option value="" selected="selected">Select City</option>';
                 $.each(view, function( index, value ) {
                 	html+='<option value="'+value['pid']+'">'+value['city'].toLowerCase()+'</option>';
@@ -1422,6 +1423,13 @@
           
             });
     }
+    function SortByName(a, b){
+        var aName = a.city.toLowerCase();
+        var bName = b.city.toLowerCase(); 
+        return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+    }
+
+
     
  
 </script>
