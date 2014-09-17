@@ -1,7 +1,7 @@
 {
   "ProjectGuid": "5d00feb1-1b03-4db5-ab13-880140c52318",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "AppIdentifier": "com.biz2credit.docvault",
+  "AppIdentifier": "com.telerik.Biz2CreditApp",
   "ProjectName": "Biz2CreditApp",
   "IsRunnable": "true",
   "FrameworkVersion": "3.2.0",

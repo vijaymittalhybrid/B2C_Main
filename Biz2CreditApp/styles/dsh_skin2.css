@@ -317,8 +317,8 @@ footer a{ color:#FFF}
 #aplicn_frm .rws select.error{ border:1px solid #ffc000}
 #aplicn_frm label.error{ display:block; color:#fd3608 !important; font-size:0.8em; }
 #aplicn_frm input[type="text"]:focus{     background-color: #f6ffea;     color:#000000;    border:1px solid #bfe885 }
-#aplicn_frm .rws select { height:38px; text-transform:capitalize;font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:6px 7px 6px 7px; border:1px solid #CCC;  -webkit-border-radius:5px; border-radius: 5px; }
-#aplicn_frm .rws select option { font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:1px 4px; }
+#aplicn_frm .rws select { height:38px; text-transform:capitalize;font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:6px 17px 6px 7px; border:1px solid #CCC;  -webkit-border-radius:5px; border-radius: 5px; }
+#aplicn_frm .rws select option { font-family:'OpenSansReg', Arial, Helvetica, sans-serif; font-size:12px; color:#333; padding:1px 4px; text-transform:capitalize; }
 
 #aplicn_frm  .onwonwr{ padding:50px 0px; margin-bottom:40px; border-top:1px solid #CCC;}
 #aplicn_frm .que_hint{ width:25px; height:19px; margin-left:-4px; margin-right:14px; background-image:url(../styles/layout/quest_hint.png); background-repeat:no-repeat; display:inline-block;}
