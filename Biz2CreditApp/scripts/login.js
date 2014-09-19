@@ -329,6 +329,7 @@
             app.loanFP.viewModel.resetLoanAppFPForm();
 			app.loginService.viewModel.formValidateReset();
 			apps.navigate("views/loanAppBI.html");
+            
              
         },
         mydocuments: function()
