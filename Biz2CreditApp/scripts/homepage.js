@@ -21,11 +21,10 @@
         matchShow:function()
         { 
 			var latestMatches = app.homesetting.viewModel.Matches;
-
             if(latestMatches.length===0)
             {
-                mHtml = '<div class="bmatches"><p>Unfortunately, we don not have any options for you at this time.</p>';
-                mHtml += '<p>But dont worry, call our toll free number <span>(800-200-5678)</span> to speak with a loan specialist to discuss other options or how to improve your credit. Also, we are constantly adding new lenders and products and will notify you once there is a  new match. </p>';
+                mHtml = '<div class="bmatches"><p>Loading...</p>';
+               // mHtml += '<p>But dont worry, call our toll free number <span>(800-200-5678)</span> to speak with a loan specialist to discuss other options or how to improve your credit. Also, we are constantly adding new lenders and products and will notify you once there is a  new match. </p>';
                 $("#MatchesListnew").html(mHtml);
             }
             else

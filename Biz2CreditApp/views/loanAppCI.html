@@ -287,7 +287,7 @@
                                 <div class="lftit">Ownership Percentage</div>
                                 <div class="rwfil aut clearfix">
                                     <p>
-                                        <select class="IN1b ipsm3" data-bind="value:own_percent"   name="own_percent" id="own_percent" onchange="javascript:ownerpValidate()" required>
+                                        <select class="IN1b ipsm3" data-bind="value:own_percent"   name="own_percent" id="own_percent" onchange="ownerpValidate()" required>
                                             <option selected="selected" value="">Ownership Percentage</option>
                                             <option value="100">100</option>
                                             <option value="99">99</option>
@@ -428,7 +428,7 @@
 </div>
 <script>
 
-    function createCityCmb(val , NumOfDiv){	  
+    function autocreateCityCmb(val , NumOfDiv){	  
         $('#own_city'+NumOfDiv+'').after('<div id="loader"></div>');
         $('#own_city'+NumOfDiv+'').attr("disabled","disabled");
         $('#own_state'+NumOfDiv+'').attr("disabled","disabled");
@@ -462,12 +462,41 @@
                 app.loanAppCI.viewModel.state_user=app.loansetting.viewModel.select_state;
             	app.loanAppCI.viewModel.cmbCity=app.loansetting.viewModel.select_city;
                 app.loanAppCI.viewModel.OwnZipCode = app.loansetting.viewModel.zip_code;
+               
 
             }
 
         });
     }
-    
+    function createCityCmb(val , NumOfDiv){	  
+        $('#own_city'+NumOfDiv+'').after('<div id="loader"></div>');
+        $('#own_city'+NumOfDiv+'').attr("disabled","disabled");
+        $('#own_state'+NumOfDiv+'').attr("disabled","disabled");
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                url: "data/jos_city.json",
+                type:"GET",
+                dataType: "json",
+            	}
+            },
+            filter: { field: "state_id", operator: "eq", value: val }
+        });
+        dataSource.fetch(function(){
+            var view = dataSource.view();
+            view.sort(SortByName);
+            var html='<option value="" selected="selected">Select City</option>';
+            $.each(view, function( index, value ) {
+            	html+='<option value="'+value['pid']+'">'+capitalize(value['city'].toLowerCase())+'</option>';
+        	});
+
+            $('#own_city'+NumOfDiv+'').html(html);
+            $("#loader").remove();
+            $('#own_city'+NumOfDiv+'').removeAttr("disabled");
+            $('#own_state'+NumOfDiv+'').removeAttr("disabled");
+
+        });
+    }
     function ownerpValidate(){
        var totaldivs = parseInt($('#totownerDiv').val());
        var total_per = 0; 
@@ -480,12 +509,12 @@
                }            
                 if($("#own_percent"+index).length) {
                 	if(parseInt($('#own_percent'+index).val()) >0) {
+                        console.log('index'+index);
                 		total_per = total_per + (parseInt($('#own_percent'+index).val()));
                 	}                                         
                }
 
            }               
-
        if(total_per >=100){
         	$('#add-ownerForm').hide();
        } else {

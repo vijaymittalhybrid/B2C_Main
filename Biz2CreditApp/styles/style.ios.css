@@ -38,22 +38,24 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .docs-docu {padding: 2% 0 0 8px;}
 #dynamicCl.km-popup-wrapper {width:330px !important; height:290px!important;}
 #aplicn_frm select.IN1b.ipsm1 {width: 200px;}
-#aplicn_frm .IN3 {width:335px;}
-#aplicn_frm .ipsm1 {width: 150px;}
+#aplicn_frm .IN3 {width:321px;}
+#aplicn_frm .ipsm1 {width: 198px;}
 #row_owners .rw_lin.addons p {text-align: left;}
 #aplicn_frm .rws .rwfil label, #aplicn_frm label.error {font-size:11px;}
-#aplicn_frm .IN4 {width:168px;}
+#aplicn_frm .IN4 {width:202px;}
 #aplicn_frm .IN4c {width: 210px;}
 #busInfobx2 > .rw_lin > input.IN4c + label.error {position:absolute; top:48px; left:5px;}
 #B2cAppForms select {background-size:10%;}
 #aplicn_frm select.IN1b.ipsm3 {width: 170px;}
+
 #aplicn_frm #credit_show p.mercPr .IN3 {width: 315px;}
 #aplicn_frm .IN6 {width: 262px;}
 #aplicn_frm .ipsm3 {width: 225px;}
 input.IN1.ac_input.valid + .IN1.ipsm3 {width:239px!important;}
 input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 #aplicn_frm .rws .rwfil.lft { float:left;}
-
+#dbaname.IN1.ipsm3 {width: 241px;}
+.rwfil.aut > p > select.IN1b.ipsm3 { width:200px!important;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -112,6 +114,7 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:9%;display: block;padding:3% 11% 4%;color: #fff;font-size: 1.5em;}
 #tabstrip-Setting .docs-docu {padding: 2% 0 0 8px;font-size: 1.2em;}
 #aplicn_frm select.IN1b.ipsm3 {width: 156px;}
+.rwfil.aut > p > select.IN1b.ipsm3 { width:200px!important;}
 }
 
 @media (min-width:0px) and (max-width:800px) {
@@ -156,6 +159,9 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 #aplicn_frm .IN3.smOn {width:321px;}
 .IN1.smphone { width:160px!important;}
 input.IN1.ac_input.error + label.error + .IN1.ipsm3, input.IN1.ac_input.valid + .IN1.ipsm3 {width:316px!important;}
+#aplicn_frm .IN4 {width: 208px;}
+#dbaname.IN1.ipsm3 {width: 319px;}
+
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -222,6 +228,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #newuser ul.km-listinset li select {background-size:10%; }
 #aplicn_frm #credit_show p.mercPr .IN3 {width: 100%;}
 .IN1.smphone { width:100%!important;}
+#aplicn_frm .IN4, #dbaname.IN1.ipsm3 {width:100%; float:none;}
+#own_percent.IN1b.ipsm3, .rwfil.aut > p > select.IN1b.ipsm3 { width:100% !important;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin:1% auto;background-size: 50%; height:60px;}

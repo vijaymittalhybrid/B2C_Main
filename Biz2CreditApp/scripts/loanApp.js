@@ -1330,10 +1330,18 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
-                        sessionStorage.setItem("setprefilStatus",'true');
+                        if(sessionStorage.getItem("setprefilStatus")==='false')
+                        {
+                             sessionStorage.setItem("setprefilStatus",'true');
+                        }
+                        else
+                        {
+                            sessionStorage.setItem("setprefilStatus",'false2');
+                            
+                        }
                         app.loansetting.viewModel.SetCurrentfidStatus();
                         apps.navigate('views/loanAppCI.html');
                     }
@@ -1435,7 +1443,7 @@
 			{
                 var that = this;
                 localStorage.setItem("fid",'');
-                sessionStorage.setItem("setprefilStatus",false);
+                sessionStorage.setItem("setprefilStatus",'false');
                 $("#tabstrip-loanapp-bi").find(".km-scroll-container").css("-webkit-transform", "");
                 $("#tabstrip-loanapp-ci").find(".km-scroll-container").css("-webkit-transform", "");
                 $('#credit_show,#outsta_debt,#busInfobx,#busInfobx2').hide();
@@ -1510,6 +1518,11 @@
                 }
                 $('#currntControl').val(0);
                 $('#cmbCity').html('<option value="" selected="selected">Select State</option>');
+                $('#dbs_month').removeAttr("disabled");
+                $('#dbs_year').removeAttr("disabled");
+
+                $('#revenue').removeAttr("disabled","disabled");
+                $('#operatingexp').removeAttr("disabled","disabled");
                 kendo.unbind($("#outsta_debt"));
 				viewFModel = kendo.observable();            
             },

@@ -32,7 +32,7 @@
             e.view.reload=false;
             if(sessionStorage.getItem("setprefilStatus").trim()==='true')
             {
-                createCityCmb(app.loansetting.viewModel.select_state , '');
+                autocreateCityCmb(app.loansetting.viewModel.select_state , '');
             }
             
 			$(".km-scroll-container").css("-webkit-transform", ""); 
@@ -77,7 +77,6 @@
             $("#OwnJobTitle").html('');
             $("#OwnJobTitle").append(str);
                 }
-            //kendo.bind($("#OwnJobTitle"), app.loanAppCI.viewModel.Owner_JobTitle);
             
             
             var DateDiff = { 
@@ -108,16 +107,6 @@
                 	return d2.getFullYear()-d1.getFullYear();
                 }
             }
-    
-            
-            $("#own_percent").change(function() {
-                if($(this).val()>=1 && $(this).val()<100) {
-                	$('#add-ownerForm').show();
-                } else {
-                	$('#add-ownerForm').hide();
-                }			
-
-            });
             
             $.validator.addMethod("zipcodeUS", function(value, element) {
             	return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$/.test(value);
@@ -882,10 +871,10 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                       //$msg= "Contact Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Contact Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
-                        sessionStorage.setItem("setprefilStatus",false);
+                        sessionStorage.setItem("setprefilStatus",'false2');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
                         apps.navigate('views/loanAppPI.html');
                     }
