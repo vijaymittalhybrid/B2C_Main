@@ -447,7 +447,7 @@
             view.sort(SortByName);
             var html='<option value="" selected="selected">Select City</option>';
             $.each(view, function( index, value ) {
-            	html+='<option value="'+value['pid']+'">'+value['city'].toLowerCase()+'</option>';
+            	html+='<option value="'+value['pid']+'">'+capitalize(value['city'].toLowerCase())+'</option>';
         	});
 
             $('#own_city'+NumOfDiv+'').html(html);

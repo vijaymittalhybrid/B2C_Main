@@ -1509,6 +1509,7 @@
                     $('#loan_'+index).remove();
                 }
                 $('#currntControl').val(0);
+                $('#cmbCity').html('<option value="" selected="selected">Select State</option>');
                 kendo.unbind($("#outsta_debt"));
 				viewFModel = kendo.observable();            
             },

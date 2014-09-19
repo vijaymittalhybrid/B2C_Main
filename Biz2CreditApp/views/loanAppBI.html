@@ -1383,7 +1383,7 @@
                 view.sort(SortByName);
                 var html='<option value="" selected="selected">Select City</option>';
                 $.each(view, function( index, value ) {
-                	html+='<option value="'+value['pid']+'">'+value['city'].toLowerCase()+'</option>';
+                	html+='<option value="'+value['pid']+'">'+capitalize(value['city'].toLowerCase())+'</option>';
                 });
         
                 $("#cmbCity").html(html);
@@ -1427,7 +1427,10 @@
         var bName = b.city.toLowerCase(); 
         return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
     }
-
+    function capitalize(s)
+    {
+        return s[0].toUpperCase() + s.slice(1);
+    }
 
     
  
