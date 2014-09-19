@@ -167,8 +167,11 @@
                    // app.loginService.viewModel.mobileNotification($msg,'info');
                     
                     app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
-                    app.homesetting.viewModel.homeShow(); 
-                    apps.navigate('views/matches.html');
+                    if(app.homesetting.viewModel.homeShow()===true)
+                    {
+                        apps.navigate('views/matches.html');
+                    }
+                    
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
