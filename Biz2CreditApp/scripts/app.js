@@ -40,13 +40,14 @@
     };
 
     var onDeviceReady = function() {
-        navigator.splashscreen.hide();
+       
         StatusBar.overlaysWebView(false);
         StatusBar.backgroundColorByName('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
         document.addEventListener("hidekeyboard", Keyboardisoff, false);
         window.connectionInfo = new ConnectionApp();
 		window.connectionInfo.checkConnection();
+        navigator.splashscreen.hide();
        // document.addEventListener("menubutton",omenu, false);
     };
 
@@ -88,6 +89,12 @@
     {
     	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
     }
+    
+    localStorage.setItem("urlMobAppApiFolder","http://sandbox.biz2services.com/mobapp/api/folder/");
+    localStorage.setItem("urlMobAppApiFile","http://sandbox.biz2services.com/mobapp/api/file");
+    localStorage.setItem("urlMobAppApiUser","http://sandbox.biz2services.com/mobapp/api/user/");
+    localStorage.setItem("urlMobAppApiLoan","http://sandbox.biz2services.com/mobapp/api/user/");
+    
  
     
 })(window);

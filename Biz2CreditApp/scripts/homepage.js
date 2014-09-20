@@ -18,6 +18,7 @@
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
         repaymentStatus:false,
+
         matchShow:function()
         { 
 			var latestMatches = app.homesetting.viewModel.Matches;
@@ -44,7 +45,7 @@
             var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
-                        url: " https://www.biz2services.com/mobapp/api/user/",
+                        url: localStorage.getItem("urlMobAppApiUser"),
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: { apiaction:"userdashboard",userid:localStorage.getItem("userID")} // search for tweets that contain "html5"
@@ -405,7 +406,7 @@
             var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
-                        url: " https://www.biz2services.com/mobapp/api/user/",
+                        url: localStorage.getItem("urlMobAppApiUser"),
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: { apiaction:"reqdoclist",prodid:pdata.prodid,prodtype:pdata.prodtype} // search for tweets that contain "html5"

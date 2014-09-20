@@ -116,7 +116,7 @@
         var dataSource = new kendo.data.DataSource({
         transport: {
         read: {
-                url: "https://www.biz2services.com/mobapp/api/user",
+                url: localStorage.getItem("urlMobAppApiUser"),
                 type:"POST",
                 dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                 data: { apiaction:"usersignup",FirstName:FirstName,LastName:LastName,Phone:yourPhone,Email:yourEmail,Track:'mobile',Source:'mobile',Revenue:yourAnnualRevenue,LoanAmount:loanAmount,AgeOfBusiness:yearInBussiness,CreditScore:yourCreditScore,partner:'mobile'}
