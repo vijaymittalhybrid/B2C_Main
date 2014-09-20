@@ -127,19 +127,7 @@
             	$('.montrnt.yes').hide();
             });
 
-            // tipsy
-            /* $(function() {
-            $('.inpbf').tipsy({gravity: 'se'});
-            $('.IN1b').tipsy({gravity: 'se'});
-            $('.IN3').tipsy({gravity: 'se'});
-            $('.IN3b').tipsy({gravity: 'se'});
-            $('.inpbf_sl').tipsy({gravity: 'se'});
-            $('.IN1').tipsy({gravity: 'se'});
-            $('.IN5').tipsy({gravity: 'se'});
-            $('.IN6').tipsy({gravity: 'se'});
-            $('.IN4').tipsy({gravity: 'se'});
 
-            });*/
 
             $('.own2').hide();
             $('.admr').click(function() {	

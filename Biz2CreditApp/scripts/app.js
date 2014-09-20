@@ -10,7 +10,7 @@
             	navigator.app.exitApp();
             }
 
-            }, 'exit', 'Ok,Cancel');
+            }, 'Biz2Credit', 'Yes,No');
         }
         else if(apps.view()['element']['0']['id']==='tabstrip-docs' && app.documentsetting.viewModel.showfilter === true)
         {
@@ -91,9 +91,9 @@
     }
     
     localStorage.setItem("urlMobAppApiFolder","http://sandbox.biz2services.com/mobapp/api/folder/");
-    localStorage.setItem("urlMobAppApiFile","http://sandbox.biz2services.com/mobapp/api/file");
+    localStorage.setItem("urlMobAppApiFile","http://sandbox.biz2services.com/mobapp/api/file/");
     localStorage.setItem("urlMobAppApiUser","http://sandbox.biz2services.com/mobapp/api/user/");
-    localStorage.setItem("urlMobAppApiLoan","http://sandbox.biz2services.com/mobapp/api/user/");
+    localStorage.setItem("urlMobAppApiLoan","http://sandbox.biz2services.com/mobapp/api/loanapp/");
     
  
     
