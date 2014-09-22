@@ -1422,6 +1422,67 @@
           
             });
     }
+    function createCityCmbFirstEdit(val , city){	  
+            $("#cmbCity").after('<div id="loader"></div>');
+			$('#cmbCity').attr("disabled","disabled");
+			$('#state').attr("disabled","disabled");
+            var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "data/jos_city.json",
+                    type:"GET",
+                    dataType: "json",
+                }
+            },
+            filter: { field: "state_id", operator: "eq", value: val }
+            });
+            dataSource.fetch(function(){
+                var that = this;
+                var view = dataSource.view().sort();
+                view.sort(SortByName);
+                var html='<option value="" selected="selected">Select City</option>';
+                $.each(view, function( index, value ) {
+                	html+='<option value="'+value['pid']+'">'+capitalize(value['city'].toLowerCase())+'</option>';
+                });
+        
+                $("#cmbCity").html(html);
+                $("#loader").remove();
+                $('#cmbCity').removeAttr("disabled");
+                $('#state').removeAttr("disabled");
+                $("select#cmbCity option[value='"+city+"']").prop('selected',true);
+                app.loginService.viewModel.hideloder();
+            });
+    }
+    function displayorgCategoryEdit(val,sub){
+            $("#orgcategory").after('<div id="loader"></div>');
+            $('#orgcategory').attr("disabled","disabled");
+            $('#orgtype').attr("disabled","disabled");
+            var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "data/jos_subindustry.json",
+                    type:"GET",
+                    dataType: "json",
+                }
+            },
+            filter: { field: "oid", operator: "eq", value: val }
+            });
+            dataSource.fetch(function(){
+                var that = this;
+                var view = dataSource.view();
+                var html='<option value="" selected="selected">Select Sub Industry</option>';
+                $.each(view, function( index, value ) {
+                	html+='<option value="'+value['cid']+'">'+value['catname']+'</option>';
+                });
+        
+                $("#orgcategory").html(html);
+                $("#loader").remove();
+                $('#orgcategory').removeAttr("disabled");
+                $('#orgtype').removeAttr("disabled");
+                 $("select#orgcategory option[value='"+sub+"']").prop('selected',true);
+          
+            });
+    }
     function SortByName(a, b){
         var aName = a.city.toLowerCase();
         var bName = b.city.toLowerCase(); 

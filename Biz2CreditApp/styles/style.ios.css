@@ -56,6 +56,7 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 #aplicn_frm .rws .rwfil.lft { float:left;}
 #dbaname.IN1.ipsm3 {width: 241px;}
 .rwfil.aut > p > select.IN1b.ipsm3 { width:200px!important;}
+#tabstrip-manage-app .docs-popup, .docs-header .km-widget .docs-popup, #tabstrip-loanapp-bi .popup{width:75px; height:75px;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -90,7 +91,7 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 .matches-logo{ background-size:15%; height:70px;}
 .home .popup { width:75px; height:75px;}
 .docs-header .km-widget .docs-back {height:80px; background-size:82%; background-position:10px 10px; width:10%;margin-top:0rem!important;margin-bottom:0rem !important;}
-.docs-header .km-widget .docs-docu { width:72%; padding:2% 0 0; font-size:1.2em;}
+.docs-header .km-widget .docs-docu { width:69%; padding:2% 0 0; font-size:1.2em;}
 .docs-header .km-widget .docs-search{ width:6%; background-position:center 0; background-size:95%; margin:1.2% 0 0;}
 .docs-header .km-widget .refresh-com { width:8%; background-position:center 0; background-size:60%; margin:1.5% 0 0;}
 .docs-header .km-widget .refresh-loading { width:8%; background-position:center 0; background-size:50%; margin:1.9% 0 0;}
@@ -161,7 +162,12 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 input.IN1.ac_input.error + label.error + .IN1.ipsm3, input.IN1.ac_input.valid + .IN1.ipsm3 {width:316px!important;}
 #aplicn_frm .IN4 {width: 208px;}
 #dbaname.IN1.ipsm3 {width: 319px;}
-
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left:47%; bottom:-92%; background-size:78%;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a{ font-size:17px; height:65px;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.postd_icn{ background-size:16%;background-position: 23px 22px!important;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon{ background-size:13%;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon{ background-size:11%;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon{ background-size:14%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -230,6 +236,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .IN1.smphone { width:100%!important;}
 #aplicn_frm .IN4, #dbaname.IN1.ipsm3 {width:100%; float:none;}
 #own_percent.IN1b.ipsm3, .rwfil.aut > p > select.IN1b.ipsm3 { width:100% !important;}
+#tabstrip-manage-app .docs-popup, .docs-header .km-widget .docs-popup, #tabstrip-loanapp-bi .popup{width:40px; height:40px;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin:1% auto;background-size: 50%; height:60px;}

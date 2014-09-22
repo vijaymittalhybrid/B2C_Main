@@ -77,7 +77,7 @@
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
 
-            $('.srh_men  .scmsk').mouseover(function() {
+            /*$('.srh_men  .scmsk').mouseover(function() {
                 $("#log_BX").hide();
                 $("#socl_BX").hide();
                 $("#srch_BX").slideToggle(300);
@@ -96,7 +96,7 @@
                 $('.soc_men .scmsk').show();
                 $('.srh_men .scmsk').show();
                 $('.log_men .scmsk').show();
-            }); 
+            }); */
 
             //$(".reld_info").tooltip({ effect: 'slide', position: 'bottom center'});
             // $(".que_hint").tooltip({ effect: 'slide', position: 'bottom center'});
@@ -110,14 +110,14 @@
                 },
             });
             // menu 
-            $('.subms').hide();
+            /*$('.subms').hide();
             $('.subnv ').click(function() {
             	$(".subms").slideToggle(300);
             	$('.subnv').toggleClass("act");
-            });
+            });*/
 
             // application
-            $('.montrnt.yes').hide();
+           /* $('.montrnt.yes').hide();
             $('.crYes ').click(function() {
             	$('.montrnt').hide();
             	$('.montrnt.yes').show();
@@ -125,15 +125,15 @@
             $('.crNo ').click(function() {
             	$('.montrnt').show();
             	$('.montrnt.yes').hide();
-            });
+            });*/
 
 
 
-            $('.own2').hide();
+           /* $('.own2').hide();
             $('.admr').click(function() {	
             	$('.own2').show(); 
             	$('.addbtns').hide();
-            });
+            });*/
 
             /*--------------function for select--------------*/
 
@@ -238,9 +238,9 @@
                 	$('#crdscrNo').hide();
                 }
             });
-            $('.tpar').click(function() {
+           /* $('.tpar').click(function() {
             	//alert('debug');
-            });
+            });*/
 
             $("#yettostart").click(function() {
                 if($(this).is(':checked')) {
@@ -495,6 +495,7 @@
         });
         if(e.view.params.param ==='editMode')
         {
+            app.loginService.viewModel.showloder();
             var dataS = new kendo.data.DataSource({
                 transport: {
                 read: {
@@ -514,9 +515,126 @@
         }
 
         },
-        setBIeditForm:function()
+        setBIeditForm:function(data)
         {
             var that = this;
+            
+            that.set("legal_business_name",data[0]['orgname']);
+            that.set("dba_name",data[0]['dbaname']);
+            that.set("street_no",data[0]['civic']);
+            that.set("street_name",data[0]['baddr']);
+            that.set("apt_suite_unit",data[0]['street1']);
+            that.set("select_state",data[0]['state']);
+            createCityCmbFirstEdit(data[0]['state'] ,data[0]['cmbCity']);
+            that.set("select_city",data[0]['cmbCity']);
+            
+            that.set("zip_code",data[0]['zipcode']);
+            that.set("mobile_number",data[0]['businessphone']);
+            that.set("select_b_l_s",data[0]['blegal']);
+            that.set("industry",data[0]['orgtype']);
+            displayorgCategoryEdit(data[0]['orgtype'],data[0]['orgcategory']);
+            that.set("sub_industry",data[0]['orgcategory']);
+           
+            console.log($('#yettostart:radio[value="'+data[0]['acceptcard']+'"]').val());
+            
+            if(data[0]['dbs_month'] === '' || data[0]['dbs_year'] === '' || data[0]['revenue'] === '' || data[0]['operatingexp'] === '')
+            {
+                $("#yettostart").attr("checked",true);
+                that.set("select_buss_s_m","");
+                that.set("select_buss_s_y","");
+                that.set("average_annual_revenue","");
+                that.set("buss_operating_expenses","");
+                
+                $('#dbs_month').attr("disabled","disabled");
+                $('#dbs_year').attr("disabled","disabled");
+                $('#revenue').attr("disabled","disabled");
+                $('#operatingexp').attr("disabled","disabled");
+            }
+            else
+            {
+                $("#yettostart").attr("checked",false);
+                that.set("select_buss_s_m",data[0]['dbs_month']);
+                that.set("select_buss_s_y",data[0]['dbs_year']);
+                that.set("average_annual_revenue",data[0]['revenue']);
+                that.set("buss_operating_expenses",data[0]['operatingexp']);
+                
+                $('#dbs_month').removeAttr("disabled");
+                $('#dbs_year').removeAttr("disabled");
+                $('#revenue').removeAttr("disabled","disabled");
+                $('#operatingexp').removeAttr("disabled","disabled");
+            }
+            
+            if($('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').val() === 'Yes')
+            {
+               $('#credit_show').show();
+                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').attr("checked",true);
+                that.set("datefirstProcessed_month",data[0]['datefirstProcessed_month']);
+                that.set("datefirstProcessed_day",data[0]['datefirstProcessed_day']);
+                that.set("datefirstProcessed_year",data[0]['datefirstProcessed_year']);
+                that.set("c_c_card_processor",data[0]['creditcardproc']);
+                that.set("merchant_id",data[0]['merchantid']);
+                that.set("MonthlyVolumeAmountsList1",data[0]['MonthlyVolumeAmountsList1']);
+                that.set("MonthlyVolumeTicketsList1",data[0]['MonthlyVolumeTicketsList1']);
+                that.set("MonthlyVolumeAmountsList2",data[0]['MonthlyVolumeAmountsList2']);
+                that.set("MonthlyVolumeTicketsList2",data[0]['MonthlyVolumeTicketsList2']);
+                that.set("MonthlyVolumeAmountsList3",data[0]['MonthlyVolumeAmountsList3']);
+                that.set("MonthlyVolumeTicketsList3",data[0]['MonthlyVolumeTicketsList3']);
+                that.set("MonthlyVolumeAmountsList4",data[0]['MonthlyVolumeAmountsList4']);
+                that.set("MonthlyVolumeTicketsList4",data[0]['MonthlyVolumeTicketsList4']);
+            }
+            else
+            {
+                $('#credit_show').hide();
+                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').attr("checked",true);
+                that.set("datefirstProcessed_month","");
+                that.set("datefirstProcessed_day","");
+                that.set("datefirstProcessed_year","");
+                that.set("c_c_card_processor","");
+                that.set("merchant_id","");
+                that.set("MonthlyVolumeAmountsList1","");
+                that.set("MonthlyVolumeTicketsList1","");
+                that.set("MonthlyVolumeAmountsList2","");
+                that.set("MonthlyVolumeTicketsList2","");
+                that.set("MonthlyVolumeAmountsList3","");
+                that.set("MonthlyVolumeTicketsList3","");
+                that.set("MonthlyVolumeAmountsList4","");
+                that.set("MonthlyVolumeTicketsList4","");
+            }
+            
+            if($('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').val() === 2 || $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').val() === '2')
+            {
+                $("#outstandingMortagageDiv").hide();
+                $('#busInfobx').show();
+                $('#busInfobx2').hide();
+                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').attr("checked",true);
+               
+            }
+            else
+            {
+                $('#busInfobx2').show();
+                $('#busInfobx').hide();
+                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').attr("checked",true);
+                that.set("monthly_rent",data[0]['busi_month_rent']);
+                that.set("landlord_name",data[0]['busi_landlord']);
+                that.set("contact_number",data[0]['busi_cont_number']);
+            }
+           
+            
+            if($('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').val() === 1 || $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').val() === '1')
+            {
+                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').attr("checked",true);
+                $("#outstandingMortagageDiv").show();
+                that.set("mortgage_bank",data[0]['busi_mort_bank']);
+                that.set("outs_bal",data[0]['busi_out_balance']);
+                that.set("month_mort_amount",data[0]['busi_month_mort_amount']);
+            }
+            else
+            {
+                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').attr("checked",true);
+                $("#outstandingMortagageDiv").hide();
+            }
+
+            
             
         },
         getForm:function(index, action) {
