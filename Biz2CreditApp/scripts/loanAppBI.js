@@ -71,7 +71,6 @@
             }
         },
         show:function(e) {
-
             e.sender.reload=false;
             e.view.reload=false;
             $(".km-scroll-container").css("-webkit-transform", "");
@@ -490,10 +489,35 @@
         		 	// $("#b2cApp1 #next").prop("disabled", true);
         				 return false;
         	}
+              
+              
         	 
         });
+        if(e.view.params.param ==='editMode')
+        {
+            var dataS = new kendo.data.DataSource({
+                transport: {
+                read: {
+                    url: 'data/sampledata.json',
+                    type:"GET",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+            	}
+            }
+            });
+            dataS.fetch(function(){
 
+                var data = this.data();
+                console.log(data);
+                app.loansetting.viewModel.setBIeditForm(data);
+                
+            });
+        }
 
+        },
+        setBIeditForm:function()
+        {
+            var that = this;
+            
         },
         getForm:function(index, action) {
             
@@ -920,6 +944,7 @@
                 		required: "This value is required"
                 	}
                 });
+                
         	},
             loanAppCIpage:function() {
             	apps.navigate("views/loanAppCI.html");

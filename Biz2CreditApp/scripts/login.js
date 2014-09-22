@@ -321,16 +321,24 @@
                 that.forgotMailSend();
             }
         },
-        application: function()
+        application: function(e)
         {  
             app.loansetting.viewModel.resetLoanAppBIForm();
             app.loanAppCI.viewModel.resetLoanAppCIForm();
             app.loanAppPI.viewModel.resetLoanAppPIForm();
             app.loanFP.viewModel.resetLoanAppFPForm();
 			app.loginService.viewModel.formValidateReset();
-			apps.navigate("views/loanAppBI.html");
             
-             
+            if(e.target.dataset.mode ==='edit')
+            {
+                apps.navigate("views/loanAppBI.html?param=editMode");
+                
+            }
+            else
+            {
+                apps.navigate("views/loanAppBI.html");
+            }
+                 
         },
         mydocuments: function()
         {   
