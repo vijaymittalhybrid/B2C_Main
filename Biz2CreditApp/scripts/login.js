@@ -356,6 +356,10 @@
                 $('#b2cApp4').data('validator').resetForm(); 
             }
 
+        },
+        manageApp:function()
+        {
+            apps.navigate("views/loanApp.html");
         }
 
         

@@ -1,71 +1,68 @@
-<div data-role="view" id="tabstrip-loanapp" class="home" data-model="app.loansetting.viewModel" data-show="app.loansetting.viewModel.show">
-    <div data-role="header">
-                <div data-role="navbar">
-                    <span data-role="view-title">
-                        <div class="logo"><img src="styles/images/bizDoc-logo.png"></div>
-                    </span>
-                    <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="popup"></a>
-                </div>
+<div id="tabstrip-manage-app" data-role="view" data-show="app.loanApplication.viewModel.show" data-model="app.loanApplication.viewModel" >
+            <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">
+                    <div class="matches-logo"><a href="#tabstrip-login">Back</a></div>
+                </span>
+                <a data-bind="click: refreshView,visible: showrefreshLoading" class="refresh-loading docs-refresh">refresh</a>
+                 <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
             </div>
-    <div  data-role="content">
-        <div class="main-content width-720 "><link href="components/com_loan/style.css" rel="stylesheet" type="text/css">		
-	<div class="main-dashboard-content">
-              <div class="top-green">
-                <p><strong>Hi Testing TDbank 9,</strong><br>
-                  </p>
-                <span class="arrow"> <a href="index.php?option=com_financialnew&amp;Itemid=389">
-                <img src="images/get_loan_btn2.gif" alt="" border="0" class="btn"></a> </span> </div>
-              <div class="middle-block loan-dashboard clearfix">
-                <div id="menuRecentActivity">
-                  <h4>Recent Loan Activity</h4>
-                  <ul>
-                    <li class="selected"><span class="icon"><img src="images/rla01.png" alt=""></span><span class="circle">12</span>
-					<a href="index.php?option=com_loan&amp;Itemid=110&amp;task=app">Posted</a></li>
-                    <li><span class="icon"><img src="images/rla02.png" alt=""></span><span class="circle gray">1</span>
-					<a href="index.php?option=com_loan&amp;Itemid=110&amp;task=showendedapplication">Ended</a></li>
-                    <li><span class="icon"><img src="images/rla03.png" alt=""></span><span class="circle">95</span>
-					<a href="index.php?option=com_loan&amp;task=showsaveapplication&amp;Itemid=110">Saved</a></li>
-
-		<li><span class="icon"><img src="images/loan-small-assets.png" alt=""></span><span class="circle">0</span><a href="https://www.biz2beta.com/index.php?option=com_borro&amp;Itemid=477">Loan Against Personal Assets</a>
-					</li>	
-
-
-                  </ul>
-                </div>
-                <div class="content-des">
-                  <div class="loan-activity-block">
-                    <h3>Posted</h3>
-                    <div class="row01 clearfix">
-                      <ul>
-                        <li><span class="active">6</span><strong>Matches</strong></li>
-                        <li><span>0</span>Borrower not interested</li>
-                        <li><span>0</span>Reviewing</li>
-                        <li><span>0</span>Ended</li>
-                        <li><span>0</span>Processing</li>
-                        <li><span>0</span>Approved</li>
-                        <li><span>0</span>Declined by lender</li>
-                       </ul>
+            </div>
+            <div class="view-content">
+                <div id="tabstrip">
+                    <ul>
+                        <li class="k-state-active">
+                            Paris
+                        </li>
+                        <li>
+                            New York
+                        </li>
+                        <li>
+                            London
+                        </li>
+                        <li>
+                            Moscow
+                        </li>
+                        <li>
+                            Sydney
+                        </li>
+                    </ul>
+                    <div>
+                        <div class="weather">
+                            <h2>17<span>&ordm;C</span></h2>
+                            <p>Rainy weather in Paris.</p>
+                        </div>
+                        <span class="rainy">&nbsp;</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="bottom-testimonials">
-			  <div class="inner-wrap-testi">
-			  <h4>A few words from our business comunity</h4>
-			  <div class="qote clearfix">
-			  <div class="img-block">
-			  <span><img src="images/user01.gif"></span>
-			  </div>
-			  <div class="des">
-			  Biz2Credit helped us overcome financing obstacles by presenting the strengths of our business to lenders and having them compete for our business. 
-              They helped me secure financing by sourcing out several lending options and dealing with the lenders directly. 
-              They handled all the leg work and relationship management. Biz2Credit is great to work with, very responsive, 
-              understanding of your needs and forthcoming with information.
-			  </div>
-			  </div>
-			  </div>
-			  </div>
+                    <div>
+                        <div class="weather">
+                            <h2>29<span>&ordm;C</span></h2>
+                            <p>Sunny weather in New York.</p>
+                        </div>
+                        <span class="sunny">&nbsp;</span>
+                    </div>
+                    <div>
+                        <div class="weather">
+                            <h2>21<span>&ordm;C</span></h2>
+                            <p>Sunny weather in London.</p>
+                        </div>
+                        <span class="sunny">&nbsp;</span>
+                    </div>
+                    <div>
+                        <div class="weather">
+                            <h2>16<span>&ordm;C</span></h2>
+                            <p>Cloudy weather in Moscow.</p>
+                        </div>
+                        <span class="cloudy">&nbsp;</span>
+                    </div>
+                    <div>
+                        <div class="weather">
+                            <h2>17<span>&ordm;C</span></h2>
+                            <p>Rainy weather in Sydney.</p>
+                        </div>
+                        <span class="rainy">&nbsp;</span>
+                    </div>
             </div>
-</div>
-    </div>
-</div>
+
+        </div>
+     </div>
