@@ -34,6 +34,7 @@
             }
         },
         homeShow: function (e) {
+			
             app.loginService.viewModel.formValidateReset();
             $(".km-scroll-container").css("-webkit-transform", "");
             $("[data-role=\"popover\"][id =\"popover-people\"]").each(function() {

@@ -489,12 +489,13 @@
         		 	// $("#b2cApp1 #next").prop("disabled", true);
         				 return false;
         	}
-              
-              
-        	 
-        });
-        if(e.view.params.param ==='editMode')
+
+        }); 
+            
+        if(e.view.params.param ==='editMode' && sessionStorage.getItem("LoanAppBIEditMode")==='1')
         {
+            console.log('BIEditMOde');
+           
             app.loginService.viewModel.showloder();
             var dataS = new kendo.data.DataSource({
                 transport: {
@@ -507,9 +508,14 @@
             });
             dataS.fetch(function(){
 
-                var data = this.data();
-                console.log(data);
-                app.loansetting.viewModel.setBIeditForm(data);
+                EditFormData = this.data();
+                console.log(EditFormData);
+                localStorage.setItem("fid",'71747');
+                app.loansetting.viewModel.setBIeditForm(EditFormData);
+                sessionStorage.setItem("LoanAppBIEditMode",'1');
+                sessionStorage.setItem("LoanAppCIEditMode",'1');
+                sessionStorage.setItem("LoanAppPIEditMode",'1');
+                sessionStorage.setItem("LoanAppFPEditMode",'1');  
                 
             });
         }
@@ -534,8 +540,6 @@
             that.set("industry",data[0]['orgtype']);
             displayorgCategoryEdit(data[0]['orgtype'],data[0]['orgcategory']);
             that.set("sub_industry",data[0]['orgcategory']);
-           
-            console.log($('#yettostart:radio[value="'+data[0]['acceptcard']+'"]').val());
             
             if(data[0]['dbs_month'] === '' || data[0]['dbs_year'] === '' || data[0]['revenue'] === '' || data[0]['operatingexp'] === '')
             {
@@ -566,8 +570,8 @@
             
             if($('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').val() === 'Yes')
             {
-               $('#credit_show').show();
-                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').attr("checked",true);
+                $('#credit_show').show();
+                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').prop("checked",true);
                 that.set("datefirstProcessed_month",data[0]['datefirstProcessed_month']);
                 that.set("datefirstProcessed_day",data[0]['datefirstProcessed_day']);
                 that.set("datefirstProcessed_year",data[0]['datefirstProcessed_year']);
@@ -585,7 +589,7 @@
             else
             {
                 $('#credit_show').hide();
-                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').attr("checked",true);
+                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').prop("checked",true);
                 that.set("datefirstProcessed_month","");
                 that.set("datefirstProcessed_day","");
                 that.set("datefirstProcessed_year","");
@@ -606,14 +610,14 @@
                 $("#outstandingMortagageDiv").hide();
                 $('#busInfobx').show();
                 $('#busInfobx2').hide();
-                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').attr("checked",true);
+                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').prop("checked",true);
                
             }
             else
             {
                 $('#busInfobx2').show();
                 $('#busInfobx').hide();
-                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').attr("checked",true);
+                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').prop("checked",true);
                 that.set("monthly_rent",data[0]['busi_month_rent']);
                 that.set("landlord_name",data[0]['busi_landlord']);
                 that.set("contact_number",data[0]['busi_cont_number']);
@@ -622,7 +626,7 @@
             
             if($('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').val() === 1 || $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').val() === '1')
             {
-                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').attr("checked",true);
+                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').prop("checked",true);
                 $("#outstandingMortagageDiv").show();
                 that.set("mortgage_bank",data[0]['busi_mort_bank']);
                 that.set("outs_bal",data[0]['busi_out_balance']);
@@ -630,12 +634,103 @@
             }
             else
             {
-                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').attr("checked",true);
+                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').prop("checked",true);
                 $("#outstandingMortagageDiv").hide();
             }
+            
+            if($('.outDebt:radio[value="'+data[0]['debttype']+'"]').val() === 'Yes')
+            {   
+                var index;
+                
+                $('.outDebt:radio[value="'+data[0]['debttype']+'"]').prop("checked",true);
+                var totalDiv = data[0]['totbusinessDebtYesDiv'];
+                for(index=1;index<=totalDiv;index++)
+                { 
+                    $("#add-form").trigger('click');
+                    var debtTypeval = data[0]['debttype'+index];
+                    var yeardisbursedval = data[0]['yeardisbursed'+index];
+                    var debtTypeText = $("#debttype"+index+" option[value='"+debtTypeval+"']").val();
+                    
+                    $("#debttype"+index+" option[value='"+debtTypeval+"']").prop("selected",true);
+                    app.loansetting.viewModel.createInput(index,index);
+                    
+                    $("#yeardisbursed"+index+" option[value='"+yeardisbursedval+"']").prop("selected",true);  
+                    
+                    
+                    var txtOutCreditVal = data[0]['txtOutCredit'+index];
+                    var txtInterestCreditVal = data[0]['txtInterestCredit'+index];
+                    var txtPerYearCreditVal = data[0]['txtPerYearCredit'+index];
+                    var tpcompanyVal = data[0]['tpcompany'+index];
+                    var ocadvanceVal = data[0]['ocadvance'+index];
+                    var funded_termVal = data[0]['funded_term'+index];
+                    var collateraltypeVal = data[0]['collateraltype'+index];  
+                    var txtOutAmountTermVal = data[0]['txtOutAmountTerm'+index];
+                    var txtInterestTermVal = data[0]['txtInterestTerm'+index];
+                    var txtPaymentModeTermVal = data[0]['txtPaymentModeTerm'+index];
+                    var txtTermVal = data[0]['txtTerm'+index];
+                    var txtFrequncyTermVal = data[0]['txtFrequncyTerm'+index];
+                    var txtAmountTermVal = data[0]['txtAmountTerm'+index];
+                    var txtYearTermVal = data[0]['txtYearTerm'+index];
+                    
+                    viewFModel.set("yeardisbursed"+index,yeardisbursedval);
+                    if(debtTypeText === "Business Credit Card")
+                    {   
+                        viewFModel.set("txtOutCredit"+index,txtOutCreditVal);
+                        viewFModel.set("txtInterestCredit"+index,txtInterestCreditVal);
+                        viewFModel.set("txtPerYearCredit"+index,txtPerYearCreditVal);
+                    }
+                    
+                    if(debtTypeText === "Cash Advance")
+                    {
+                        viewFModel.set("tpcompany"+index,tpcompanyVal);
+                        viewFModel.set("ocadvance"+index,ocadvanceVal);
+                        viewFModel.set("funded_term"+index,funded_termVal);
+                    }
+                    
+                    if(debtTypeText === "Line of credit")
+                    {
+                        viewFModel.set("collateraltype"+index,collateraltypeVal);
+                        viewFModel.set("txtOutCredit"+index,txtOutCreditVal);
+                        viewFModel.set("txtInterestCredit"+index,txtInterestCreditVal);
+                        viewFModel.set("txtPerYearCredit"+index,txtPerYearCreditVal);
+                    }
+                    
+                    if(debtTypeText === "Term loan")
+                    {
+                        viewFModel.set("collateraltype"+index,collateraltypeVal);
+                        viewFModel.set("txtOutAmountTerm"+index,txtOutAmountTermVal);
+                        viewFModel.set("txtInterestTerm"+index,txtInterestTermVal);
+                        viewFModel.set("txtPaymentModeTerm"+index,txtPaymentModeTermVal);
+                        viewFModel.set("txtTerm"+index,txtTermVal);
+                        viewFModel.set("txtFrequncyTerm"+index,txtFrequncyTermVal);
+                        viewFModel.set("txtAmountTerm"+index,txtAmountTermVal);
+                        viewFModel.set("txtYearTerm"+index,txtYearTermVal);
+                    }
+                }
+                $('#outsta_debt').show();
+            }
+            else
+            {
+                $('.outDebt:radio[value="'+data[0]['debttype']+'"]').prop("checked",false);
+            } 
+            
+            $.each(data[0]['collateral'], function( index, value ) {
 
-            
-            
+                if($.isNumeric(index))
+                {
+                    if(value ==='Real Estate')
+                    that.set("real_state",true);
+                    if(value==='Inventory')
+                    that.set("inventory",true);
+                    if(value==='Equipment')
+                    that.set("equip_finance",true);
+                    if(value==='Accounts Receivables') 
+                    that.set("account_rece",true);
+                }
+                    
+
+            }); 
+ 
         },
         getForm:function(index, action) {
             
@@ -1462,8 +1557,8 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        $msg= "Business Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Business Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         if(sessionStorage.getItem("setprefilStatus")==='false')
                         {

@@ -528,7 +528,24 @@
             });
 
             });
+            if(sessionStorage.getItem("LoanAppCIEditMode") ==='1')
+            {
+                sessionStorage.setItem("LoanAppBIEditMode",'0');
+                sessionStorage.setItem("LoanAppCIEditMode",'0');
+                console.log('Editmode');
+                app.loanAppCI.viewModel.setCIeditForm();
+            }
 
+        },
+        setCIeditForm:function(){
+           
+            var that =this;
+            that.set("OwnJobTitle",EditFormData['0']['OwnJobTitle']);
+            var jobTitleRequest = EditFormData['0']['OwnJobTitle'];
+            $("#OwnJobTitle option[value='"+jobTitleRequest+"']").prop("selected",true);  
+            that.set("Owner_Civic",EditFormData['0']['OwnerCivic']);
+            that.set("Owner_StreetAddress",EditFormData['0']['OwnerStreetAddress']);
+            console.log(app);
         },
         getownerForm:function(index) {
             return $('\

@@ -329,8 +329,15 @@
             app.loanFP.viewModel.resetLoanAppFPForm();
 			app.loginService.viewModel.formValidateReset();
             
+            sessionStorage.setItem("LoanAppBIEditMode",'0');
+            sessionStorage.setItem("LoanAppCIEditMode",'0');
+            sessionStorage.setItem("LoanAppPIEditMode",'0');
+            sessionStorage.setItem("LoanAppFPEditMode",'0');
+            
             if(e.target.dataset.mode ==='edit')
             {
+                
+                sessionStorage.setItem("LoanAppBIEditMode",'1');
                 apps.navigate("views/loanAppBI.html?param=editMode");
                 
             }
