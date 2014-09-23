@@ -545,7 +545,37 @@
             $("#OwnJobTitle option[value='"+jobTitleRequest+"']").prop("selected",true);  
             that.set("Owner_Civic",EditFormData['0']['OwnerCivic']);
             that.set("Owner_StreetAddress",EditFormData['0']['OwnerStreetAddress']);
-            console.log(app);
+            
+            that.set("owner_month",EditFormData['0']['owner_month']);
+            that.set("owner_day",EditFormData['0']['owner_day']);
+            
+            that.set("owner_year",EditFormData['0']['owner_year']);
+            that.set("own_percent",EditFormData['0']['own_percent']);
+            var totownerDiv = EditFormData['0']['totownerDiv'];
+            for(index=1;index<=totownerDiv;index++)
+            { 
+                $("#add-ownerForm").trigger('click');
+                viewCModel.set("OwnerFirstName"+index,(EditFormData['0']['OwnerFirstName'+index]!== 'undefined') ? EditFormData['0']['OwnerFirstName'+index] : "");
+                viewCModel.set("OwnerLastName"+index,(EditFormData['0']['OwnerLastName'+index]!== 'undefined') ? EditFormData['0']['OwnerLastName'+index] : "");
+                viewCModel.set("email"+index,(EditFormData['0']['email'+index]!== 'undefined') ? EditFormData['0']['email'+index] : "");
+                viewCModel.set("OwnJobTitle"+index,(EditFormData['0']['OwnJobTitle'+index]!== 'undefined') ? EditFormData['0']['OwnJobTitle'+index] : "");
+                viewCModel.set("OwnerCivic"+index,(EditFormData['0']['OwnerCivic'+index]!== 'undefined') ? EditFormData['0']['OwnerCivic'+index] : "");
+                viewCModel.set("OwnerStreetAddress"+index,(EditFormData['0']['OwnerStreetAddress'+index]!== 'undefined') ? EditFormData['0']['OwnerStreetAddress'+index] : "");
+                viewCModel.set("own_state"+index,(EditFormData['0']['own_state'+index]!== 'undefined') ? EditFormData['0']['own_state'+index] : "");
+                viewCModel.set("own_city"+index,(EditFormData['0']['own_city'+index]!== 'undefined') ? EditFormData['0']['own_city'+index] : "");
+                viewCModel.set("OwnZipCode"+index,(EditFormData['0']['OwnZipCode'+index]!== 'undefined') ? EditFormData['0']['OwnZipCode'+index] : "");
+                viewCModel.set("owner_month"+index,(EditFormData['0']['owner_month'+index]!== 'undefined') ? EditFormData['0']['owner_month'+index] : "");
+                viewCModel.set("owner_day"+index,(EditFormData['0']['owner_day'+index]!== 'undefined') ? EditFormData['0']['owner_day'+index] : "");
+                viewCModel.set("owner_year"+index,(EditFormData['0']['owner_year'+index]!== 'undefined') ? EditFormData['0']['owner_year'+index] : "");
+                viewCModel.set("own_percent"+index,(EditFormData['0']['own_percent'+index]!== 'undefined') ? EditFormData['0']['own_percent'+index] : "");
+                viewCModel.set("own_id"+index,(EditFormData['0']['own_id'+index]!== 'undefined') ? EditFormData['0']['own_id'+index] : "");
+                viewCModel.set("isCheckScore"+index,(EditFormData['0']['isCheckScore'+index]!== 'undefined') ? EditFormData['0']['isCheckScore'+index] : "");
+                viewCModel.set("creditScore"+index,(EditFormData['0']['creditScore'+index]!== 'undefined') ? EditFormData['0']['creditScore'+index] : "");
+                viewCModel.set("reasonlscore"+index,(EditFormData['0']['reasonlscore'+index]!== 'undefined') ? EditFormData['0']['reasonlscore'+index] : "");
+
+            }
+            
+            console.log(viewCModel);
         },
         getownerForm:function(index) {
             return $('\

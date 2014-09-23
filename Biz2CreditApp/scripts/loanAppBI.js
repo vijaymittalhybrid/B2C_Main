@@ -711,7 +711,7 @@
             }
             else
             {
-                $('.outDebt:radio[value="'+data[0]['debttype']+'"]').prop("checked",false);
+                $('.outDebt:radio[value="'+data[0]['debttype']+'"]').prop("checked",true);
             } 
             
             $.each(data[0]['collateral'], function( index, value ) {
