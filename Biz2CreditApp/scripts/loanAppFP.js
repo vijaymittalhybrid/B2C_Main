@@ -100,8 +100,27 @@
                 return false;*/
                 }
             });
+            if(sessionStorage.getItem("LoanAppFPEditMode") ==='1')
+            {
+                sessionStorage.setItem("LoanAppFPEditMode",'0');
+                app.loanFP.viewModel.setFPeditForm();
+            }      
         },
         
+       setFPeditForm:function(){
+            var that=this;
+            that.set("funding_priority",EditFormData[0]['priority1']);
+            that.set("min_loan_amount",EditFormData[0]['ammount']);
+            that.set("max_loan_amount",EditFormData[0]['txtmaxammount']);
+            $.each(EditFormData[0]['chkuseplan[]'],function(index,value){
+                if($.isNumeric(index))
+                {
+                    $(".useplan:checkbox[value="+value+"]").prop("checked",true);
+                }
+            });
+            //$("#agreement:checkbox[value="+EditFormData[0]['agreement']+"]").prop("checked",true);
+            //$("#loanagreement:checkbox[value="+EditFormData[0]['loanagreement']+"]").prop("checked",true);   
+       },
        
         
         loanFPSubmit:function(){

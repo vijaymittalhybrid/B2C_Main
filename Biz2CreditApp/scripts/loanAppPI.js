@@ -7,7 +7,7 @@
         show:function(e) {
             e.sender.reload=false;
             e.view.reload=false;
-             $(".km-scroll-container").css("-webkit-transform", "");
+            $(".km-scroll-container").css("-webkit-transform", "");
             $("#b2cApp3").validate({
                 rules: {
                     per_income: {
@@ -110,7 +110,7 @@
                         $('#dynamicDiv').append(html); 
                         app.loanAppPI.viewModel.addBindDynamicOwner(c);
                     }   
-           	 } else
+           	 }else
                 {
                     $('#ownercscore'+c).remove();
                 }
@@ -118,7 +118,7 @@
             }
 			app.loanAppPI.viewModel.getCheckCreditScoreText();
             
-        if(sessionStorage.getItem("LoanAppPIEditMode") ==='1')
+            if(sessionStorage.getItem("LoanAppPIEditMode") ==='1')
             {
                 sessionStorage.setItem("LoanAppPIEditMode",'0');
                 app.loanAppPI.viewModel.setPIeditForm();
@@ -126,8 +126,50 @@
 
         },
         setPIeditForm:function(){
+            var that = this;
+            var totownerDiv = EditFormData['0']['totownerDiv'];
            
-            
+            that.set("avg_month_income",EditFormData['0']['per_income']);
+            that.set("avg_month_expense",EditFormData['0']['per_ome']);
+            for(var index=0;index<=totownerDiv;index++)
+            { 
+                if(EditFormData[0]["check_credit_score"+index] ==='Y')
+                {
+                   viewCModel.set("check_credit_score"+index,'SiteYes'); 
+                   $(".crYes"+index+":radio[value='N']").prop("checked",true);
+                }
+                else
+                {
+                   
+                    if(EditFormData[0]['check_credit_score'+index]=== 'N' && EditFormData[0]['credittype'+index]===600 || EditFormData[0]['credittype'+index]==='600')
+                    {  
+                        viewCModel.set("check_credit_score"+index,(EditFormData['0']['check_credit_score'+index]!== 'undefined') ? EditFormData['0']['check_credit_score'+index] : "");
+                        $(".crYes"+index+":radio[value='N']").prop("checked",true);
+                        
+                    }
+                    else
+                    {
+                        viewCModel.set("check_credit_score"+index,'Y');
+                        $(".crYes"+index+":radio[value='Y']").prop("checked",true);
+                        $('#crdscorerYes'+index).show();
+                        $("#credittype"+index+" option[value='"+EditFormData['0']['credittype'+index]+"']").prop("selected",true);
+                        viewCModel.set("credittype"+index,EditFormData['0']['credittype'+index]);
+                        if(EditFormData['0']['credittype'+index] <659) {
+                            $("#ifless"+index).show();
+                            $('#ifless'+index).removeClass('ifless');
+                            $.each(EditFormData['0']['chk_reason'+index], function( key, value ) {
+                                $(".chkreason"+index+":checkbox[value='"+value+"']").prop("checked",true);
+                            });
+
+                        } else {
+                            $("#ifless"+index).hide();
+                            $('#ifless'+index).addClass('ifless');
+                        }
+
+                    }
+                }
+                
+            }
         },
         getCheckCreditScoreText:function()
         { 
@@ -338,6 +380,12 @@
                                 dataParam['chk_reason'+c]='';
                             }
                             
+                        }
+                        else if(viewCModel.get('check_credit_score'+c)==='SiteYes')
+                        {
+                            dataParam['check_credit_score'+c] = 'Y';
+                            dataParam['chk_reason'+c] ="";
+                            dataParam['credittype'+c] = "";
                         }
                         else
                         {
