@@ -530,6 +530,7 @@
             });
             if(sessionStorage.getItem("LoanAppCIEditMode") ==='1')
             {
+                app.loginService.viewModel.showloder();
                 sessionStorage.setItem("LoanAppBIEditMode",'0');
                 sessionStorage.setItem("LoanAppCIEditMode",'0');
                 console.log('Editmode');
@@ -562,6 +563,7 @@
                 viewCModel.set("OwnerCivic"+index,(EditFormData['0']['OwnerCivic'+index]!== 'undefined') ? EditFormData['0']['OwnerCivic'+index] : "");
                 viewCModel.set("OwnerStreetAddress"+index,(EditFormData['0']['OwnerStreetAddress'+index]!== 'undefined') ? EditFormData['0']['OwnerStreetAddress'+index] : "");
                 viewCModel.set("own_state"+index,(EditFormData['0']['own_state'+index]!== 'undefined') ? EditFormData['0']['own_state'+index] : "");
+                createCityCmbEdit(index,EditFormData['0']['own_state'+index] , EditFormData['0']['own_city'+index]);
                 viewCModel.set("own_city"+index,(EditFormData['0']['own_city'+index]!== 'undefined') ? EditFormData['0']['own_city'+index] : "");
                 viewCModel.set("OwnZipCode"+index,(EditFormData['0']['OwnZipCode'+index]!== 'undefined') ? EditFormData['0']['OwnZipCode'+index] : "");
                 viewCModel.set("owner_month"+index,(EditFormData['0']['owner_month'+index]!== 'undefined') ? EditFormData['0']['owner_month'+index] : "");
