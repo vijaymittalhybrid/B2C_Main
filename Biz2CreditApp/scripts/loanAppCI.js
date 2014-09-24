@@ -541,7 +541,7 @@
         setCIeditForm:function(){
            
             var that =this;
-            that.set("OwnJobTitle",EditFormData['0']['OwnJobTitle']);
+            that.set("Owner_JobTitle",EditFormData['0']['OwnJobTitle']);
             var jobTitleRequest = EditFormData['0']['OwnJobTitle'];
             $("#OwnJobTitle option[value='"+jobTitleRequest+"']").prop("selected",true);  
             that.set("Owner_Civic",EditFormData['0']['OwnerCivic']);
@@ -552,6 +552,12 @@
             
             that.set("owner_year",EditFormData['0']['owner_year']);
             that.set("own_percent",EditFormData['0']['own_percent']);
+            
+            that.set("own_id0",EditFormData['0']['own_id0']);
+            that.set("creditScore0",EditFormData['0']['creditScore0']);
+            that.set("isCheckScore0",EditFormData['0']['isCheckScore0']);
+            that.set("reasonlscore0",EditFormData['0']['reasonlscore0']);
+            
             var totownerDiv = EditFormData['0']['totownerDiv'];
             for(index=1;index<=totownerDiv;index++)
             { 
@@ -577,7 +583,12 @@
 
             }
             
-            console.log(viewCModel);
+            
+            that.set("ownercurrntControl",EditFormData['0']['ownercurrntControl']);
+            that.set("totownerDiv",EditFormData['0']['totownerDiv']);
+            that.set("ownerdeleteIds",EditFormData['0']['ownerdeleteIds']);
+            that.set("aredyownerdeleteIds",EditFormData['0']['aredyownerdeleteIds']);
+            that.set("deldbownerids",EditFormData['0']['deldbownerids']);
         },
         getownerForm:function(index) {
             return $('\
@@ -920,8 +931,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                       // $msg= "Contact Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",'false2');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);

@@ -121,7 +121,7 @@
         if(sessionStorage.getItem("LoanAppPIEditMode") ==='1')
             {
                 sessionStorage.setItem("LoanAppPIEditMode",'0');
-                app.loanAppCI.viewModel.setPIeditForm();
+                app.loanAppPI.viewModel.setPIeditForm();
             }
 
         },
