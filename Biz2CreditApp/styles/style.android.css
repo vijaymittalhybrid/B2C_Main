@@ -146,6 +146,8 @@ html body .backButton{ height:75px;background-size: 19% !important;}
 #aplicn_frm .rws .rwfil label{font-size: 0.7em; padding:0 10px 0 2px;}
 #aplicn_frm .ipsm13 {width: 130px;}
 #aplicn_frm .IN4c {width: 210px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, .tabOne .head span:first-child {width:83%;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span, .tabOne .head span:last-child{ width:17%;}
 }
 
 @media screen and (max-width: 960px){ 
@@ -251,6 +253,8 @@ background-position:center 10px ;  text-align:center; width:22.5%; margin-right:
 #aplicn_tp ul.app_nav li.dn span {background-position: center 65px;}
 #aplicn_frm .IN4c {width:100%;}
 html body .backButton {height: 62px;background-size: 24% !important;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, .tabOne .head span:first-child {width:78%;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span, .tabOne .head span:last-child{ width:22%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -405,13 +409,16 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon{ background-size:11%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon{ background-size:14%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a span {height:30px; width:30px; line-height:26px;}
-#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 42%;bottom: -72%;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 42%;bottom: -78%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active.postd_icn { background-position: 20px 22px !important;}
 #tabstrip-manage-app .recent-activity .rcnt-actty, #tabstrip-manage-app .recent-activity .applyFrshLon a { font-size:1.1em; }
 #tabstrip-manage-app .recent-activity .rcnt-actty {font-weight:bold;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabOne li { padding:15px;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span, #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child {font-size:14px;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a span{left: 40%;}
+.tabOne .head {display:block; padding: 15px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, .tabOne .head span:first-child {width:75%;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span, .tabOne .head span:last-child{ width:25%;}
 }
 
 @media (min-width:0px) and (max-width:600px) { 
@@ -463,6 +470,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #homePage .testimonials .test-content .test-l img { max-width:40%; margin:0 auto;}
 #homePage .testimonials .test-content .test-r span { text-align:center; font-size:1.1em;}
 #homePage .testimonials { padding:2% 3% 5%; }
+
 }
 @media (min-width:0px) and (max-width:599px) { 
 .docs-header .km-widget .docs-search { width:8%; margin:0;}
@@ -503,6 +511,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #aplicn_frm .rws p.imp33 {width:100%; padding:0; float: none;}
 #aplicn_frm .rws p.imp33 .ipsm1, #credit_show .IN3, #credit_show .IN1 {width:100%;}
 #aplicn_frm ul.low_creditop li {width:100%; padding:0 0 10px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, .tabOne .head span:first-child {width:73%;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span, .tabOne .head span:last-child{ width:27%;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin: 2% auto 1%;background-size: 50%;}
@@ -609,6 +619,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #aplicn_frm .rws.rw2 .ipsm4, #aplicn_frm select.IN1b.ipsm1, #aplicn_frm .rws.rw2 select.ipsm3, #aplicn_frm .IN1 {width:100%;}
 #aplicn_frm select.IN1b.ipsm3 {width:100%;}
 html body #aplicn_frm ul.low_creditop li.opt2 label.error {font-size:11px;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 42%;bottom: -72%;}
 }
 @media (min-width:0px) and (max-width:410px) { 
 .logLogo {margin: 17% auto;}
@@ -651,6 +662,8 @@ html body #aplicn_frm ul.low_creditop li.opt2 label.error {font-size:11px;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 33%;bottom: -87%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active.postd_icn {background-position: center 10px !important;}
 html body .backButton {background-size:37% !important;height: 50px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, .tabOne .head span:first-child {width:60%;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span, .tabOne .head span:last-child{ width:40%;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}

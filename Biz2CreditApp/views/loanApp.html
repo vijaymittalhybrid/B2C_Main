@@ -2,7 +2,7 @@
             <div data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title">
-                    <div class="matches-logo"><a data-role="backbutton">Back</a></div>
+                    <a data-role="backbutton" class="backButton">Back</a>
                 </span>
                 <a data-bind="click: refreshView,visible: showrefreshLoading" class="refresh-loading docs-refresh">refresh</a>
                  <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
@@ -39,26 +39,26 @@
                         
                     <div>
                         <div class="tabOne">
-                          <div class="head">  <span>Application #</span><span>Date</span></div>
+                          <div class="head clearfix">  <span data-bind="visible: postApp">Application #</span><span data-bind="visible: postApp">Date</span></div>
                             <ul class="tabOne" data-bind="source: postAppList" data-template="postAppList-template"></ul>
                         </div>
 
                     </div>
                     <div>
                         <div class="tabOne">
-                            <div class="head">  <span>Application #</span><span>Date</span></div>
+                            <div class="head clearfix">  <span data-bind="visible: endedApp">Application #</span><span data-bind="visible: endedApp">Date</span></div>
                             <ul class="tabOne" data-bind="source: endedAppList" data-template="endedAppList-template"></ul>
                         </div>
                     </div>
                     <div>
                         <div class="tabOne">
-                            <div class="head">  <span>Application #</span><span>Date</span></div>
+                            <div class="head clearfix">  <span data-bind="visible: savedApp">Application #</span><span data-bind="visible: savedApp">Date</span></div>
                             <ul class="tabOne" data-bind="source: savedAppList" data-template="savedAppList-template"></ul>
                         </div>
                     </div>
                     <div>
                         <div class="tabOne">
-                            <div class="head">  <span>Application #</span><span>Date</span></div>
+                            <div class="head clearfix">  <span data-bind="visible: loanApa">Application #</span><span data-bind="visible: loanApa">Date</span></div>
                             <ul class="tabOne" data-bind="source: loanApaList" data-template="loanApaList-template"></ul>
                         </div>
 
