@@ -2,7 +2,7 @@
             <div data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title">
-                    <div class="matches-logo"><a href="#tabstrip-login">Back</a></div>
+                    <div class="matches-logo"><a data-role="backbutton">Back</a></div>
                 </span>
                 <a data-bind="click: refreshView,visible: showrefreshLoading" class="refresh-loading docs-refresh">refresh</a>
                  <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
@@ -11,7 +11,7 @@
             <div class="view-content">
                 <div class="recent-activity clearfix">
                     <div class="rcnt-actty">Recent Loan activity</div>
-                    <div class="applyFrshLon"><a href="#">Apply for a fresh loan</a></div>
+                    <div class="applyFrshLon"><a data-bind="click: applyFreshLoan" data-mode="fresh">Apply for a fresh loan</a></div>
                 </div>
                 <div id="tabstrip">
                     <ul>
