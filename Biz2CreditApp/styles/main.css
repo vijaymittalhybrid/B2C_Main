@@ -442,3 +442,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span { float:right; font-size:16px; color:#999;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li .actArw {display:none;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {position:absolute; height:35px; width:35px; bottom:-100%; left:43%; display:block;background-image: url(images/loan-app-arrow.png); background-position: 0 0; text-indent:-9000px; background-repeat:no-repeat;}
+
+html body .backButton {background-image: url(images/back-logo.png)!important;text-align: left;background-repeat: no-repeat!important;background-size:37% !important;
+background-position:5px 15px !important;height: 50px;position: relative;background-color: transparent!important;padding: 0.5em!important;border:0!important;border-bottom: 1px solid #99cc00; width:100%; text-indent:-9000px; margin:0!important;}

@@ -17,148 +17,49 @@
                     <ul>
                         <li class="k-state-active postd_icn">
                             Posted
-                            <span>2</span>
+                            <span data-bind="text: postApp"></span>
                             <div class="actArw">Arrow</div>
                         </li>
                         <li class="end_icon">
                             Ended
-                            <span>0</span>
+                            <span data-bind="text: endedApp"></span>
                             <div class="actArw">Arrow</div>
                         </li>
                         <li class="sevd_icon">
                             Saved
-                            <span>2</span>
+                            <span data-bind="text: savedApp"></span>
                             <div class="actArw">Arrow</div>
                         </li>
                         <li class="lon_icon">
                             Loan against Personal Assets
-                            <span>2</span>
+                            <span data-bind="text: loanApa"></span>
                             <div class="actArw">Arrow</div>
                         </li>
                     </ul>
+                        
                     <div>
                         <div class="tabOne">
-                            <ul class="tabOne">
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                
-                            </ul>
+                          <div class="head">  <span>Application #</span><span>Date</span></div>
+                            <ul class="tabOne" data-bind="source: postAppList" data-template="postAppList-template"></ul>
                         </div>
 
                     </div>
                     <div>
                         <div class="tabOne">
-                            <ul class="tabOne">
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                
-                            </ul>
+                            <div class="head">  <span>Application #</span><span>Date</span></div>
+                            <ul class="tabOne" data-bind="source: endedAppList" data-template="endedAppList-template"></ul>
                         </div>
                     </div>
                     <div>
                         <div class="tabOne">
-                            <ul class="tabOne">
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                
-                            </ul>
+                            <div class="head">  <span>Application #</span><span>Date</span></div>
+                            <ul class="tabOne" data-bind="source: savedAppList" data-template="savedAppList-template"></ul>
                         </div>
                     </div>
                     <div>
                         <div class="tabOne">
-                            <ul class="tabOne">
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                <li>
-                                    <span>BIZ215231</span>
-                                    <span>09/18/2014</span>
-                                </li>
-                                
-                            </ul>
+                            <div class="head">  <span>Application #</span><span>Date</span></div>
+                            <ul class="tabOne" data-bind="source: loanApaList" data-template="loanApaList-template"></ul>
                         </div>
 
                     </div>
@@ -166,3 +67,30 @@
 
         </div>
      </div>
+
+ <script type="text/x-kendo-template" id="postAppList-template">
+     
+     <li>
+        <span>BIZ#: fid #</span>
+        <span> #: updatetime #</span>
+     </li>
+</script>
+<script type="text/x-kendo-template" id="endedAppList-template">
+     <li>
+        <span>BIZ#: fid #</span>
+        <span> #: updatetime #</span>
+     </li>
+</script>
+<script type="text/x-kendo-template" id="savedAppList-template">
+
+     <li>
+        <span>BIZ#: fid #</span>
+        <span> #: updatetime #</span>
+     </li>
+</script>
+<script type="text/x-kendo-template" id="loanApaList-template">
+     <li>
+        <span>BIZ#: fid #</span>
+        <span> #: updatetime #</span>
+     </li>
+</script>
