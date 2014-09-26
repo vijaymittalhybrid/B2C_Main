@@ -8,10 +8,6 @@
         endedApp:0,
         savedApp:0,
         loanApa:0,
-        postAppList:[],
-        endedAppList:[],
-        savedAppList:[],
-        loanApaList:[],
         
         show:function()
         {
@@ -54,42 +50,29 @@
                 if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
                 {
                      app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
-                }    
+                }
+                app.loanApp.viewModel.setManageStatus(data);
+                console.log(data[0]['results']);
+                 
 
             });
        },
         applyFreshLoan:function(e)
         {
-            app.loginService.viewModel.application(e);  
+          app.loginService.viewModel.application(e);  
         },
         setManageStatus:function(data)
         {
             var that = this;
-            $.each(data, function( index, value ) {
-            	
-                if(value['apptype']==='posted')
-                {
-                    that.set('postApp',value['appcount']);
-                    that.set('postAppList',value['appdetails']);
-                    
-                }
-                if(value['apptype']==='saved')
-                {
-                  that.set('savedApp',value['appcount']);
-                  that.set('savedAppList',value['appdetails']);
-                }
-                if(value['apptype']==='ended')
-                {
-                    that.set('endedApp',value['appcount']);
-                    that.set('endedAppList',value['appdetails']);
-                }
-                if(value['apptype']==='loanApa')
-                {
-                    that.set('loanApa',value['appcount']);
-                    that.set('loanApaList',value['appdetails']);
-                    
-                }
-        	});   
+
+            that.set('postApp','');
+            that.set('endedApp','');
+            that.set('savedApp','');
+            that.set('loanApa','');
+            
+            
+            
+            
           
         },
         
