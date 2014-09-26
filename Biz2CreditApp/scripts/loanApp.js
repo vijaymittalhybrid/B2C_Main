@@ -4,6 +4,11 @@
 
     loanAppViewModal = kendo.data.ObservableObject.extend({
         username: "",
+        postApp:0,
+        endedApp:0,
+        savedApp:0,
+        loanApa:0,
+        
         show:function()
         {
             $("#tabstrip").kendoTabStrip({
@@ -41,14 +46,34 @@
             dataSource.fetch(function(){
                 var that = this;
                 var data = that.data();
-                console.log(data);
-                app.loginService.viewModel.hideloder();  
+                app.loginService.viewModel.hideloder(); 
+                if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
+                {
+                     app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
+                }
+                app.loanApp.viewModel.setManageStatus(data);
+                console.log(data[0]['results']);
+                 
 
             });
        },
         applyFreshLoan:function(e)
         {
           app.loginService.viewModel.application(e);  
+        },
+        setManageStatus:function(data)
+        {
+            var that = this;
+
+            that.set('postApp','');
+            that.set('endedApp','');
+            that.set('savedApp','');
+            that.set('loanApa','');
+            
+            
+            
+            
+          
         },
         
     });
