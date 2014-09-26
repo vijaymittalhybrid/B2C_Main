@@ -720,6 +720,20 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #aplicn_frm .IN2 {width:267px; margin-right:0px;}
 
 #aplicn_frm .IN1 {width:100%;}
+#tabstrip-manage-app .recent-activity {padding:10px 0;}
+#tabstrip-manage-app .recent-activity .rcnt-actty {border-bottom:1px solid #e5e5e5; padding-bottom:5px; margin-bottom:10px; text-align:center; font-size:1em; font-weight:bold; float:none; width:100%;}
+#tabstrip-manage-app .recent-activity .applyFrshLon {width:100%; float:none; text-align:center; padding:5px 0;}
+#tabstrip-manage-app .recent-activity .applyFrshLon a { font-size:1em;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a span {width:25px; height:25px; font-size:12px; line-height:21px; left:34%;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon{ background-size:18%; background-position:center 10px!important;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a {padding: 29px 0 0px 0;font-size: 12px; text-align:center; height:55px;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.postd_icn {background-size:20px;background-position:center 10px!important;}
+#tabstrip-manage-app #tabstrip .k-content{margin: 14% 0 0;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li{ padding:15px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span{font-size:12px;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 33%;bottom: -76%;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active.postd_icn {background-position: center 10px !important;}
+}
 }
 
 @media (min-width:0px) and (max-width:320px) { 

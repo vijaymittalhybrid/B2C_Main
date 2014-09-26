@@ -1,6 +1,6 @@
 [{
 "MonthlyVolumeAmountsList1":"60000",
-"MonthlyVolumeAmountsList2":"150000"
+"MonthlyVolumeAmountsList2":"150000",
 "MonthlyVolumeAmountsList3":"25000",
 "MonthlyVolumeAmountsList4":"100000",
 "MonthlyVolumeTicketsList1":"45",
@@ -120,9 +120,9 @@
 "OwnJobTitle":"Director",
 "OwnerCivic":"32323",
 "OwnerStreetAddress":"ewew",
-"state_user":"18",
-"cmbCity_user":"4581",
-"OwnZipCode":"34567",
+"state_user":"20",
+"cmbCity_user":"4987",
+"OwnZipCode":"75656",
 "owner_month":"4",
 "owner_day":"11",
 "owner_year":"1959",
