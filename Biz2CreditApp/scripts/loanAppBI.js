@@ -509,7 +509,6 @@
             dataS.fetch(function(){
 
                 EditFormData = this.data();
-                localStorage.setItem("fid",'71748');
                 app.loansetting.viewModel.setBIeditForm(EditFormData);
                 sessionStorage.setItem("LoanAppBIEditMode",'1');
                 sessionStorage.setItem("LoanAppCIEditMode",'1');

@@ -68,29 +68,31 @@
         </div>
      </div>
 
- <script type="text/x-kendo-template" id="postAppList-template">
-     
+ <script type="text/x-kendo-template" id="postAppList-template"> 
+     #var fDate= updatetime #
      <li>
         <span>BIZ#: fid #</span>
-        <span> #: updatetime #</span>
+        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #</span>
      </li>
 </script>
 <script type="text/x-kendo-template" id="endedAppList-template">
+    #var fDate= updatetime #
      <li>
         <span>BIZ#: fid #</span>
-        <span> #: updatetime #</span>
+        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #</span>
      </li>
 </script>
 <script type="text/x-kendo-template" id="savedAppList-template">
-
+     #var fDate= updatetime #
      <li>
-        <span>BIZ#: fid #</span>
-        <span> #: updatetime #</span>
+        <span><a data-bind="click: applyFreshLoan" data-mode="edit" data-fid="#: fid #">BIZ#: fid #</a></span>
+        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #</span>
      </li>
 </script>
 <script type="text/x-kendo-template" id="loanApaList-template">
+    #var fDate= updatetime #
      <li>
         <span>BIZ#: fid #</span>
-        <span> #: updatetime #</span>
+        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #</span>
      </li>
 </script>
