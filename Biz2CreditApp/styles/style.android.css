@@ -646,7 +646,7 @@ html body #aplicn_frm ul.low_creditop li.opt2 label.error {font-size:11px;}
 #tabstrip-manage-app #tabstrip .k-content{margin: 14% 0 0;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabOne li{ padding:15px;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span{font-size:12px;}
-#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 33%;bottom: -76%;}
+#tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 33%;bottom: -83%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active.postd_icn {background-position: center 10px !important;}
 }
 @media (min-width:0px) and (max-width:370px) { 
@@ -733,7 +733,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span{font-size:12px;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 33%;bottom: -76%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active.postd_icn {background-position: center 10px !important;}
-}
+
 }
 
 @media (min-width:0px) and (max-width:320px) { 
