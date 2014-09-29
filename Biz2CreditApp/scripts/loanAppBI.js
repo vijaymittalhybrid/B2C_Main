@@ -496,20 +496,31 @@
         {
             console.log('BIEditMOde');
            
-            app.loginService.viewModel.showloder();
+           // app.loginService.viewModel.showloder();
             var dataS = new kendo.data.DataSource({
                 transport: {
                 read: {
-                    url: 'data/sampledata.json',
-                    type:"GET",
+                    url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
+                    type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: { apiaction:"getloanappinfo",cust_id:localStorage.getItem("userID"),fid:localStorage.getItem("fid")}
             	}
-            }
+            },
+                 schema: {
+                    data: function(data)
+                    {
+                    	return [data];
+                    }
+                },
             });
             dataS.fetch(function(){
 
                 EditFormData = this.data();
-                app.loansetting.viewModel.setBIeditForm(EditFormData);
+                console.log(EditFormData['0']['results']);
+                
+                var manageData = EditFormData['0']['results'];
+                app.loansetting.viewModel.setBIeditForm(manageData);
+                
                 sessionStorage.setItem("LoanAppBIEditMode",'1');
                 sessionStorage.setItem("LoanAppCIEditMode",'1');
                 sessionStorage.setItem("LoanAppPIEditMode",'1');
@@ -523,23 +534,23 @@
         {
             var that = this;
             
-            that.set("legal_business_name",data[0]['orgname']);
-            that.set("dba_name",data[0]['dbaname']);
-            that.set("street_no",data[0]['civic']);
-            that.set("street_name",data[0]['baddr']);
-            that.set("apt_suite_unit",data[0]['street1']);
-            that.set("select_state",data[0]['state']);
-            createCityCmbFirstEdit(data[0]['state'] ,data[0]['cmbCity']);
-            that.set("select_city",data[0]['cmbCity']);
+            that.set("legal_business_name",data['findetails']['orgname']);
+            that.set("dba_name",data['findetails']['dbaname']);
+            that.set("street_no",data['findetails']['civic']);
+            that.set("street_name",data['findetails']['baddr']);
+            that.set("apt_suite_unit",data['findetails']['street1']);
+            that.set("select_state",data['findetails']['state']);
+            createCityCmbFirstEdit(data['findetails']['state'] ,data['findetails']['cityid']);
+            that.set("select_city",data['findetails']['cityid']);
             
-            that.set("zip_code",data[0]['zipcode']);
-            that.set("mobile_number",data[0]['businessphone']);
-            that.set("select_b_l_s",data[0]['blegal']);
-            that.set("industry",data[0]['orgtype']);
-            displayorgCategoryEdit(data[0]['orgtype'],data[0]['orgcategory']);
-            that.set("sub_industry",data[0]['orgcategory']);
+            that.set("zip_code",data['findetails']['zipcode']);
+            that.set("mobile_number",data['findetails']['businessphone']);
+            that.set("select_b_l_s",data['findetails']['blegal']);
+            that.set("industry",data['findetails']['loanParentIndustry']);
+            displayorgCategoryEdit(data['findetails']['loanParentIndustry'],data['findetails']['loanIndustry']);
+            that.set("sub_industry",data['findetails']['loanIndustry']);
             
-            if(data[0]['dbs_month'] === '' || data[0]['dbs_year'] === '' || data[0]['revenue'] === '' || data[0]['operatingexp'] === '')
+            if(data['findetails']['dbs_month'] === '' || data['findetails']['dbs_year'] === '' || data['findetails']['revenue'] === '' || data['findetails']['operatingexp'] === '')
             {
                 $("#yettostart").attr("checked",true);
                 that.set("select_buss_s_m","");
@@ -555,39 +566,51 @@
             else
             {
                 $("#yettostart").attr("checked",false);
-                that.set("select_buss_s_m",data[0]['dbs_month']);
-                that.set("select_buss_s_y",data[0]['dbs_year']);
-                that.set("average_annual_revenue",data[0]['revenue']);
-                that.set("buss_operating_expenses",data[0]['operatingexp']);
+                that.set("select_buss_s_m",data['findetails']['dbs_month']);
+                that.set("select_buss_s_y",data['findetails']['dbs_year']);
+                that.set("average_annual_revenue",data['findetails']['revenue']);
+                that.set("buss_operating_expenses",data['findetails']['operatingexp']);
                 
                 $('#dbs_month').removeAttr("disabled");
                 $('#dbs_year').removeAttr("disabled");
                 $('#revenue').removeAttr("disabled","disabled");
                 $('#operatingexp').removeAttr("disabled","disabled");
             }
+            var n = data['findetails']['collateral'].split(',');
+            if($.inArray( "Credit Card Receivables", n ) !== -1)
+            {
+               acceptcard = 'Yes'; 
+            }
+            else
+            {
+               acceptcard = 'No'; 
+            }
             
-            if($('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').val() === 'Yes')
+            if($('.crditaccep:radio[value="'+acceptcard+'"]').val() === 'Yes')
             {
                 $('#credit_show').show();
-                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').prop("checked",true);
-                that.set("datefirstProcessed_month",data[0]['datefirstProcessed_month']);
-                that.set("datefirstProcessed_day",data[0]['datefirstProcessed_day']);
-                that.set("datefirstProcessed_year",data[0]['datefirstProcessed_year']);
-                that.set("c_c_card_processor",data[0]['creditcardproc']);
-                that.set("merchant_id",data[0]['merchantid']);
-                that.set("MonthlyVolumeAmountsList1",data[0]['MonthlyVolumeAmountsList1']);
-                that.set("MonthlyVolumeTicketsList1",data[0]['MonthlyVolumeTicketsList1']);
-                that.set("MonthlyVolumeAmountsList2",data[0]['MonthlyVolumeAmountsList2']);
-                that.set("MonthlyVolumeTicketsList2",data[0]['MonthlyVolumeTicketsList2']);
-                that.set("MonthlyVolumeAmountsList3",data[0]['MonthlyVolumeAmountsList3']);
-                that.set("MonthlyVolumeTicketsList3",data[0]['MonthlyVolumeTicketsList3']);
-                that.set("MonthlyVolumeAmountsList4",data[0]['MonthlyVolumeAmountsList4']);
-                that.set("MonthlyVolumeTicketsList4",data[0]['MonthlyVolumeTicketsList4']);
+                $('.mercPr').show();
+                var d = data['findetails']['cc_firstprocess_date'].split('-');
+                console.log(d);
+                $('.crditaccep:radio[value="'+acceptcard+'"]').prop("checked",true);
+                that.set("datefirstProcessed_month",Number(d[1]));
+                that.set("datefirstProcessed_day",d[2]);
+                that.set("datefirstProcessed_year",d[0]);
+                that.set("c_c_card_processor",data['findetails']['creditcardproc']);
+                that.set("merchant_id",data['findetails']['merchantid']);
+                that.set("MonthlyVolumeAmountsList1",data['findetails']['cc_lastmonth_sale']);
+                that.set("MonthlyVolumeTicketsList1",data['findetails']['cc_lastmonth_transaction']);
+                that.set("MonthlyVolumeAmountsList2",data['findetails']['cc_1month_ago_sale']);
+                that.set("MonthlyVolumeTicketsList2",data['findetails']['cc_1month_ago_transaction']);
+                that.set("MonthlyVolumeAmountsList3",data['findetails']['cc_2month_ago_sale']);
+                that.set("MonthlyVolumeTicketsList3",data['findetails']['cc_2month_ago_transaction']);
+                that.set("MonthlyVolumeAmountsList4",data['findetails']['cc_3month_ago_sale']);
+                that.set("MonthlyVolumeTicketsList4",data['findetails']['cc_3month_ago_transaction']);
             }
             else
             {
                 $('#credit_show').hide();
-                $('.crditaccep:radio[value="'+data[0]['acceptcard']+'"]').prop("checked",true);
+                $('.crditaccep:radio[value="'+acceptcard+'"]').prop("checked",true);
                 that.set("datefirstProcessed_month","");
                 that.set("datefirstProcessed_day","");
                 that.set("datefirstProcessed_year","");
@@ -603,50 +626,51 @@
                 that.set("MonthlyVolumeTicketsList4","");
             }
             
-            if($('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').val() === 2 || $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').val() === '2')
+            if($('.businf:radio[value="'+data['findetails']['busi_pro_info_type']+'"]').val() === 2 || $('.businf:radio[value="'+data['findetails']['busi_pro_info_type']+'"]').val() === '2')
             {
                 $("#outstandingMortagageDiv").hide();
                 $('#busInfobx').show();
                 $('#busInfobx2').hide();
-                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').prop("checked",true);
+                $('.businf:radio[value="'+data['findetails']['busi_pro_info_type']+'"]').prop("checked",true);
                
             }
             else
             {
                 $('#busInfobx2').show();
                 $('#busInfobx').hide();
-                $('.businf:radio[value="'+data[0]['busi_pro_info_type']+'"]').prop("checked",true);
-                that.set("monthly_rent",data[0]['busi_month_rent']);
-                that.set("landlord_name",data[0]['busi_landlord']);
-                that.set("contact_number",data[0]['busi_cont_number']);
+                $('.businf:radio[value="'+data['findetails']['busi_pro_info_type']+'"]').prop("checked",true);
+                that.set("monthly_rent",data['findetails']['busi_month_rent']);
+                that.set("landlord_name",data['findetails']['busi_landlord']);
+                that.set("contact_number",data['findetails']['busi_cont_number']);
             }
            
             
-            if($('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').val() === 1 || $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').val() === '1')
+            if($('.busimort:radio[value="'+data['findetails']['busi_out_mort_type']+'"]').val() === 1 || $('.busimort:radio[value="'+data['findetails']['busi_out_mort_type']+'"]').val() === '1')
             {
-                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').prop("checked",true);
+                $('.busimort:radio[value="'+data['findetails']['busi_out_mort_type']+'"]').prop("checked",true);
                 $("#outstandingMortagageDiv").show();
-                that.set("mortgage_bank",data[0]['busi_mort_bank']);
-                that.set("outs_bal",data[0]['busi_out_balance']);
-                that.set("month_mort_amount",data[0]['busi_month_mort_amount']);
+                that.set("mortgage_bank",data['findetails']['busi_mort_bank']);
+                that.set("outs_bal",data['findetails']['busi_out_balance']);
+                that.set("month_mort_amount",data['findetails']['busi_month_mort_amount']);
             }
             else
             {
-                $('.busimort:radio[value="'+data[0]['busi_out_mort_type']+'"]').prop("checked",true);
+                $('.busimort:radio[value="'+data['findetails']['busi_out_mort_type']+'"]').prop("checked",true);
                 $("#outstandingMortagageDiv").hide();
             }
             
-            if($('.outDebt:radio[value="'+data[0]['debttype']+'"]').val() === 'Yes')
+            if($('.outDebt:radio[value="'+data['findetails']['debttype']+'"]').val() === 'Yes')
             {   
                 var index;
                 
-                $('.outDebt:radio[value="'+data[0]['debttype']+'"]').prop("checked",true);
-                var totalDiv = data[0]['totbusinessDebtYesDiv'];
+                $('.outDebt:radio[value="'+data['findetails']['debttype']+'"]').prop("checked",true);
+                
+                var totalDiv = data['findetails']['finloan_details'].length;
                 for(index=1;index<=totalDiv;index++)
                 { 
                     $("#add-form").trigger('click');
-                    var debtTypeval = data[0]['debttype'+index];
-                    var yeardisbursedval = data[0]['yeardisbursed'+index];
+                    var debtTypeval = data['findetails']['finloan_details'][index]['debttype'];
+                    var yeardisbursedval =  data['findetails']['finloan_details'][index]['yeardisbursed'];
                     var debtTypeText = $("#debttype"+index+" option[value='"+debtTypeval+"']").val();
                     
                     $("#debttype"+index+" option[value='"+debtTypeval+"']").prop("selected",true);
@@ -655,20 +679,20 @@
                     $("#yeardisbursed"+index+" option[value='"+yeardisbursedval+"']").prop("selected",true);  
                     
                     
-                    var txtOutCreditVal = data[0]['txtOutCredit'+index];
-                    var txtInterestCreditVal = data[0]['txtInterestCredit'+index];
-                    var txtPerYearCreditVal = data[0]['txtPerYearCredit'+index];
-                    var tpcompanyVal = data[0]['tpcompany'+index];
-                    var ocadvanceVal = data[0]['ocadvance'+index];
-                    var funded_termVal = data[0]['funded_term'+index];
-                    var collateraltypeVal = data[0]['collateraltype'+index];  
-                    var txtOutAmountTermVal = data[0]['txtOutAmountTerm'+index];
-                    var txtInterestTermVal = data[0]['txtInterestTerm'+index];
-                    var txtPaymentModeTermVal = data[0]['txtPaymentModeTerm'+index];
-                    var txtTermVal = data[0]['txtTerm'+index];
-                    var txtFrequncyTermVal = data[0]['txtFrequncyTerm'+index];
-                    var txtAmountTermVal = data[0]['txtAmountTerm'+index];
-                    var txtYearTermVal = data[0]['txtYearTerm'+index];
+                    var txtOutCreditVal = data['findetails']['finloan_details'][index]['outstanding'];
+                    var txtInterestCreditVal = data['findetails']['finloan_details'][index]['interestrate'];
+                    var txtPerYearCreditVal =data['findetails']['finloan_details'][index]['interesttime'];
+                    var tpcompanyVal = data['findetails']['finloan_details'][index]['tpcompany'];
+                    var ocadvanceVal = data['findetails']['finloan_details'][index]['funded_amt'];
+                    var funded_termVal = data['findetails']['finloan_details'][index]['term'];
+                    var collateraltypeVal = data['findetails']['finloan_details'][index]['collateral'];  
+                    var txtOutAmountTermVal =data['findetails']['finloan_details'][index]['outstandingamount'];
+                    var txtInterestTermVal = data['findetails']['finloan_details'][index]['termintrate'];
+                    var txtPaymentModeTermVal = data['findetails']['finloan_details'][index]['termpaymentmode'];
+                    var txtTermVal =data['findetails']['finloan_details'][index]['term'];
+                    var txtFrequncyTermVal = data['findetails']['finloan_details'][index]['frequency'];
+                    var txtAmountTermVal = data['findetails']['finloan_details'][index]['principleamount'];
+                    var txtYearTermVal = data['findetails']['finloan_details'][index]['terminttime'];
                     
                     viewFModel.set("yeardisbursed"+index,yeardisbursedval);
                     if(debtTypeText === "Business Credit Card")
@@ -709,10 +733,10 @@
             }
             else
             {
-                $('.outDebt:radio[value="'+data[0]['debttype']+'"]').prop("checked",true);
+                $('.outDebt:radio[value="'+data['findetails']['debttype']+'"]').prop("checked",true);
             } 
-            
-            $.each(data[0]['collateral'], function( index, value ) {
+            var colArr = data['findetails']['collateral'].split(',');
+            $.each(colArr, function( index, value ) {
 
                 if($.isNumeric(index))
                 {

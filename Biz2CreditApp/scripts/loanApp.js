@@ -111,7 +111,7 @@
         endedAppClick:function(e)
         {
             var that=this;
-             $('#tabstrip ul li').removeClass('k-state-active');
+            $('#tabstrip ul li').removeClass('k-state-active');
             $('#tabstrip ul li.end_icon').addClass('k-state-active');
             that.set('postAppTab',false);
             that.set('endedAppTab',true);
@@ -121,7 +121,7 @@
         savedAppClick:function(e)
         {
             var that=this;
-             $('#tabstrip ul li').removeClass('k-state-active');
+            $('#tabstrip ul li').removeClass('k-state-active');
             $('#tabstrip ul li.sevd_icon').addClass('k-state-active');
             that.set('postAppTab',false);
             that.set('endedAppTab',false);
@@ -131,7 +131,7 @@
         loanApaClick:function(e)
         {
             var that=this;
-             $('#tabstrip ul li').removeClass('k-state-active');
+            $('#tabstrip ul li').removeClass('k-state-active');
             $('#tabstrip ul li.lon_icon').addClass('k-state-active');
             that.set('postAppTab',false);
             that.set('endedAppTab',false);
