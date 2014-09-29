@@ -15,11 +15,9 @@
         
         show:function()
         {
-
             $("#tabstrip").kendoTabStrip({
                         animation:  {
                             open: {
-                                duration:10,
                                 effects: "fadeIn"
                             }
                         }

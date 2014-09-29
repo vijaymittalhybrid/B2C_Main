@@ -243,7 +243,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.postd_icn, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon, #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon{ background-position:center 15px !important;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a span{left:38%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 41%;bottom: -71%;}
-#tabstrip-manage-app #tabstrip .k-content ul.tabui li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabui li span{font-size:14px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span{font-size:14px;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin:1% auto;background-size: 50%; height:60px;}
@@ -423,8 +423,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a {padding: 29px 0 0px 0;font-size: 12px;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.postd_icn {background-size:20px;background-position:center 10px!important;}
 #tabstrip-manage-app #tabstrip .k-content{margin: 14% 0 0;}
-#tabstrip-manage-app #tabstrip .k-content ul.tabui li{ padding:15px;}
-#tabstrip-manage-app #tabstrip .k-content ul.tabui li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabui li span{font-size:12px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li{ padding:15px;}
+#tabstrip-manage-app #tabstrip .k-content ul.tabOne li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabOne li span{font-size:12px;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 33%;bottom: -78%;}
 }
 @media (min-width:0px) and (max-width:320px) { 
