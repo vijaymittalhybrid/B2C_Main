@@ -12,17 +12,23 @@
         endedAppList:[],
         savedAppList:[],
         loanApaList:[],
+        postAppTab:true,
+        endedAppTab:false,
+        savedAppTab:false,
+        loanApaTab:false,
         
         show:function()
         {
-            $("#tabstrip").kendoTabStrip({
+
+          /*  $("#tabstrip").kendoTabStrip({
                         animation:  {
                             open: {
+                                duration:10,
                                 effects: "fadeIn"
                             }
                         }
                     });
-            
+            */
         
             app.loginService.viewModel.showloder();  
             var dataSource = new kendo.data.DataSource({
@@ -91,6 +97,38 @@
                 }
         	});   
           
+        },
+        postAppClick:function()
+        {
+            var that=this;
+            that.set('postAppTab',true);
+            that.set('endedAppTab',false);
+            that.set('savedAppTab',false);
+            that.set('loanApaTab',false);
+        },
+        endedAppClick:function()
+        {
+            var that=this;
+            that.set('postAppTab',false);
+            that.set('endedAppTab',true);
+            that.set('savedAppTab',false);
+            that.set('loanApaTab',false);
+        },
+        savedAppClick:function()
+        {
+            var that=this;
+            that.set('postAppTab',false);
+            that.set('endedAppTab',false);
+            that.set('savedAppTab',true);
+            that.set('loanApaTab',false);
+        },
+        loanApaClick:function()
+        {
+            var that=this;
+            that.set('postAppTab',false);
+            that.set('endedAppTab',false);
+            that.set('savedAppTab',false);
+            that.set('loanApaTab',ture);
         },
         
     });
