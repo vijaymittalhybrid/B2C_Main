@@ -98,37 +98,45 @@
         	});   
           
         },
-        postAppClick:function()
+        postAppClick:function(e)
         {
             var that=this;
+            $('#tabstrip ul li').removeClass('k-state-active');
+            $('#tabstrip ul li.postd_icn').addClass('k-state-active');
             that.set('postAppTab',true);
             that.set('endedAppTab',false);
             that.set('savedAppTab',false);
             that.set('loanApaTab',false);
         },
-        endedAppClick:function()
+        endedAppClick:function(e)
         {
             var that=this;
+             $('#tabstrip ul li').removeClass('k-state-active');
+            $('#tabstrip ul li.end_icon').addClass('k-state-active');
             that.set('postAppTab',false);
             that.set('endedAppTab',true);
             that.set('savedAppTab',false);
             that.set('loanApaTab',false);
         },
-        savedAppClick:function()
+        savedAppClick:function(e)
         {
             var that=this;
+             $('#tabstrip ul li').removeClass('k-state-active');
+            $('#tabstrip ul li.sevd_icon').addClass('k-state-active');
             that.set('postAppTab',false);
             that.set('endedAppTab',false);
             that.set('savedAppTab',true);
             that.set('loanApaTab',false);
         },
-        loanApaClick:function()
+        loanApaClick:function(e)
         {
             var that=this;
+             $('#tabstrip ul li').removeClass('k-state-active');
+            $('#tabstrip ul li.lon_icon').addClass('k-state-active');
             that.set('postAppTab',false);
             that.set('endedAppTab',false);
             that.set('savedAppTab',false);
-            that.set('loanApaTab',ture);
+            that.set('loanApaTab',true);
         },
         
     });
