@@ -86,6 +86,7 @@ html body .backButton{ height:75px;background-size: 19% !important;}
 #tabstrip-manage-app #tabstrip .tabOne {margin:6.6% 0 0;}
 .tabOne .head span:last-child {width:8%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child{width:90%;}
+#tabstrip-manage-app #tabstrip ul li a span {line-height:37px; margin:16% 0 0 10%;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -153,6 +154,7 @@ html body .backButton{ height:75px;background-size: 19% !important;}
 .tabOne .head span:last-child { width:10%;}
 #tabstrip-manage-app #tabstrip ul li.k-state-active .actArw { bottom:-103%;left: 45%;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 8.5% 0 0;}
+#tabstrip-manage-app #tabstrip ul li a span {line-height:35px;margin:18% 0 0 10%;}
 }
 @media screen and (max-width: 960px){
 .tp-menu{ display:none}
@@ -196,6 +198,7 @@ background-position:center 10px ; text-align:center; width:22.5%; margin-right:2
 .rw_lin.cngopt { padding-bottom:15px!important;}
 .rw_lin.cngopt > p { width:38% !important; float:left!important;}
 #aplicn_frm .rws p.imp40 {width: 35%!important;padding-right: 3%;float: left!important;}
+    
 }
 @media (min-width:0px) and (max-width:800px) {
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {}
@@ -258,6 +261,9 @@ html body .backButton {height: 62px;background-size: 24% !important;}
 #tabstrip-manage-app #tabstrip ul li a{font-size:17px;}#tabstrip-manage-app #tabstrip ul li.k-state-active .actArw {bottom: -84%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child{width:86%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span{width:14%;}
+#tabstrip-manage-app #tabstrip ul li a{ padding:45px 0 0px 0%; text-align:center;font-size: 17px;}
+#tabstrip-manage-app #tabstrip ul li a span {margin:9% 0 0 40%; line-height:37px;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -478,8 +484,9 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child{width: 14%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li a, #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span { font-size:14px;}
 #tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px;}
-#tabstrip-manage-app #tabstrip ul li a{ padding: 38px 0 0px 0%; text-align:center;font-size: 17px;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li a{text-align:left;}
+#tabstrip-manage-app #tabstrip ul li a span{ height:32px; width:32px; line-height:26px; font-size:15px;margin: 18% 0 0 40%;}
+#tabstrip-manage-app #tabstrip ul li a {padding: 38px 0 0px 0%;}
 }
 @media (min-width:0px) and (max-width:599px) {
 .docs-header .km-widget .docs-search { width:8%; margin:0;}
@@ -677,6 +684,11 @@ html body .backButton {background-size:37% !important;height: 50px;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 13.2% 0 0;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child, .tabOne .head span:first-child {width: 80%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child {width:20%;}
+#tabstrip-manage-app #tabstrip ul li a span {margin: 39% 0 0 35%;}
+#tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 9%;}
+#tabstrip-manage-app #tabstrip div:nth-child(3) .tabOne .actArw {margin: 0 0 0 35%;}
+#tabstrip-manage-app #tabstrip div:nth-child(4) .tabOne .actArw {margin: 0 0 0 59%;}
+#tabstrip-manage-app #tabstrip div .tabOne .actArw {margin: 0 0 0 84%;}
 }
 @media (min-width:0px) and (max-width:370px) {
 .logo { margin:6% auto;}

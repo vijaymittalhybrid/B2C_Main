@@ -57,6 +57,8 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 #dbaname.IN1.ipsm3 {width: 241px;}
 .rwfil.aut > p > select.IN1b.ipsm3 { width:200px!important;}
 #tabstrip-manage-app .docs-popup, .docs-header .km-widget .docs-popup, #tabstrip-loanapp-bi .popup{width:75px; height:75px;}
+html body .backButton {background-size: 20% !important;height: 75px;}
+#tabstrip-manage-app #tabstrip .tabOne {margin: 5% 0 0;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -168,6 +170,8 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3, input.IN1.ac_input.valid + 
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.end_icon{ background-size:13%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon{ background-size:11%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon{ background-size:14%;}
+#tabstrip-manage-app #tabstrip ul li a{ text-align:center; padding:35px 0 0;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px; background-size:16%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
