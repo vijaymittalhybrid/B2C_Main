@@ -336,7 +336,7 @@
             
             if(e.target.dataset.mode ==='edit')
             {
-                
+                localStorage.setItem("fid",e.target.dataset.fid);
                 sessionStorage.setItem("LoanAppBIEditMode",'1');
                 apps.navigate("views/loanAppBI.html?param=editMode");
                 

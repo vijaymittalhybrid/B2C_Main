@@ -63,6 +63,7 @@
                 }    
 
             });
+            app.loanApp.viewModel.postAppClick();
        },
         applyFreshLoan:function(e)
         {

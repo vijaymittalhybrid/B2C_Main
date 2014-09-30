@@ -687,6 +687,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .docs-header .km-widget .docs-back { width:18%;}
 .docs-header .km-widget .docs-docu { padding:3px 0 0; width:44%;}
 .docs-header .km-widget .docs-search { width:12%;background-position: center 7px; margin:0;}
+
 .docs-header .km-widget .refresh-com { width:14%;background-position: center 9px; background-size:77%;}
 .docs-header .km-widget .refresh-loading { width:15%;}
 #blackBlk .desbrdIcon {padding:3%;display: block;}
