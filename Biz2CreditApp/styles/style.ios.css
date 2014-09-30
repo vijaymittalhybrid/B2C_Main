@@ -171,7 +171,10 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3, input.IN1.ac_input.valid + 
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.sevd_icon{ background-size:11%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.lon_icon{ background-size:14%;}
 #tabstrip-manage-app #tabstrip ul li a{ text-align:center; padding:35px 0 0;}
-#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px; background-size:16%;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px; background-size:10%;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn{ background-size:15%;}
+#tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon{ background-size:13%;}
+#tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon { background-size:12%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
