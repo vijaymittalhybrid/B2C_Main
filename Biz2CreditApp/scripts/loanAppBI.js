@@ -493,9 +493,7 @@
         }); 
             
         if(e.view.params.param ==='editMode' && sessionStorage.getItem("LoanAppBIEditMode")==='1')
-        {
-            console.log('BIEditMOde');
-           
+        {   
             app.loginService.viewModel.showloder();
             var dataS = new kendo.data.DataSource({
                 transport: {
@@ -547,22 +545,22 @@
             displayorgCategoryEdit(data['findetails']['loanParentIndustry'],data['findetails']['loanIndustry']);
             that.set("sub_industry",data['findetails']['loanIndustry']);
             
-            if(data['findetails']['dbs_month'] === '' || data['findetails']['dbs_year'] === '' || data['findetails']['revenue'] === '' || data['findetails']['operatingexp'] === '')
+            if(data['findetails']['dbs_month'] === null || data['findetails']['dbs_year'] === null || data['findetails']['revenue'] === null || data['findetails']['operatingexp'] === null)
             {
-                $("#yettostart").attr("checked",true);
+                $("#yettostart").prop("checked",true);
                 that.set("select_buss_s_m","");
                 that.set("select_buss_s_y","");
                 that.set("average_annual_revenue","");
                 that.set("buss_operating_expenses","");
                 
-                $('#dbs_month').attr("disabled","disabled");
-                $('#dbs_year').attr("disabled","disabled");
-                $('#revenue').attr("disabled","disabled");
-                $('#operatingexp').attr("disabled","disabled");
+                $('#dbs_month').prop("disabled","disabled");
+                $('#dbs_year').prop("disabled","disabled");
+                $('#revenue').prop("disabled","disabled");
+                $('#operatingexp').prop("disabled","disabled");
             }
             else
             {
-                $("#yettostart").attr("checked",false);
+                $("#yettostart").prop("checked",false);
                 that.set("select_buss_s_m",data['findetails']['dbs_month']);
                 that.set("select_buss_s_y",data['findetails']['dbs_year']);
                 that.set("average_annual_revenue",data['findetails']['revenue']);
