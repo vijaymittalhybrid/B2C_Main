@@ -496,7 +496,7 @@
         {
             console.log('BIEditMOde');
            
-           // app.loginService.viewModel.showloder();
+            app.loginService.viewModel.showloder();
             var dataS = new kendo.data.DataSource({
                 transport: {
                 read: {
@@ -515,12 +515,9 @@
             });
             dataS.fetch(function(){
 
-                EditFormData = this.data();
-                console.log(EditFormData['0']['results']);
-                
-                var manageData = EditFormData['0']['results'];
+                EditFormData = this.data();  
+                manageData = EditFormData['0']['results'];
                 app.loansetting.viewModel.setBIeditForm(manageData);
-                
                 sessionStorage.setItem("LoanAppBIEditMode",'1');
                 sessionStorage.setItem("LoanAppCIEditMode",'1');
                 sessionStorage.setItem("LoanAppPIEditMode",'1');
@@ -591,7 +588,6 @@
                 $('#credit_show').show();
                 $('.mercPr').show();
                 var d = data['findetails']['cc_firstprocess_date'].split('-');
-                console.log(d);
                 $('.crditaccep:radio[value="'+acceptcard+'"]').prop("checked",true);
                 that.set("datefirstProcessed_month",Number(d[1]));
                 that.set("datefirstProcessed_day",d[2]);
@@ -662,15 +658,14 @@
             if($('.outDebt:radio[value="'+data['findetails']['debttype']+'"]').val() === 'Yes')
             {   
                 var index;
-                
                 $('.outDebt:radio[value="'+data['findetails']['debttype']+'"]').prop("checked",true);
-                
                 var totalDiv = data['findetails']['finloan_details'].length;
                 for(index=1;index<=totalDiv;index++)
                 { 
+                    $('#outsta_debt').show();
                     $("#add-form").trigger('click');
-                    var debtTypeval = data['findetails']['finloan_details'][index]['debttype'];
-                    var yeardisbursedval =  data['findetails']['finloan_details'][index]['yeardisbursed'];
+                    var debtTypeval = data['findetails']['finloan_details'][index-1]['debttype'];
+                    var yeardisbursedval =  data['findetails']['finloan_details'][index-1]['yeardisbursed'];
                     var debtTypeText = $("#debttype"+index+" option[value='"+debtTypeval+"']").val();
                     
                     $("#debttype"+index+" option[value='"+debtTypeval+"']").prop("selected",true);
@@ -679,20 +674,20 @@
                     $("#yeardisbursed"+index+" option[value='"+yeardisbursedval+"']").prop("selected",true);  
                     
                     
-                    var txtOutCreditVal = data['findetails']['finloan_details'][index]['outstanding'];
-                    var txtInterestCreditVal = data['findetails']['finloan_details'][index]['interestrate'];
-                    var txtPerYearCreditVal =data['findetails']['finloan_details'][index]['interesttime'];
-                    var tpcompanyVal = data['findetails']['finloan_details'][index]['tpcompany'];
-                    var ocadvanceVal = data['findetails']['finloan_details'][index]['funded_amt'];
-                    var funded_termVal = data['findetails']['finloan_details'][index]['term'];
-                    var collateraltypeVal = data['findetails']['finloan_details'][index]['collateral'];  
-                    var txtOutAmountTermVal =data['findetails']['finloan_details'][index]['outstandingamount'];
-                    var txtInterestTermVal = data['findetails']['finloan_details'][index]['termintrate'];
-                    var txtPaymentModeTermVal = data['findetails']['finloan_details'][index]['termpaymentmode'];
-                    var txtTermVal =data['findetails']['finloan_details'][index]['term'];
-                    var txtFrequncyTermVal = data['findetails']['finloan_details'][index]['frequency'];
-                    var txtAmountTermVal = data['findetails']['finloan_details'][index]['principleamount'];
-                    var txtYearTermVal = data['findetails']['finloan_details'][index]['terminttime'];
+                    var txtOutCreditVal = Number(data['findetails']['finloan_details'][index-1]['outstanding']);
+                    var txtInterestCreditVal = Number(data['findetails']['finloan_details'][index-1]['interestrate']);
+                    var txtPerYearCreditVal =data['findetails']['finloan_details'][index-1]['interesttime'];
+                    var tpcompanyVal = data['findetails']['finloan_details'][index-1]['tpcompany'];
+                    var ocadvanceVal = Number(data['findetails']['finloan_details'][index-1]['funded_amt']);
+                    var funded_termVal = Number(data['findetails']['finloan_details'][index-1]['term']);
+                    var collateraltypeVal = data['findetails']['finloan_details'][index-1]['collateral'];  
+                    var txtOutAmountTermVal =Number(data['findetails']['finloan_details'][index-1]['outstandingamount']);
+                    var txtInterestTermVal = Number(data['findetails']['finloan_details'][index-1]['termintrate']);
+                    var txtPaymentModeTermVal = data['findetails']['finloan_details'][index-1]['termpaymentmode'];
+                    //var txtTermVal =data['findetails']['finloan_details'][index-1]['term'];
+                    var txtFrequncyTermVal = data['findetails']['finloan_details'][index-1]['frequency'];
+                    var txtAmountTermVal = Number(data['findetails']['finloan_details'][index-1]['principleamount']);
+                    var txtYearTermVal = data['findetails']['finloan_details'][index-1]['terminttime'];
                     
                     viewFModel.set("yeardisbursed"+index,yeardisbursedval);
                     if(debtTypeText === "Business Credit Card")
@@ -723,13 +718,13 @@
                         viewFModel.set("txtOutAmountTerm"+index,txtOutAmountTermVal);
                         viewFModel.set("txtInterestTerm"+index,txtInterestTermVal);
                         viewFModel.set("txtPaymentModeTerm"+index,txtPaymentModeTermVal);
-                        viewFModel.set("txtTerm"+index,txtTermVal);
+                        viewFModel.set("txtTerm"+index,funded_termVal);
                         viewFModel.set("txtFrequncyTerm"+index,txtFrequncyTermVal);
                         viewFModel.set("txtAmountTerm"+index,txtAmountTermVal);
                         viewFModel.set("txtYearTerm"+index,txtYearTermVal);
                     }
                 }
-                $('#outsta_debt').show();
+                
             }
             else
             {
@@ -751,7 +746,7 @@
                 }
                     
 
-            }); 
+            });
  
         },
         getForm:function(index, action) {
@@ -1330,13 +1325,13 @@
                 acceptCardYES	  					  = that.get("acceptcard_yes"),
                 dataParam['acceptcard']				  = acceptCardYES;
 
-                DFProcessed_Month  		 			 = that.get("datefirstProcessed_month").trim(),
+                DFProcessed_Month  		 			 = that.get("datefirstProcessed_month"),
                 dataParam['datefirstProcessed_month']	= DFProcessed_Month;
 
-                DFProcessed_Day    					  = that.get("datefirstProcessed_day").trim(),
+                DFProcessed_Day    					  = that.get("datefirstProcessed_day"),
                 dataParam['datefirstProcessed_day']	  = DFProcessed_Day;
 
-                DFProcessed_Year   		 			 = that.get("datefirstProcessed_year").trim(),
+                DFProcessed_Year   		 			 = that.get("datefirstProcessed_year"),
                 dataParam['datefirstProcessed_year']	 = DFProcessed_Year;
 
                 Cur_city_card_pro  					  = that.get("c_c_card_processor").trim(),

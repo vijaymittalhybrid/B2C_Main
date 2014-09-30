@@ -103,16 +103,18 @@
             if(sessionStorage.getItem("LoanAppFPEditMode") ==='1')
             {
                 sessionStorage.setItem("LoanAppFPEditMode",'0');
-                app.loanFP.viewModel.setFPeditForm();
+               // app.loanFP.viewModel.setFPeditForm();
             }      
         },
         
        setFPeditForm:function(){
             var that=this;
-            that.set("funding_priority",EditFormData[0]['priority1']);
-            that.set("min_loan_amount",EditFormData[0]['ammount']);
-            that.set("max_loan_amount",EditFormData[0]['txtmaxammount']);
-            $.each(EditFormData[0]['chkuseplan[]'],function(index,value){
+            var data =manageData;
+            that.set("funding_priority",data['findetails']['priority1']);
+            that.set("min_loan_amount",data['findetails']['ammount']);
+            that.set("max_loan_amount",data['findetails']['txtmaxammount']);
+            var planChk = data['findetails']['plansids'];
+            $.each(planChk,function(index,value){
                 if($.isNumeric(index))
                 {
                     $(".useplan:checkbox[value="+value+"]").prop("checked",true);
@@ -182,8 +184,8 @@
                 app.loginService.viewModel.hideloder();
                 if(data[0]['results']['faultcode'] === 1 || data[0]['results']['faultcode'] === "1")
                 {
-                    $msg= "Finacial Preference submitted successfully";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                   // $msg= "Finacial Preference submitted successfully";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
                     
                     app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                     app.homesetting.viewModel.homeShow(); 
