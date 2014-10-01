@@ -127,46 +127,58 @@
         },
         setPIeditForm:function(){
             var that = this;
-            var totownerDiv = EditFormData['0']['totownerDiv'];
-           
-            that.set("avg_month_income",EditFormData['0']['per_income']);
-            that.set("avg_month_expense",EditFormData['0']['per_ome']);
-            for(var index=0;index<=totownerDiv;index++)
-            { 
-                if(EditFormData[0]["check_credit_score"+index] ==='Y')
+            var data =manageData;
+            var totownerDiv = data['findetails']['owner_details'].length;
+
+            that.set("avg_month_income",(Number(data['findetails']['per_income'])!== 0) ? Number(data['findetails']['per_income']) : "");
+            that.set("avg_month_expense",(Number(data['findetails']['per_ome'])!== 0) ? Number(data['findetails']['per_ome']) : "");
+            for(var index=0;index<totownerDiv;index++)
+            {
+                
+                if(data['findetails']['owner_details'][index]["check_credit_score"]!=='')
                 {
-                   viewCModel.set("check_credit_score"+index,'SiteYes'); 
-                   $(".crYes"+index+":radio[value='N']").prop("checked",true);
-                }
-                else
-                {
-                   
-                    if(EditFormData[0]['check_credit_score'+index]=== 'N' && EditFormData[0]['credittype'+index]===600 || EditFormData[0]['credittype'+index]==='600')
-                    {  
-                        viewCModel.set("check_credit_score"+index,(EditFormData['0']['check_credit_score'+index]!== 'undefined') ? EditFormData['0']['check_credit_score'+index] : "");
-                        $(".crYes"+index+":radio[value='N']").prop("checked",true);
-                        
+                    
+                    if(data['findetails']['owner_details'][index]["check_credit_score"] ==='Y')
+                    {
+                       viewCModel.set("check_credit_score"+index,'SiteYes'); 
+                       $(".crYes"+index+":radio[value='N']").prop("checked",true);
                     }
                     else
                     {
-                        viewCModel.set("check_credit_score"+index,'Y');
-                        $(".crYes"+index+":radio[value='Y']").prop("checked",true);
-                        $('#crdscorerYes'+index).show();
-                        $("#credittype"+index+" option[value='"+EditFormData['0']['credittype'+index]+"']").prop("selected",true);
-                        viewCModel.set("credittype"+index,EditFormData['0']['credittype'+index]);
-                        if(EditFormData['0']['credittype'+index] <659) {
+                        if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600')
+                        {  
+                            viewCModel.set("check_credit_score"+index,'N');
+                            $('#crdscorerYes'+index).show();
                             $("#ifless"+index).show();
-                            $('#ifless'+index).removeClass('ifless');
-                            $.each(EditFormData['0']['chk_reason'+index], function( key, value ) {
-                                $(".chkreason"+index+":checkbox[value='"+value+"']").prop("checked",true);
-                            });
-
-                        } else {
-                            $("#ifless"+index).hide();
-                            $('#ifless'+index).addClass('ifless');
+                            viewCModel.set("credittype"+index,(data['findetails']['owner_details'][index]["credittype"]!== '0') ? data['findetails']['owner_details'][index]["credittype"] : "");
+                            $(".crYes"+index+":radio[value='Y']").prop("checked",true);
+                            $(".chkreason"+index+":checkbox[value='15']").prop("checked",true);
+                            
                         }
+                        else
+                        {
+                            viewCModel.set("check_credit_score"+index,'Y');
+                            $(".crYes"+index+":radio[value='Y']").prop("checked",true);
+                            $('#crdscorerYes'+index).show();
+                            var crtype = (data['findetails']['owner_details'][index]["credittype"]!== '0') ? data['findetails']['owner_details'][index]["credittype"] : "";
+                            $("#credittype"+index+" option[value='"+crtype+"']").prop("selected",true);
+                            viewCModel.set("credittype"+index,data['findetails']['owner_details'][index]["credittype"]);
+                            if(data['findetails']['owner_details'][index]["credittype"] <659) {
+                                $("#ifless"+index).show();
+                                $('#ifless'+index).removeClass('ifless');
+                                var reasons = data['findetails']['owner_details'][index]["low_rpt_reason"].split(",");
+                                $.each(reasons, function( key, value ) {
+                                    $(".chkreason"+index+":checkbox[value='"+value+"']").prop("checked",true);
+                                });
 
+                            } else {
+                                $("#ifless"+index).hide();
+                                $('#ifless'+index).addClass('ifless');
+                            }
+
+                        }
                     }
+                 
                 }
                 
             }
@@ -385,7 +397,7 @@
                         {
                             dataParam['check_credit_score'+c] = 'Y';
                             dataParam['chk_reason'+c] ="";
-                            dataParam['credittype'+c] = "";
+                            dataParam['credittype'+c] = 600;
                         }
                         else
                         {
@@ -439,8 +451,8 @@
                 {
                     if(dataParam['personal_act'] === "Next")
                     {
-                        $msg= "Personal Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Personal Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                         apps.navigate('views/loanAppFP.html');

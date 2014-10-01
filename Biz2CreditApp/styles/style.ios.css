@@ -60,6 +60,7 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 html body .backButton {background-size: 20% !important;height: 75px;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 5% 0 0;}
 .tabOne .head span:last-child{ width:9%;}
+#tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 11%;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -267,6 +268,10 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li a span{left:38%;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 41%;bottom: -71%;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabui li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabui li span{font-size:14px;}
+#tabstrip-manage-app #tabstrip ul li a span {margin: 13% 0 0 40%;}
+#tabstrip-manage-app #tabstrip ul li:last-child a span {margin-top: 1%;}
+#tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 10%;}
+html body .backButton {background-size: 20% !important;height: 55px;}
 }
 @media (min-width:0px) and (max-width:580px) { 
 .logLogo {margin:1% auto;background-size: 50%; height:60px;}
@@ -449,6 +454,21 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabui li{ padding:15px;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabui li span:first-child, #tabstrip-manage-app #tabstrip .k-content ul.tabui li span{font-size:12px;}
 #tabstrip-manage-app #tabstrip ul.k-tabstrip-items li.k-state-active .actArw {left: 33%;bottom: -78%;}
+#tabstrip-manage-app #tabstrip ul li a span {margin:37% 0 0 31%;}
+#tabstrip-manage-app #tabstrip ul li a {text-align: center;padding: 26px 0 0; font-size:12px;}
+#tabstrip-manage-app #tabstrip .tabOne {margin: 9% 0 0;}
+#tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 8%; overflow:hidden; height:9px;}
+#tabstrip-manage-app #tabstrip div:nth-child(3) .tabOne .actArw {margin: 0 0 0 33%; overflow:hidden; height:9px;}
+#tabstrip-manage-app #tabstrip div:nth-child(4) .tabOne .actArw {margin: 0 0 0 58%; overflow:hidden; height:9px;}
+#tabstrip-manage-app #tabstrip div .tabOne .actArw {margin: 0 0 0 83%; overflow:hidden;height: 9px;}
+#tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-size: 18%;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 5px;background-size: 17%;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn {background-size: 23%;}
+#tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-size: 22%;}
+#tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child {width: 26%;font-size: 13px;}
+#tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child, .tabOne .head span:first-child {width: 73%;font-size: 12px;}
+#tabstrip-manage-app #tabstrip ul li a, #tabstrip-manage-app #tabstrip .tabOne ul.tabui li a{font-size: 13px;}
+html body .backButton {background-size: 38% !important;}
 }
 @media (min-width:0px) and (max-width:320px) { 
 #blackBlk .desbrdIcon .dasimg {width:19%;}
