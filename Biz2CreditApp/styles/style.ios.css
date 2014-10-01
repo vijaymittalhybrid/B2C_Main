@@ -59,6 +59,7 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3{width: 239px!important;}
 #tabstrip-manage-app .docs-popup, .docs-header .km-widget .docs-popup, #tabstrip-loanapp-bi .popup{width:75px; height:75px;}
 html body .backButton {background-size: 20% !important;height: 75px;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 5% 0 0;}
+.tabOne .head span:last-child{ width:9%;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -175,6 +176,11 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3, input.IN1.ac_input.valid + 
 #tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn{ background-size:15%;}
 #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon{ background-size:13%;}
 #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon { background-size:12%;}
+#tabstrip-manage-app #tabstrip ul li a span {margin: 11% 0 0 40%;}
+#tabstrip-manage-app #tabstrip ul li:last-child a span {margin-top: 0%;}
+#tabstrip-manage-app #tabstrip .tabOne ul.tabui li span {width:12%;}
+#tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child{ width:87%;}
+.tabOne .head span:last-child {width: 12%;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -216,6 +222,16 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #aplicn_tp ul.app_nav li.dn {font-weight:bold;}
 #aplicn_frm .IN1.ipsm13, #aplicn_frm .IN1.ipsm3{width:100%;}
 .IN1.ac_input.error + label.error{ position:static; top:0; left:0px;}
+#tabstrip-manage-app #tabstrip .tabOne ul.tabui li, .tabOne .head { padding:15px;}
+#tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child {width: 16%; font-size:15px;}
+.tabOne .head span:last-child, .tabOne .head span:first-child { font-size:16px;}
+#tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child, .tabOne .head span:first-child {width: 84%;font-size:15px;}
+#tabstrip-manage-app #tabstrip ul li a, #tabstrip-manage-app #tabstrip .tabOne ul.tabui li a {font-size:15px;}
+#tabstrip-manage-app #tabstrip ul li a{height:85px;}
+#tabstrip-manage-app #tabstrip ul li a span{height: 30px;width: 30px;line-height: 26px;font-size: 14px;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px; background-size:12%;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn{ background-size:17%;}
+#tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon { background-size:15%;}
 }
 @media (min-width:0px) and (max-width:600px) { 
 #tabstrip-files-events.modal-mess-Popup {height:50%;}
