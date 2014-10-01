@@ -1590,9 +1590,9 @@
                     }
                     else
                     {
-                        $msg= "Business Information submitted successfully";
+                       // $msg= "Business Information submitted successfully";
                         localStorage.setItem("fid",data[0]['results']['fid']);
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
                     }
