@@ -21,27 +21,29 @@
                     <a harf="#">
                         Posted <span data-bind="text: postApp"></span>
                     </a>
+                    <div class="actArw">Arrow</div>
                 </li>
                 <li class="end_icon" data-bind="click: endedAppClick">
                     <a harf="#">
                         Ended <span data-bind="text: endedApp"></span>
                     </a>
-                    
+                    <div class="actArw">Arrow</div>
                 </li>
                 <li class="sevd_icon" data-bind="click: savedAppClick">
                     <a harf="#">
                         Saved <span data-bind="text: savedApp"></span>
                     </a>
+                    <div class="actArw">Arrow</div>
                 </li>
                 <li class="lon_icon" data-bind="click: loanApaClick">
                     <a harf="#">
                         Loan against Personal Assets <span data-bind="text: loanApa"></span>
                     </a>
+                    <div class="actArw">Arrow</div>
                 </li>
             </ul>
             <div>
                 <div class="tabOne" data-bind="visible: postAppTab">
-                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
                     <div class="head clearfix">
                         <span data-bind="visible: postApp">Application #</span><span data-bind="visible: postApp">Date</span>
                     </div>
@@ -50,32 +52,26 @@
             </div>
             <div>
                 <div class="tabOne" data-bind="visible: endedAppTab">
-                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
                     <div class="head clearfix">
                         <span data-bind="visible: endedApp">Application #</span><span data-bind="visible: endedApp">Date</span>
                     </div>
                     <ul class="tabui" data-bind="source: endedAppList" data-template="endedAppList-template"></ul>
-                    
                 </div>
             </div>
             <div>
                 <div class="tabOne" data-bind="visible:savedAppTab">
-                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
                     <div class="head clearfix">
                         <span data-bind="visible: savedApp">Application #</span><span data-bind="visible: savedApp">Date</span>
                     </div>
                     <ul class="tabui" data-bind="source: savedAppList" data-template="savedAppList-template"></ul>
-                    
                 </div>
             </div>
             <div>
                 <div class="tabOne" data-bind="visible:loanApaTab">
-                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
                     <div class="head clearfix">
                         <span data-bind="visible: loanApa">Application #</span><span data-bind="visible: loanApa">Date</span>
                     </div>
                     <ul class="tabui" data-bind="source: loanApaList" data-template="loanApaList-template"></ul>
-                    
                 </div>
             </div>
         </div>
