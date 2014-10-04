@@ -139,6 +139,10 @@
             that.set('savedAppTab',false);
             that.set('loanApaTab',true);
         },
+        refreshViewLoan:function()
+        {
+            app.loanApp.viewModel.show();
+        }
         
     });
    
