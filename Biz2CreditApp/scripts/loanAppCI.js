@@ -1137,7 +1137,8 @@
         	that.set("isCheckScore0","");
             that.set("totownerDiv",oindex);
             $('#own_city').html('<option value="" selected="selected">Select State</option>');
-            viewCModel = kendo.observable(); 
+            viewCModel = kendo.observable();
+            $('#add-ownerForm').show();
         }
   
         
