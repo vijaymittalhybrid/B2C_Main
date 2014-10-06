@@ -696,11 +696,12 @@ html body .backButton {background-size:37% !important;height: 50px;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 13.2% 0 0;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child, .tabOne .head span:first-child {width: 80%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child {width:20%;}
-#tabstrip-manage-app #tabstrip ul li a span {margin: 39% 0 0 35%;}
+#tabstrip-manage-app #tabstrip ul li a span {margin:10% 0 0 35%;}
 #tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 9%;}
 #tabstrip-manage-app #tabstrip div:nth-child(3) .tabOne .actArw {margin: 0 0 0 35%;}
 #tabstrip-manage-app #tabstrip div:nth-child(4) .tabOne .actArw {margin: 0 0 0 59%;}
 #tabstrip-manage-app #tabstrip div .tabOne .actArw {margin: 0 0 0 84%;}
+#tabstrip-manage-app #tabstrip ul li a {padding: 35px 0 0px 0%; height:75px;}
 }
 @media (min-width:0px) and (max-width:370px) {
 .logo { margin:6% auto;}
@@ -789,10 +790,10 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 15% 0 0;}
 #tabstrip-manage-app #tabstrip ul li.k-state-active .actArw{bottom: -70%;left: 32%;background-size: 70%;background-position: center top;}
 #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon{background-size: 25%;}
-#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn{ background-size:28%;}
+#tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn{ background-size:25%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child{width: 26%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child, .tabOne .head span:first-child { color:#333;width: 73%;font-size: 13px;}
-
+#tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon{ background-size:20%;}
 }
 @media (min-width:0px) and (max-width:320px) {
 #blackBlk .desbrdIcon .dasimg {width:19%;}
