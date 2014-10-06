@@ -789,7 +789,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-manage-app #tabstrip ul li a span{bottom: -15px;left: 34%;line-height: 26px;font-size: 13px;height: 30px;width: 30px;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 15% 0 0;}
 #tabstrip-manage-app #tabstrip ul li.k-state-active .actArw{bottom: -70%;left: 32%;background-size: 70%;background-position: center top;}
-#tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon{background-size: 25%;}
+#tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon{background-size:17%;}
 #tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn{ background-size:25%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child{width: 26%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child, .tabOne .head span:first-child { color:#333;width: 73%;font-size: 13px;}
