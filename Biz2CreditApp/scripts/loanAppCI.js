@@ -26,6 +26,7 @@
         isCheckScore0:'',
         creditScore0:'',
         reasonlscore0:'',
+        primaryOwner:'',
         show:function(e) {
             e.sender.reload=false;
             e.view.reload=false;
@@ -665,7 +666,7 @@
             str += "<input type='hidden'  name='reasonlscore"+NumOfDiv+"' id='reasonlscore"+NumOfDiv+"'  value='' />";
             str += '</p></div>';
             str += '<div class="rws rw1 clearfix"><div class="lftit">Email</div>';
-            str += "<p><input type='text' class='IN1' name='email"+NumOfDiv+"' id='email"+NumOfDiv+"' data-bind='value:email"+NumOfDiv+"' original-title='Email Address' placeholder='Email Address' value='' /></p>";
+            str += "<p><input type='text' class='IN1'  onblur='javascript:ownerpValidate();' name='email"+NumOfDiv+"' id='email"+NumOfDiv+"' data-bind='value:email"+NumOfDiv+"' original-title='Email Address' placeholder='Email Address' value='' /></p>";
             str += "<p><select class='IN1' name='OwnJobTitle"+NumOfDiv+"' id='OwnJobTitle"+NumOfDiv+"' data-bind='value:OwnJobTitle"+NumOfDiv+"' original-title='Job Title'>";
             str += '<option value="">Select Job Title</option>';
 
@@ -908,7 +909,11 @@
             aredyownerdeleteIds = that.get("aredyownerdeleteIds");
             deldbownerids = that.get("deldbownerids");
             own_id0 = that.get("own_id0");
-            
+            primaryOwner = that.get("primaryOwner");
+            if(primaryOwner !== '')
+            {
+              dataParam['primaryOwner'] = primaryOwner;
+            }
             
             dataParam['cust_id'] = localStorage.getItem("userID");
             dataParam['fid'] = localStorage.getItem("fid");
@@ -1119,6 +1124,7 @@
         	that.set("owner_day","");
         	that.set("owner_year","");
         	that.set("own_percent","");
+            that.set("primaryOwner","");
         	that.set("ownercurrntControl",0);
             oindex = that.get("totownerDiv");
             for(oindex; oindex>0 ; oindex--){

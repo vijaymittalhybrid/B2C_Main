@@ -162,5 +162,21 @@ $(document).ready(function(){
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">02PM - 04PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">04PM - 06PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">06PM - 08PM</li>');
-    
+    Array.prototype.contains = function(v) {
+        for(var i = 0; i < this.length; i++) {
+            if(this[i] === v) return true;
+        }
+        return false;
+    };
+
+    Array.prototype.unique = function() {
+        var arr = [];
+        for(var i = 0; i < this.length; i++) {
+            if(!arr.contains(this[i])) {
+                arr.push(this[i]);
+            }
+        }
+        return arr; 
+    }
+
 });

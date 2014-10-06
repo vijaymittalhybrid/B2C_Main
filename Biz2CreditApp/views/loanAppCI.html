@@ -58,7 +58,7 @@
                             <div class="rws rw1 clearfix">
                                 <div class="lftit">Email </div>
                                 <p>
-                                    <input type="text" data-bind="value:Owner_email" placeholder="Email Address" id="email" name="email" class="IN1" original-title="Email Address">
+                                    <input type="text"  onblur="javascript:ownerpValidate();" data-bind="value:Owner_email" placeholder="Email Address" id="email" name="email" class="IN1" original-title="Email Address">
                                 </p>
                                 <p>
                                     <select class="IN1" name="OwnJobTitle" id="OwnJobTitle" data-bind="value:Owner_JobTitle" original-title="Job Title" required>
@@ -433,7 +433,14 @@
                         </div>
 
                        <div class="rw_lin clearfix"> <a id="add-ownerForm" class="add_oth" href="javascript:;">Add Another Owner</a> </div>
-
+                        <div class="rw_lin rws addons clearfix" id="secmbowners" style="display:none">
+                            <div class="lftit">Select Primary Owner</div>
+                            <p class="imp40">            
+                                <select name="cmbowners" id="cmbowners" class="IN1 valid" original-title="Select Primary Owner" data-bind="value:primaryOwner">
+                                    <option value="">Select Primary Owner</option>
+                                </select>                   
+                            </p>  
+                        </div>
                     </div>
                 </article>
 
@@ -565,27 +572,65 @@
         });
     }
     function ownerpValidate(){
-       var totaldivs = parseInt($('#totownerDiv').val());
-       var total_per = 0; 
-           for(var c=0; c<=totaldivs; c++){ 
-               if(c===0) {
-                   var index='';
-               } 
-               else {
-                   var index = c;
-               }            
-                if($("#own_percent"+index).length) {
-                	if(parseInt($('#own_percent'+index).val()) >0) {
-                        console.log('index'+index);
-                		total_per = total_per + (parseInt($('#own_percent'+index).val()));
-                	}                                         
-               }
+        var totaldivs = parseInt($('#totownerDiv').val());
+        var ownpers = new Array();   
+        var emails = new Array(); 
+        var sownp = 0;
+        var strownp = '';
+        var stremails = '';
+        var total_per = 0; 
+        for(var c=0; c<=totaldivs; c++){ 
+            if(c===0) {
+                var index='';
+            } 
+            else {
+                var index = c;
+            }            
+            if($("#own_percent"+index).length) {
+                if($("#own_percent"+index).val() !=='') {
+                    strownp +=$("#own_percent"+index).val()+",";
+                    sownp++; 
 
-           }               
-       if(total_per >=100){
-        	$('#add-ownerForm').hide();
-       } else {
-       	app.loanAppCI.viewModel.checkownerFlag();
-       }
+                    if(parseInt($('#own_percent'+index).val()) >0) {
+                        total_per = total_per + (parseInt($('#own_percent'+index).val()));
+                    }
+
+                }                                               
+            }
+            if($("#email"+index).length) {
+                if($("#email"+index).val() !='') {
+                    stremails +=$("#email"+index).val()+",";
+                }
+            }
+
+        }               
+        if(total_per >=100){
+            $('#add-ownerForm').hide();
+        } else {
+            app.loanAppCI.viewModel.checkownerFlag();
+        }
+        var maxl = parseInt(strownp.length)-1;
+        strownp = strownp.substring(0,maxl);
+        ownpers = strownp.split(",");
+
+        var maxeml = parseInt(stremails.length)-1;
+        stremails = stremails.substring(0,maxeml);
+        emails = stremails.split(",");
+
+        var uniqeownp = ownpers.unique();
+        if(uniqeownp.length===1 && sownp >1  && totaldivs >0){                   
+        var pownemail = $("#pownemail").val();
+        $('#cmbowners option[value!=""]').remove();
+        for(var s =0; s<emails.length; s++){
+            $("#cmbowners").append('<option value="'+emails[s]+'">'+emails[s]+'</option>');
+        }                    
+        if(pownemail !==''){
+            $("#cmbowners option[value='"+pownemail+"']").prop("selected", true);                      
+        }                    
+        $('#secmbowners').show();                    
+        } else {
+            $('#cmbowners option[value!=""]').remove();
+            $("#secmbowners").hide();
+        }
 }
     </script>
