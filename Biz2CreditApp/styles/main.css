@@ -425,3 +425,5 @@ background-position:5px 15px !important;height: 50px;position: relative;backgrou
 .tabOne .head span:last-child { float:right;width:15%;}
 
 #loader {background-image: url(images/frm_loader.gif); background-position: 0px 0px; background-repeat:no-repeat; margin: -36px 0 0 20px; position:relative; z-index:100; height:16px; width:16px; }
+
+#tabstrip-manage-app  .refreshloan {background-image: url(images/loding.gif);background-repeat: no-repeat;background-size: 60%;background-position: center 14px;text-indent: -9000px;width: 13%;height: 50px;border: 0;background-color: transparent;float: left;}
