@@ -42,7 +42,7 @@
     var onDeviceReady = function() {
         
         StatusBar.overlaysWebView(false);
-        StatusBar.backgroundColorByName('#99cc00');
+        StatusBar.backgroundColorByHexString('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
         document.addEventListener("hidekeyboard", Keyboardisoff, false);
         window.connectionInfo = new ConnectionApp();
