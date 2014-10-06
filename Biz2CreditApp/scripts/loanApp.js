@@ -20,51 +20,53 @@
         
         show:function()
         {
+             if(!window.connectionInfo.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+        			if (confirmed === true || confirmed === 1) {
+        				app.loanApp.viewModel.show(e);
+        			}
 
-          /*  $("#tabstrip").kendoTabStrip({
-                        animation:  {
-                            open: {
-                                duration:10,
-                                effects: "fadeIn"
-                            }
+        		}, 'Connection Error?', 'Retry,Cancel');
+            }
+            else
+            {
+                app.loginService.viewModel.showloder();  
+                var dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
+                            type:"POST",
+                            dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                            data: { apiaction:"manageapp",cust_id:localStorage.getItem("userID")} // search for tweets that contain "html5"
                         }
-                    });
-            */
-        
-            app.loginService.viewModel.showloder();  
-            var dataSource = new kendo.data.DataSource({
-                transport: {
-                    read: {
-                        url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
-                        type:"POST",
-                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: { apiaction:"manageapp",cust_id:localStorage.getItem("userID")} // search for tweets that contain "html5"
-                    }
-                    
-                },
-                schema: {
-                    data: function(data)
+                        
+                    },
+                    schema: {
+                        data: function(data)
+                        {
+                        	return [data];
+                        }
+                    },
+                    error: function (e) {
+                    	apps.hideLoading();
+                    	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                    	function () { }, "Notification", 'OK');
+                    },
+                });
+                dataSource.fetch(function(){
+                    var that = this;
+                    var data = that.data();
+                    app.loginService.viewModel.hideloder(); 
+                    if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
                     {
-                    	return [data];
-                    }
-                },
-                error: function (e) {
-                	apps.hideLoading();
-                	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
-                	function () { }, "Notification", 'OK');
-                },
-            });
-            dataSource.fetch(function(){
-                var that = this;
-                var data = that.data();
-                app.loginService.viewModel.hideloder(); 
-                if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
-                {
-                     app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
-                }    
+                         app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
+                    }    
 
-            });
-            app.loanApp.viewModel.postAppClick();
+                });
+                app.loanApp.viewModel.postAppClick();
+                
+            }
+            
        },
         applyFreshLoan:function(e)
         {
@@ -142,39 +144,54 @@
         },
         refreshViewLoan:function()
         {
-            app.loanApp.viewModel.setShowrefreshLoanFalse();
-            var dataSource = new kendo.data.DataSource({
-                transport: {
-                    read: {
-                        url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
-                        type:"POST",
-                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: { apiaction:"manageapp",cust_id:localStorage.getItem("userID")} // search for tweets that contain "html5"
-                    }
-                    
-                },
-                schema: {
-                    data: function(data)
-                    {
-                    	return [data];
-                    }
-                },
-                error: function (e) {
-                	apps.hideLoading();
-                	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
-                	function () { }, "Notification", 'OK');
-                },
-            });
-            dataSource.fetch(function(){
-                var that = this;
-                var data = that.data(); 
-                if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
-                {
-                     app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
-                     app.loanApp.viewModel.setShowrefreshLoanTrue();
-                }    
+            if(!window.connectionInfo.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+        			if (confirmed === true || confirmed === 1) {
+        				app.loanApp.viewModel.refreshViewLoan();
+        			}
 
-            });
+        		}, 'Connection Error?', 'Retry,Cancel');
+            }
+            else
+            {
+                
+                app.loanApp.viewModel.setShowrefreshLoanFalse();
+                var dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
+                            type:"POST",
+                            dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                            data: { apiaction:"manageapp",cust_id:localStorage.getItem("userID")} // search for tweets that contain "html5"
+                        }
+                        
+                    },
+                    schema: {
+                        data: function(data)
+                        {
+                        	return [data];
+                        }
+                    },
+                    error: function (e) {
+                    	apps.hideLoading();
+                    	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                    	function () { }, "Notification", 'OK');
+                    },
+                });
+                dataSource.fetch(function(){
+                    var that = this;
+                    var data = that.data(); 
+                    if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
+                    {
+                         app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
+                         app.loanApp.viewModel.setShowrefreshLoanTrue();
+                    }    
+
+                });
+                app.loanApp.viewModel.postAppClick();
+                
+            }
+            
         },
         setShowrefreshLoanFalse:function()
         {

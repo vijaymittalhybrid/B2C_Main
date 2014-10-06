@@ -87,6 +87,12 @@ html body .backButton{ height:75px;background-size: 19% !important;}
 .tabOne .head span:last-child {width:8%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child{width:90%;}
 #tabstrip-manage-app #tabstrip ul li a span {line-height:37px; margin:16% 0 0 10%;}
+#tabstrip-manage-app .docs-popup { width:70px;}
+#tabstrip-manage-app #tabstrip ul li a{ font-size:24px;}
+#tabstrip-manage-app #tabstrip ul li a{ height:120px;}
+#tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 14.5}
+#tabstrip-manage-app #tabstrip div:nth-child(3) .tabOne .actArw {margin: 0 0 0 48%;}
+#tabstrip-manage-app #tabstrip div:nth-child(4) .tabOne .actArw {margin: 0 0 0 81.5%;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -154,7 +160,8 @@ html body .backButton{ height:75px;background-size: 19% !important;}
 .tabOne .head span:last-child { width:10%;}
 #tabstrip-manage-app #tabstrip ul li.k-state-active .actArw { bottom:-103%;left: 45%;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 8.5% 0 0;}
-#tabstrip-manage-app #tabstrip ul li a span {line-height:35px;margin:18% 0 0 10%;}
+#tabstrip-manage-app #tabstrip ul li a span {line-height: 39px;margin: 12% 0 0 10%; height:45px; width:45px;}
+#tabstrip-manage-app #tabstrip ul li a{ height:100px;}
 }
 @media screen and (max-width: 960px){
 .tp-menu{ display:none}
@@ -261,7 +268,7 @@ html body .backButton {height: 62px;background-size: 24% !important;}
 #tabstrip-manage-app #tabstrip ul li a{font-size:17px;}#tabstrip-manage-app #tabstrip ul li.k-state-active .actArw {bottom: -84%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child{width:86%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span{width:14%;}
-#tabstrip-manage-app #tabstrip ul li a{ padding:45px 0 0px 0%; text-align:center;font-size: 17px;}
+#tabstrip-manage-app #tabstrip ul li a{ padding:45px 0 0px 0%; text-align:center;font-size: 17px;height: 85px;}
 #tabstrip-manage-app #tabstrip ul li a span {margin:9% 0 0 40%; line-height:37px;}
 #tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px;}
 }
@@ -333,6 +340,8 @@ ul.mobile li a:hover{ display:block; font-size:14px; background-color:#000; colo
 #homePage .testimonials h2 {background-size:7%;}
 .newChkBx {width:100%!important;}
 #aplicn_frm ul.low_creditop li {width:48%;}
+#tabstrip-manage-app .refresh-loading { height:62px;background-size: 60%;background-position: center 12px;}
+html body .backButton { width:79%; background-size: 28% !important;}
 }
 @media (min-width:0px) and (max-width:640px) {
 .logo { margin:3% auto;}
@@ -485,8 +494,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li a, #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span { font-size:14px;}
 #tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li a{text-align:left;}
-#tabstrip-manage-app #tabstrip ul li a span{ height:32px; width:32px; line-height:26px; font-size:15px;margin: 18% 0 0 40%;}
-#tabstrip-manage-app #tabstrip ul li a {padding: 38px 0 0px 0%;}
+#tabstrip-manage-app #tabstrip ul li a span{ height:32px; width:32px; line-height:26px; font-size:15px;margin:2% 0 0 42%;}
+#tabstrip-manage-app #tabstrip ul li a {padding:47px 0 0px 0%;}
 }
 @media (min-width:0px) and (max-width:599px) {
 .docs-header .km-widget .docs-search { width:8%; margin:0;}

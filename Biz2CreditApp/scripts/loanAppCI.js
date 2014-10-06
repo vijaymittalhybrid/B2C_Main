@@ -620,14 +620,10 @@
                             }
                         }
                     	
-                	});     
-                        
-                    //that.set("ownercurrntControl",EditFormData['0']['ownercurrntControl']);
+                	});      
+                
                     var totownerDiv = data['findetails']['owner_details'].length;
                     that.set("totownerDiv",totownerDiv-1);
-                    // that.set("ownerdeleteIds",EditFormData['0']['ownerdeleteIds']);
-                    // that.set("aredyownerdeleteIds",EditFormData['0']['aredyownerdeleteIds']);
-                    //that.set("deldbownerids",EditFormData['0']['deldbownerids']);
                     var total_per = 0; 
                     for(var c=0; c<=totownerDiv; c++){ 
                         if(c===0) {
@@ -991,8 +987,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                       // $msg= "Contact Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Contact Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",'false2');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
