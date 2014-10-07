@@ -148,11 +148,11 @@
                         if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600')
                         {  
                             viewCModel.set("check_credit_score"+index,'N');
-                            //$('#crdscorerYes'+index).show();
-                            //$("#ifless"+index).show();
+                            $('#crdscorerYes'+index).show();
+                            $("#ifless"+index).show();
                             viewCModel.set("credittype"+index,(data['findetails']['owner_details'][index]["credittype"]!== '0') ? data['findetails']['owner_details'][index]["credittype"] : "");
                             $(".crYes"+index+":radio[value='N']").prop("checked",true);
-                           // $(".chkreason"+index+":checkbox[value='15']").prop("checked",true);
+                            $(".chkreason"+index+":checkbox[value='15']").prop("checked",true);
                             
                         }
                         else
