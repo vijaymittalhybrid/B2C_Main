@@ -16,10 +16,8 @@
         documentBeforeShow:function()
         {
             app.loginService.viewModel.formValidateReset();
+            
             $(".km-scroll-container").css("-webkit-transform", "");
-          //$("[data-role=\"popover\"][id =\"popover-docs\"]").each(function() {
-           //     $(this).parent().attr('id', 'dynamicCl');
-          //  });
             $("[data-role=\"popover\"][id =\"tabstrip-folder-events-popup\"]").each(function() {
                 $(this).parent().attr('id', 'popoverId');
             });
@@ -34,9 +32,7 @@
                 $('#popover-people ul li:eq(2)').after('<li data-bind="click: newFolderModal" class="newFolderModal">New Folder</li>');
                 kendo.bind($("#popover-people ul li:eq(3)"), app.documentsetting.viewModel);
             }
-           
-            
-            
+  
         },
         beforeHide:function()
         {
