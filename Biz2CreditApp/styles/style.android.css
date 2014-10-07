@@ -93,7 +93,7 @@ html body .backButton{ height:88px;background-size: 19% !important;background-po
 #tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 14.5%;}
 #tabstrip-manage-app #tabstrip div:nth-child(3) .tabOne .actArw {margin: 0 0 0 48%;}
 #tabstrip-manage-app #tabstrip div:nth-child(4) .tabOne .actArw {margin: 0 0 0 81.5%;}
-#tabstrip-manage-app .refreshloan{width: 12%;background-size: 26%;background-position:43px 25px; height:88px;}
+#tabstrip-manage-app .refreshloan{width: 12%;background-size: 26%;background-position:50px 27px; height:88px;}
 #tabstrip-manage-app .refresh-loading{height:88px;}
 .home .popup, #tabstrip-Setting .popup, #tabstrip-loanapp-bi .popup, #tabstrip-loanapp-ci .popup, #tabstrip-loanapp-fp .popup, #tabstrip-loanapp-pi .popup{width:65px;}
 }
@@ -268,7 +268,7 @@ background-position:center 10px ; text-align:center; width:22.5%; margin-right:2
 .newChkBx, .rwfil.aut > p > .ipsm1 {width:100%!important;}
 #aplicn_tp ul.app_nav li.dn span {background-position: center 65px;}
 #aplicn_frm .IN4c {width:100%;}
-html body .backButton {height: 62px;background-size: 24% !important;}
+html body .backButton {height: 62px;background-size:30% !important;width: 82%;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabui li span:first-child, .tabOne .head span:first-child {width:78%;}
 #tabstrip-manage-app #tabstrip .k-content ul.tabui li span, .tabOne .head span:last-child{ width:22%;}
 #tabstrip-manage-app #tabstrip ul li a{font-size:17px;}#tabstrip-manage-app #tabstrip ul li.k-state-active .actArw {bottom: -84%;}
@@ -278,6 +278,8 @@ html body .backButton {height: 62px;background-size: 24% !important;}
 #tabstrip-manage-app #tabstrip ul li a span {margin:9% 0 0 40%; line-height:37px;}
 #tabstrip-manage-app .docs-popup {width: 55px;}
 #tabstrip-manage-app #tabstrip ul li.postd_icn, #tabstrip-manage-app #tabstrip ul li.k-state-active.postd_icn, #tabstrip-manage-app #tabstrip ul li.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.end_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.sevd_icon, #tabstrip-manage-app #tabstrip ul li.sevd_icon, #tabstrip-manage-app #tabstrip ul li.lon_icon, #tabstrip-manage-app #tabstrip ul li.k-state-active.lon_icon {background-position: center 10px;}
+#tabstrip-manage-app .refresh-loading {background-size: 54%;}
+#tabstrip-manage-app .refreshloan {background-size:37%;background-position:29px 23px;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
