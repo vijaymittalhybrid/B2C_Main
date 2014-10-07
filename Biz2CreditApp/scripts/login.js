@@ -37,6 +37,7 @@
 
                 return;
             }
+            console.log(window);
             if(!window.connectionInfo.checkConnection()){
                     navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
                 	if (confirmed === true || confirmed === 1) {

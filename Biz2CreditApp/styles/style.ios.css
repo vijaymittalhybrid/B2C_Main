@@ -489,7 +489,6 @@ html body #tabstrip-manage-app .backButton {background-size:45% !important;width
 #tabstrip-manage-app .refresh-loading {background-size: 95%;}
 #tabstrip-manage-app .refreshloan {background-size: 60%;background-position: 5px 16px;height: 55px;}
 }
-
 @media (min-width:0px) and (max-width:320px) { 
 #blackBlk .desbrdIcon .dasimg {width:19%;}
 #blackBlk .desbrdIcon {padding: 2%;}

@@ -40,6 +40,7 @@
     };
 
     var onDeviceReady = function() {
+        
         StatusBar.overlaysWebView(false);
         StatusBar.backgroundColorByHexString('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
