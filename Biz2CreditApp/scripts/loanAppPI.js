@@ -255,67 +255,6 @@
 
                     }
 
-                    else { 
-
-
-
-                        // End Validation
-
-
-                        /*var iscschk = $("#isCheckScore"+c).val();
-                        if(iscschk === ''){
-                        iscschk = $("input[name='check_credit_score"+c+"']:checked").val();                           
-                        }
-                        var dbcscore = $("#creditScore"+c).val();
-                        var cmbcscore = $("#credittype"+c).val();
-                        if(cmbcscore !==''){
-                        cscore = cmbcscore;
-                        } else {
-                        cscore = dbcscore;
-                        }
-                        var rlscore = $("#reasonlscore"+c).val();                        
-
-                        if(rlscore !==''){
-                        $('#ifless'+c).show();
-                        var reasonarr = rlscore.split(",");
-                        var maxt = reasonarr.length;                            
-                        for(var r=0; r<maxt; r++){
-                        var rid = reasonarr[r];
-                        $("#chk_reason"+c+"_"+rid).prop("checked", true);
-                        }
-
-                        } else {
-                        $('#ifless'+c).hide();
-                        }
-
-                        if(iscschk ==='N'){
-                        $("#check_credit_score"+c+"2").prop("checked", true);
-                        $("#credittype"+c+" option[value='"+cscore+"']").prop('selected',true);
-                        $('#crdscorerYes'+c).show();
-                        $('#crdscorerNo'+c).hide();                             
-                        if(cscore < 659){
-                        $('#ifless'+c).show();
-                        } else {
-                        $('#ifless'+c).hide();
-                        }
-                        } 
-                        else if(iscschk ==='Y'){
-                        $("#check_credit_score"+c+"1").prop("checked", true);
-                        $(".crYes"+c).prop('disabled', 'disabled');
-                        $('#crdscorerYes'+c).hide();
-                        $('#crdscorerNo'+c).hide();
-                        $('#ifless'+c).hide();
-                        }
-                        else {                            
-                        $("#check_credit_score"+c+"1").prop("checked", false);
-                        $("#check_credit_score"+c+"2").prop("checked", false);
-                        $('#crdscorerYes'+c).hide();
-                        $('#crdscorerNo'+c).hide();
-                        $('#ifless'+c).hide();                         
-                        }   */
-
-
-                    }
                 }
 
             }
@@ -331,10 +270,7 @@
         {
             kendo.bind($("#cscoreknown"+num), viewCModel);
             kendo.bind($(".crYes"+num), viewCModel);
-            kendo.bind($("#credittype"+num), viewCModel);
-            
-
-            
+            kendo.bind($("#credittype"+num), viewCModel); 
         },
         deleteOutDebtVar:function(num)
         {
