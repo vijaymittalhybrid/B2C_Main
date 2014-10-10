@@ -69,6 +69,7 @@
                 
             	app.loansetting.viewModel.creditCardValidate();
             }
+           
         },
         show:function(e) {
             e.sender.reload=false;
@@ -592,14 +593,14 @@
                 that.set("datefirstProcessed_year",(d[0]!== '0000') ? d[0] : "");
                 that.set("c_c_card_processor",data['findetails']['creditcardproc']);
                 that.set("merchant_id",data['findetails']['merchantid']);
-                that.set("MonthlyVolumeAmountsList1",data['findetails']['cc_lastmonth_sale']);
-                that.set("MonthlyVolumeTicketsList1",data['findetails']['cc_lastmonth_transaction']);
-                that.set("MonthlyVolumeAmountsList2",data['findetails']['cc_1month_ago_sale']);
-                that.set("MonthlyVolumeTicketsList2",data['findetails']['cc_1month_ago_transaction']);
-                that.set("MonthlyVolumeAmountsList3",data['findetails']['cc_2month_ago_sale']);
-                that.set("MonthlyVolumeTicketsList3",data['findetails']['cc_2month_ago_transaction']);
-                that.set("MonthlyVolumeAmountsList4",data['findetails']['cc_3month_ago_sale']);
-                that.set("MonthlyVolumeTicketsList4",data['findetails']['cc_3month_ago_transaction']);
+                that.set("MonthlyVolumeAmountsList1",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_sale']));
+                that.set("MonthlyVolumeTicketsList1",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_transaction']));
+                that.set("MonthlyVolumeAmountsList2",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_sale']));
+                that.set("MonthlyVolumeTicketsList2",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_transaction']));
+                that.set("MonthlyVolumeAmountsList3",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_sale']));
+                that.set("MonthlyVolumeTicketsList3",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_transaction']));
+                that.set("MonthlyVolumeAmountsList4",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_sale']));
+                that.set("MonthlyVolumeTicketsList4",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_transaction']));
             }
             else
             {
@@ -633,7 +634,7 @@
                 $('#busInfobx2').show();
                 $('#busInfobx').hide();
                 $('.businf:radio[value="'+data['findetails']['busi_pro_info_type']+'"]').prop("checked",true);
-                that.set("monthly_rent",data['findetails']['busi_month_rent']);
+                that.set("monthly_rent",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_rent']));
                 that.set("landlord_name",data['findetails']['busi_landlord']);
                 that.set("contact_number",data['findetails']['busi_cont_number']);
             }
@@ -644,8 +645,8 @@
                 $('.busimort:radio[value="'+data['findetails']['busi_out_mort_type']+'"]').prop("checked",true);
                 $("#outstandingMortagageDiv").show();
                 that.set("mortgage_bank",data['findetails']['busi_mort_bank']);
-                that.set("outs_bal",data['findetails']['busi_out_balance']);
-                that.set("month_mort_amount",data['findetails']['busi_month_mort_amount']);
+                that.set("outs_bal",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_out_balance']));
+                that.set("month_mort_amount",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_mort_amount']));
             }
             else
             {
@@ -672,7 +673,7 @@
                     $("#yeardisbursed"+index+" option[value='"+yeardisbursedval+"']").prop("selected",true);  
                     
                     
-                    var txtOutCreditVal = Number(data['findetails']['finloan_details'][index-1]['outstanding']);
+                    var txtOutCreditVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['outstanding']));
                     var txtInterestCreditVal = Number(data['findetails']['finloan_details'][index-1]['interestrate']);
                     var txtPerYearCreditVal =data['findetails']['finloan_details'][index-1]['interesttime'];
                     var tpcompanyVal = data['findetails']['finloan_details'][index-1]['tpcompany'];
@@ -1778,7 +1779,13 @@
             {
             	var that = this;
             	that.set("currentfidStatus",true);
-            }
+            },
+            setCommaNumber:function(val)
+            {
+                var num = val.replace(/[^0-9]+/g, '').replace(/,/gi, "").split("").reverse().join("");     
+                var num2 =  app.scheduleService.viewModel.RemoveRougeChar(num.replace(/(.{3})/g,"$1,").split("").reverse().join(""));
+                return num2;								
+            },
 
     });
    
