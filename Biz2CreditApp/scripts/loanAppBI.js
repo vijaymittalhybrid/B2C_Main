@@ -1385,8 +1385,8 @@
             
             
         	//business have outstanding debt
-        
-        	if(document.getElementById('debttype').checked)
+        console.log($("#debttype[type='radio']:checked").val());
+        	if($("#debttype[type='radio']:checked").val()==='Yes')
             {
                 debttypeYES			    			  = that.get("debttype_yes"),
             	dataParam['debttype']					= debttypeYES;
@@ -1481,10 +1481,15 @@
                     }
                 }
             }
-            else
+            else if($("#debttype[type='radio']:checked").val()==='No')
             {
                 debttypeNO			  			     = that.get("debttype_no"),
            	 dataParam['debttype']					= debttypeNO;
+            }
+            else
+            {
+                
+           	 dataParam['debttype']					= '';
 
             }
             dataParam['totbusinessDebtYesDiv']=totbusinessDebtYesDiv; 
@@ -1590,9 +1595,9 @@
                     }
                     else
                     {
-                        $msg= "Business Information submitted successfully";
+                        //$msg= "Business Information submitted successfully";
                         localStorage.setItem("fid",data[0]['results']['fid']);
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
                     }

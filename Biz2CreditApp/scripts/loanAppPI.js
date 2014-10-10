@@ -44,10 +44,14 @@
                 {
                     
                     if ($('#ownercscore'+c).length) {
+                        console.log('back');
+                        console.log(viewCModel);
+                         console.log(c);
                         
                         if(viewCModel.get('check_credit_score'+c)==='Y')
                         {
-                            $('#check_credit_score'+c).attr('disabled', 'disabled');
+                            console.log('back123');
+                            //$('#check_credit_score'+c).attr('disabled', 'disabled');
                             $('#crdscorerNo'+c).hide();
                         }
                           
@@ -120,7 +124,7 @@
             
             if(sessionStorage.getItem("LoanAppPIEditMode") ==='1')
             {
-                sessionStorage.setItem("LoanAppPIEditMode",'0');
+               // sessionStorage.setItem("LoanAppPIEditMode",'0');
                 app.loanAppPI.viewModel.setPIeditForm();
             }
 
@@ -147,11 +151,13 @@
                     {
                         if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600')
                         {  
-                            viewCModel.set("check_credit_score"+index,'N');
+                            viewCModel.set("check_credit_score"+index,'Y');
                             $('#crdscorerYes'+index).show();
                             $("#ifless"+index).show();
                             viewCModel.set("credittype"+index,(data['findetails']['owner_details'][index]["credittype"]!== '0') ? data['findetails']['owner_details'][index]["credittype"] : "");
-                            $(".crYes"+index+":radio[value='N']").prop("checked",true);
+                            $(".crYes"+index+":radio[value='Y']").prop("checked",true);
+                            
+                            $(".chkreason"+index+":checkbox").prop("checked",false);
                             $(".chkreason"+index+":checkbox[value='15']").prop("checked",true);
                             
                         }
@@ -166,6 +172,7 @@
                             if(data['findetails']['owner_details'][index]["credittype"] <659) {
                                 $("#ifless"+index).show();
                                 $('#ifless'+index).removeClass('ifless');
+                                $(".chkreason"+index+":checkbox").prop("checked",false);
                                 var reasons = data['findetails']['owner_details'][index]["low_rpt_reason"].split(",");
                                 $.each(reasons, function( key, value ) {
                                     $(".chkreason"+index+":checkbox[value='"+value+"']").prop("checked",true);
@@ -387,16 +394,16 @@
                 {
                     if(dataParam['personal_act'] === "Next")
                     {
-                        $msg= "Personal Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Personal Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                         apps.navigate('views/loanAppFP.html');
                     }
                     else
                     {
-                    	$msg= "Personal Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                    	//$msg= "Personal Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loansetting.viewModel.resetLoanAppBIForm();
                         app.loanAppCI.viewModel.resetLoanAppCIForm();
                         app.loanAppPI.viewModel.resetLoanAppPIForm(); 

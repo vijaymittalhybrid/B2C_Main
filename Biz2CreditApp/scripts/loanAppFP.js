@@ -102,6 +102,7 @@
             });
             if(sessionStorage.getItem("LoanAppFPEditMode") ==='1')
             {
+                sessionStorage.setItem("LoanAppPIEditMode",'0');
                 sessionStorage.setItem("LoanAppFPEditMode",'0');
                 app.loanFP.viewModel.setFPeditForm();
             }      

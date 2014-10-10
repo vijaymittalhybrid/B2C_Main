@@ -992,8 +992,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                       // $msg= "Contact Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",'false2');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
