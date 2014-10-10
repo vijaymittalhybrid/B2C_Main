@@ -35,11 +35,6 @@
                         Saved <span data-bind="text: savedApp"></span>
                     </a>
                 </li>
-                <!--<li class="lon_icon" data-bind="click: loanApaClick">
-                    <a harf="#">
-                        Loan against Personal Assets <span data-bind="text: loanApa"></span>
-                    </a>
-                </li>-->
             </ul>
             <div>
                 <div class="tabOne" data-bind="visible: postAppTab">
@@ -67,16 +62,6 @@
                         <span data-bind="visible: savedApp">Application #</span><span data-bind="visible: savedApp">Date</span>
                     </div>
                     <ul class="tabui" data-bind="source: savedAppList" data-template="savedAppList-template"></ul>
-                    
-                </div>
-            </div>
-            <div>
-                <div class="tabOne" data-bind="visible:loanApaTab">
-                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
-                    <div class="head clearfix">
-                        <span data-bind="visible: loanApa">Application #</span><span data-bind="visible: loanApa">Date</span>
-                    </div>
-                    <ul class="tabui" data-bind="source: loanApaList" data-template="loanApaList-template"></ul>
                     
                 </div>
             </div>
@@ -116,14 +101,5 @@
         <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #
 
         </span>
-    </li>
-</script>
-<script type="text/x-kendo-template" id="loanApaList-template">
-    #var fDate = updatetime
-
-    #
-    <li class="clearfix">
-        <span>BIZ#: fid #</span>
-        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #</span>
     </li>
 </script>
