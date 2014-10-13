@@ -69,9 +69,7 @@
     </div>
 </div>
 <script type="text/x-kendo-template" id="postAppList-template">
-    #var fDate = updatetime
-    
-    #
+    #var fDate = updatetime #
     <li class="clearfix">
         <span>BIZ#: fid #</span>
         <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #
@@ -80,9 +78,7 @@
     </li>
 </script>
 <script type="text/x-kendo-template" id="endedAppList-template">
-    #var fDate = updatetime
-
-    #
+    #var fDate = updatetime #
     <li class="clearfix">
         <span>BIZ#: fid #</span>
         <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #
@@ -91,9 +87,105 @@
     </li>
 </script>
 <script type="text/x-kendo-template" id="savedAppList-template">
-    #var fDate = updatetime
-    
-    #
+    #var fDate = updatetime #
+    <li class="clearfix">
+        <span>
+            <a data-bind="click: applyFreshLoan" data-mode="edit" data-fid="#: fid #">BIZ#: fid #</a>
+        </span>
+        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #
+
+        </span>
+    </li>
+</script><div id="tabstrip-manage-app" data-role="view" class="clearfix" data-show="app.loanApp.viewModel.show" data-model="app.loanApp.viewModel" >
+    <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title">
+                <a data-role="backbutton" class="backButton">Back</a>
+            </span>
+            <a data-bind="click: refreshViewLoan,invisible: showrefreshLoan" class="refreshloan docs-refresh">refresh</a>
+            
+            <a data-bind="click: refreshViewLoan,visible: showrefreshLoan" class="refresh-loading docs-refresh">refresh</a>
+            <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
+        </div>
+    </div>
+    <div class="view-content">
+        <div class="recent-activity clearfix">
+            <div class="rcnt-actty">Recent Loan activity</div>
+            <div class="applyFrshLon">
+                <a data-bind="click: applyFreshLoan" data-mode="fresh">Apply for a fresh loan</a>
+            </div>
+        </div>
+        <div id="tabstrip">
+            <ul class="clearfix">
+                <li class="k-state-active postd_icn" data-bind="click: postAppClick">
+                    <a harf="#">
+                        Posted <span data-bind="text: postApp"></span>
+                    </a>
+                </li>
+                <li class="end_icon" data-bind="click: endedAppClick">
+                    <a harf="#">
+                        Ended <span data-bind="text: endedApp"></span>
+                    </a>
+                    
+                </li>
+                <li class="sevd_icon" data-bind="click: savedAppClick">
+                    <a harf="#">
+                        Saved <span data-bind="text: savedApp"></span>
+                    </a>
+                </li>
+            </ul>
+            <div>
+                <div class="tabOne" data-bind="visible: postAppTab">
+                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
+                    <div class="head clearfix">
+                        <span data-bind="visible: postApp">Application #</span><span data-bind="visible: postApp">Date</span>
+                    </div>
+                    <ul class="tabui" data-bind="source: postAppList" data-template="postAppList-template"></ul>
+                </div>
+            </div>
+            <div>
+                <div class="tabOne" data-bind="visible: endedAppTab">
+                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
+                    <div class="head clearfix">
+                        <span data-bind="visible: endedApp">Application #</span><span data-bind="visible: endedApp">Date</span>
+                    </div>
+                    <ul class="tabui" data-bind="source: endedAppList" data-template="endedAppList-template"></ul>
+                    
+                </div>
+            </div>
+            <div>
+                <div class="tabOne" data-bind="visible:savedAppTab">
+                    <div class="actArw"><img src="styles/images/loan-app-arrow.png"></div>
+                    <div class="head clearfix">
+                        <span data-bind="visible: savedApp">Application #</span><span data-bind="visible: savedApp">Date</span>
+                    </div>
+                    <ul class="tabui" data-bind="source: savedAppList" data-template="savedAppList-template"></ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/x-kendo-template" id="postAppList-template">
+    #var fDate = updatetime #
+    <li class="clearfix">
+        <span>BIZ#: fid #</span>
+        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #
+
+        </span>
+    </li>
+</script>
+<script type="text/x-kendo-template" id="endedAppList-template">
+    #var fDate = updatetime #
+    <li class="clearfix">
+        <span>BIZ#: fid #</span>
+        <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #
+            
+        </span>
+    </li>
+</script>
+<script type="text/x-kendo-template" id="savedAppList-template">
+    #var fDate = updatetime #
     <li class="clearfix">
         <span>
             <a data-bind="click: applyFreshLoan" data-mode="edit" data-fid="#: fid #">BIZ#: fid #</a>

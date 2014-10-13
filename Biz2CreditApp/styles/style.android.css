@@ -557,6 +557,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app .recent-activity { padding:10px;}
 html body .backButton {width: 84%;}
 #tabstrip-manage-app .refresh-loading {background-size: 56%;}
+#aplicn_tp ul.app_nav li.dn span {background-position: center 75px;}
 
 }
 @media (min-width:0px) and (max-width:580px) {
@@ -727,6 +728,7 @@ html body .backButton {background-size: 50% !important;width: 73%;background-pos
 #tabstrip-manage-app .refreshloan {background-position:6px 14px;width: 14%; height:50px;width: 22%;}
 #tabstrip-manage-app .refresh-loading {background-position: center 9px;background-size: 95%;}
 #tabstrip-manage-app .docs-popup {width: 47px;}
+#aplicn_frm #credit_show p.mercPr .IN3, #aplicn_frm select.IN1b.ipsm1, #aplicn_frm #credit_show .rw_lin p.imp33,#aplicn_frm .rws.rw1 .IN1 {width: 100% !important;}
 }
 @media (min-width:0px) and (max-width:370px) {
 .logo { margin:6% auto;}

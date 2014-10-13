@@ -564,8 +564,8 @@
                 $("#yettostart").prop("checked",false);
                 that.set("select_buss_s_m",data['findetails']['dbs_month']);
                 that.set("select_buss_s_y",data['findetails']['dbs_year']);
-                that.set("average_annual_revenue",data['findetails']['revenue']);
-                that.set("buss_operating_expenses",data['findetails']['operatingexp']);
+                that.set("average_annual_revenue",app.loansetting.viewModel.setCommaNumber(data['findetails']['revenue']));
+                that.set("buss_operating_expenses",app.loansetting.viewModel.setCommaNumber(data['findetails']['operatingexp']));
                 
                 $('#dbs_month').removeAttr("disabled");
                 $('#dbs_year').removeAttr("disabled");
@@ -677,15 +677,15 @@
                     var txtInterestCreditVal = Number(data['findetails']['finloan_details'][index-1]['interestrate']);
                     var txtPerYearCreditVal =data['findetails']['finloan_details'][index-1]['interesttime'];
                     var tpcompanyVal = data['findetails']['finloan_details'][index-1]['tpcompany'];
-                    var ocadvanceVal = Number(data['findetails']['finloan_details'][index-1]['funded_amt']);
+                    var ocadvanceVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['funded_amt']).toString());
                     var funded_termVal = Number(data['findetails']['finloan_details'][index-1]['term']);
                     var collateraltypeVal = data['findetails']['finloan_details'][index-1]['collateral'];  
-                    var txtOutAmountTermVal =Number(data['findetails']['finloan_details'][index-1]['outstandingamount']);
+                    var txtOutAmountTermVal =app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['outstandingamount']).toString());
                     var txtInterestTermVal = Number(data['findetails']['finloan_details'][index-1]['termintrate']);
                     var txtPaymentModeTermVal = data['findetails']['finloan_details'][index-1]['termpaymentmode'];
                     //var txtTermVal =data['findetails']['finloan_details'][index-1]['term'];
                     var txtFrequncyTermVal = data['findetails']['finloan_details'][index-1]['frequency'];
-                    var txtAmountTermVal = Number(data['findetails']['finloan_details'][index-1]['principleamount']);
+                    var txtAmountTermVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['principleamount']).toString());
                     var txtYearTermVal = data['findetails']['finloan_details'][index-1]['terminttime'];
                     
                     viewFModel.set("yeardisbursed"+index,yeardisbursedval);
@@ -699,14 +699,14 @@
                     if(debtTypeText === "Cash Advance")
                     {
                         viewFModel.set("tpcompany"+index,tpcompanyVal);
-                        viewFModel.set("ocadvance"+index,(ocadvanceVal!== 0) ? ocadvanceVal : "");
+                        viewFModel.set("ocadvance"+index,(ocadvanceVal!== '0') ? ocadvanceVal : "");
                         viewFModel.set("funded_term"+index,(funded_termVal!== 0) ? funded_termVal : "");
                     }
                     
                     if(debtTypeText === "Line of credit")
                     {
                         viewFModel.set("collateraltype"+index,collateraltypeVal);
-                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== 0) ? txtOutCreditVal : "");
+                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== '0') ? txtOutCreditVal : "");
                         viewFModel.set("txtInterestCredit"+index,(txtInterestCreditVal!== 0) ? txtInterestCreditVal : "");
                         viewFModel.set("txtPerYearCredit"+index,txtPerYearCreditVal);
                     }
@@ -714,12 +714,12 @@
                     if(debtTypeText === "Term loan")
                     {
                         viewFModel.set("collateraltype"+index,collateraltypeVal);
-                        viewFModel.set("txtOutAmountTerm"+index,(txtOutAmountTermVal!== 0) ? txtOutAmountTermVal : "");
+                        viewFModel.set("txtOutAmountTerm"+index,(txtOutAmountTermVal!== '0') ? txtOutAmountTermVal : "");
                         viewFModel.set("txtInterestTerm"+index,(txtInterestTermVal!== 0) ? txtInterestTermVal : "");
                         viewFModel.set("txtPaymentModeTerm"+index,txtPaymentModeTermVal);
                         viewFModel.set("txtTerm"+index,(funded_termVal!== 0) ? funded_termVal : "");
                         viewFModel.set("txtFrequncyTerm"+index,txtFrequncyTermVal);
-                        viewFModel.set("txtAmountTerm"+index,(txtAmountTermVal!== 0) ? txtAmountTermVal : "");
+                        viewFModel.set("txtAmountTerm"+index,(txtAmountTermVal!== '0') ? txtAmountTermVal : "");
                         viewFModel.set("txtYearTerm"+index,txtYearTermVal);
                     }
                 }
@@ -1386,7 +1386,6 @@
             
             
         	//business have outstanding debt
-        console.log($("#debttype[type='radio']:checked").val());
         	if($("#debttype[type='radio']:checked").val()==='Yes')
             {
                 debttypeYES			    			  = that.get("debttype_yes"),
@@ -1579,8 +1578,8 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         if(sessionStorage.getItem("setprefilStatus")==='false')
                         {
@@ -1596,9 +1595,9 @@
                     }
                     else
                     {
-                        //$msg= "Business Information submitted successfully";
+                        $msg= "Business Information submitted successfully";
                         localStorage.setItem("fid",data[0]['results']['fid']);
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
                     }

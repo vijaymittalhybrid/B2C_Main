@@ -44,13 +44,9 @@
                 {
                     
                     if ($('#ownercscore'+c).length) {
-                        console.log('back');
-                        console.log(viewCModel);
-                         console.log(c);
                         
                         if(viewCModel.get('check_credit_score'+c)==='Y')
                         {
-                            console.log('back123');
                             //$('#check_credit_score'+c).attr('disabled', 'disabled');
                             $('#crdscorerNo'+c).hide();
                         }
@@ -134,8 +130,12 @@
             var data =manageData;
             var totownerDiv = data['findetails']['owner_details'].length;
 
-            that.set("avg_month_income",(Number(data['findetails']['per_income'])!== 0) ? Number(data['findetails']['per_income']) : "");
-            that.set("avg_month_expense",(Number(data['findetails']['per_ome'])!== 0) ? Number(data['findetails']['per_ome']) : "");
+            var avgMonthIncome = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['per_income']).toString());
+            var avgMonthExpense = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['per_ome']).toString());
+
+            that.set("avg_month_income",(avgMonthIncome!== '0') ? avgMonthIncome : "");
+            that.set("avg_month_expense",(avgMonthExpense!== '0') ? avgMonthExpense : "");
+            
             for(var index=0;index<totownerDiv;index++)
             {
                 
@@ -394,16 +394,16 @@
                 {
                     if(dataParam['personal_act'] === "Next")
                     {
-                        //$msg= "Personal Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                         apps.navigate('views/loanAppFP.html');
                     }
                     else
                     {
-                    	//$msg= "Personal Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                    	$msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loansetting.viewModel.resetLoanAppBIForm();
                         app.loanAppCI.viewModel.resetLoanAppCIForm();
                         app.loanAppPI.viewModel.resetLoanAppPIForm(); 
