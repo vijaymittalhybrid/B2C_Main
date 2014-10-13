@@ -673,7 +673,7 @@
                     $("#yeardisbursed"+index+" option[value='"+yeardisbursedval+"']").prop("selected",true);  
                     
                     
-                    var txtOutCreditVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['outstanding']));
+                    var txtOutCreditVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['outstanding']).toString());
                     var txtInterestCreditVal = Number(data['findetails']['finloan_details'][index-1]['interestrate']);
                     var txtPerYearCreditVal =data['findetails']['finloan_details'][index-1]['interesttime'];
                     var tpcompanyVal = data['findetails']['finloan_details'][index-1]['tpcompany'];
@@ -691,7 +691,7 @@
                     viewFModel.set("yeardisbursed"+index,yeardisbursedval);
                     if(debtTypeText === "Business Credit Card")
                     {   
-                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== 0) ? txtOutCreditVal : "");
+                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== '0') ? txtOutCreditVal : "");
                         viewFModel.set("txtInterestCredit"+index,(txtInterestCreditVal!== 0) ? txtInterestCreditVal : "");
                         viewFModel.set("txtPerYearCredit"+index,txtPerYearCreditVal);
                     }
