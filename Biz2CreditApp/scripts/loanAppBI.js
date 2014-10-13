@@ -1386,7 +1386,7 @@
             
             
         	//business have outstanding debt
-        	if($("#debttype[type='radio']:checked").val()==='Yes')
+        	if($(".outDebt[type='radio']:checked").val()==='Yes')
             {
                 debttypeYES			    			  = that.get("debttype_yes"),
             	dataParam['debttype']					= debttypeYES;
@@ -1481,15 +1481,15 @@
                     }
                 }
             }
-            else if($("#debttype[type='radio']:checked").val()==='No')
+            else if($(".outDebt[type='radio']:checked").val()==='No')
             {
                 debttypeNO			  			     = that.get("debttype_no"),
-           	 dataParam['debttype']					= 'No';
+           	 dataParam['debttype']					= debttypeNO;
             }
             else
             {
                 
-           	 dataParam['debttype']					= 'No';
+           	 dataParam['debttype']					= '';
 
             }
             dataParam['totbusinessDebtYesDiv']=totbusinessDebtYesDiv; 
