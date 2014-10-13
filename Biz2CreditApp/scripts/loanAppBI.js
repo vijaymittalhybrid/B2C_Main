@@ -1489,7 +1489,7 @@
             else
             {
                 
-           	 dataParam['debttype']					= '';
+           	 dataParam['debttype']					= 'No';
 
             }
             dataParam['totbusinessDebtYesDiv']=totbusinessDebtYesDiv; 
