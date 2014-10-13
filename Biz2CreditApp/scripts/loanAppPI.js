@@ -135,58 +135,116 @@
 
             that.set("avg_month_income",(avgMonthIncome!== '0') ? avgMonthIncome : "");
             that.set("avg_month_expense",(avgMonthExpense!== '0') ? avgMonthExpense : "");
-            
+            keyindex=1;
             for(var index=0;index<totownerDiv;index++)
             {
-                
-                if(data['findetails']['owner_details'][index]["check_credit_score"]!=='')
+                if(data['findetails']['owner_details'][index]['own_no']===1 || data['findetails']['owner_details'][index]['own_no']==='1')
                 {
-                    
-                    if(data['findetails']['owner_details'][index]["check_credit_score"] ==='Y')
+                    console.log(index);
+                    if(data['findetails']['owner_details'][0]["check_credit_score"]!=='')
                     {
-                       viewCModel.set("check_credit_score"+index,'SiteYes'); 
-                       $(".crYes"+index+":radio[value='N']").prop("checked",true);
-                    }
-                    else
-                    {
-                        if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600')
-                        {  
-                            viewCModel.set("check_credit_score"+index,'Y');
-                            $('#crdscorerYes'+index).show();
-                            $("#ifless"+index).show();
-                            viewCModel.set("credittype"+index,(data['findetails']['owner_details'][index]["credittype"]!== '0') ? data['findetails']['owner_details'][index]["credittype"] : "");
-                            $(".crYes"+index+":radio[value='Y']").prop("checked",true);
-                            
-                            $(".chkreason"+index+":checkbox").prop("checked",false);
-                            $(".chkreason"+index+":checkbox[value='15']").prop("checked",true);
-                            
+                        
+                        if(data['findetails']['owner_details'][0]["check_credit_score"] ==='Y')
+                        {
+                           viewCModel.set("check_credit_score"+0,'SiteYes'); 
+                           $(".crYes"+index+":radio[value='N']").prop("checked",true);
                         }
                         else
                         {
-                            viewCModel.set("check_credit_score"+index,'Y');
-                            $(".crYes"+index+":radio[value='Y']").prop("checked",true);
-                            $('#crdscorerYes'+index).show();
-                            var crtype = (data['findetails']['owner_details'][index]["credittype"]!== '0') ? data['findetails']['owner_details'][index]["credittype"] : "";
-                            $("#credittype"+index+" option[value='"+crtype+"']").prop("selected",true);
-                            viewCModel.set("credittype"+index,data['findetails']['owner_details'][index]["credittype"]);
-                            if(data['findetails']['owner_details'][index]["credittype"] <659) {
-                                $("#ifless"+index).show();
-                                $('#ifless'+index).removeClass('ifless');
-                                $(".chkreason"+index+":checkbox").prop("checked",false);
-                                var reasons = data['findetails']['owner_details'][index]["low_rpt_reason"].split(",");
-                                $.each(reasons, function( key, value ) {
-                                    $(".chkreason"+index+":checkbox[value='"+value+"']").prop("checked",true);
-                                });
-
-                            } else {
-                                $("#ifless"+index).hide();
-                                $('#ifless'+index).addClass('ifless');
+                            if(data['findetails']['owner_details'][0]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][0]["credittype"]===600 || data['findetails']['owner_details'][0]["credittype"]==='600')
+                            {  
+                                viewCModel.set("check_credit_score"+0,'Y');
+                                $('#crdscorerYes'+0).show();
+                                $("#ifless"+0).show();
+                                viewCModel.set("credittype"+0,(data['findetails']['owner_details'][0]["credittype"]!== '0') ? data['findetails']['owner_details'][0]["credittype"] : "");
+                                $(".crYes"+0+":radio[value='Y']").prop("checked",true);
+                                
+                                $(".chkreason"+0+":checkbox").prop("checked",false);
+                                $(".chkreason"+0+":checkbox[value='15']").prop("checked",true);
+                                
                             }
+                            else
+                            {
+                                viewCModel.set("check_credit_score"+0,'Y');
+                                $(".crYes"+0+":radio[value='Y']").prop("checked",true);
+                                $('#crdscorerYes'+0).show();
+                                var crtype = (data['findetails']['owner_details'][0]["credittype"]!== '0') ? data['findetails']['owner_details'][0]["credittype"] : "";
+                                $("#credittype"+0+" option[value='"+crtype+"']").prop("selected",true);
+                                viewCModel.set("credittype"+0,data['findetails']['owner_details'][0]["credittype"]);
+                                if(data['findetails']['owner_details'][0]["credittype"] <659) {
+                                    $("#ifless"+0).show();
+                                    $('#ifless'+0).removeClass('ifless');
+                                    $(".chkreason"+0+":checkbox").prop("checked",false);
+                                    var reasons = data['findetails']['owner_details'][0]["low_rpt_reason"].split(",");
+                                    $.each(reasons, function( key, value ) {
+                                        $(".chkreason"+0+":checkbox[value='"+value+"']").prop("checked",true);
+                                    });
 
+                                } else {
+                                    $("#ifless"+0).hide();
+                                    $('#ifless'+0).addClass('ifless');
+                                }
+
+                            }
                         }
+                     
                     }
-                 
+                    
                 }
+                else
+                {
+                    if(data['findetails']['owner_details'][keyindex]["check_credit_score"]!=='')
+                    {
+                        
+                        if(data['findetails']['owner_details'][keyindex]["check_credit_score"] ==='Y')
+                        {
+                           viewCModel.set("check_credit_score"+keyindex,'SiteYes'); 
+                           $(".crYes"+keyindex+":radio[value='N']").prop("checked",true);
+                        }
+                        else
+                        {
+                            if(data['findetails']['owner_details'][keyindex]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][keyindex]["credittype"]===600 || data['findetails']['owner_details'][keyindex]["credittype"]==='600')
+                            {  
+                                viewCModel.set("check_credit_score"+keyindex,'Y');
+                                $('#crdscorerYes'+keyindex).show();
+                                $("#ifless"+keyindex).show();
+                                viewCModel.set("credittype"+keyindex,(data['findetails']['owner_details'][keyindex]["credittype"]!== '0') ? data['findetails']['owner_details'][keyindex]["credittype"] : "");
+                                $(".crYes"+keyindex+":radio[value='Y']").prop("checked",true);
+                                
+                                $(".chkreason"+keyindex+":checkbox").prop("checked",false);
+                                $(".chkreason"+keyindex+":checkbox[value='15']").prop("checked",true);
+                                
+                            }
+                            else
+                            {
+                                viewCModel.set("check_credit_score"+keyindex,'Y');
+                                $(".crYes"+keyindex+":radio[value='Y']").prop("checked",true);
+                                $('#crdscorerYes'+keyindex).show();
+                                var crtype = (data['findetails']['owner_details'][keyindex]["credittype"]!== '0') ? data['findetails']['owner_details'][keyindex]["credittype"] : "";
+                                $("#credittype"+keyindex+" option[value='"+crtype+"']").prop("selected",true);
+                                viewCModel.set("credittype"+keyindex,data['findetails']['owner_details'][keyindex]["credittype"]);
+                                if(data['findetails']['owner_details'][keyindex]["credittype"] <659) {
+                                    $("#ifless"+keyindex).show();
+                                    $('#ifless'+keyindex).removeClass('ifless');
+                                    $(".chkreason"+keyindex+":checkbox").prop("checked",false);
+                                    var reasons = data['findetails']['owner_details'][keyindex]["low_rpt_reason"].split(",");
+                                    $.each(reasons, function( key, value ) {
+                                        $(".chkreason"+keyindex+":checkbox[value='"+value+"']").prop("checked",true);
+                                    });
+
+                                } else {
+                                    $("#ifless"+keyindex).hide();
+                                    $('#ifless'+keyindex).addClass('ifless');
+                                }
+
+                            }
+                        }
+                     
+                    }
+                    keyindex++;
+                }
+                
+                
                 
             }
         },
