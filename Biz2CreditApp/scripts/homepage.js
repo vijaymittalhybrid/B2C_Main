@@ -25,7 +25,6 @@
             if(latestMatches.length===0)
             {
                 mHtml = '<div class="bmatches"><p>Loading...</p>';
-               // mHtml += '<p>But dont worry, call our toll free number <span>(800-200-5678)</span> to speak with a loan specialist to discuss other options or how to improve your credit. Also, we are constantly adding new lenders and products and will notify you once there is a  new match. </p>';
                 $("#MatchesListnew").html(mHtml);
             }
             else
@@ -71,6 +70,7 @@
                 var data = that.data();
                 app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
                 pos = 1;
+                var appId = data[0]['results']['data']['appid'];
                 var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
                 var matchstatus = data[0]['results']['data']['matchstatus'];
                 var totmatch = data[0]['results']['data']['totmatch'];
@@ -301,14 +301,19 @@
                 {
                     var html = '<a class="btngr" href="'+dButtonLink+'" data-role="button">'+dButtonText+'</a>';
                 }
+                else if(dButtonLink === "#tabstrip-mess-two")
+                {
+                    var html = '<a class="btngr" data-bind="click: applyFreshLoan" data-mode="edit"  data-fid="'+appId+'">'+dButtonText+'</a>';
+                }
                 else{
                     var html = '<a class="btngr" href="'+dButtonLink+'" data-rel="modalview" data-role="button">'+dButtonText+'</a>';
                 }
                  
-                 $("#home-call-btn").append(html);
-                 app.homesetting.viewModel.setHomeToolTips(data[0]['results']['data']);
-                 app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
-               
+                $("#home-call-btn").append(html);
+                kendo.bind($("#home-call-btn"), app.homesetting.viewModel);
+                app.homesetting.viewModel.setHomeToolTips(data[0]['results']['data']);
+                app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
+
             });
         },
 		setcache:function(dHeader,dDescription,dButtonText,dButtonLink)
@@ -529,6 +534,10 @@
              var that = this;
              that.set("repaymentStatus", false);
         },
+        applyFreshLoan:function(e)
+        {
+            app.loginService.viewModel.application(e);  
+        }
 
   
     });

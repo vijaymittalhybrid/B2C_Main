@@ -7,15 +7,12 @@
         postApp:0,
         endedApp:0,
         savedApp:0,
-        loanApa:0,
         postAppList:[],
         endedAppList:[],
         savedAppList:[],
-        loanApaList:[],
         postAppTab:true,
         endedAppTab:false,
         savedAppTab:false,
-        loanApaTab:false,
         showrefreshLoan:true,
         
         show:function()
@@ -34,7 +31,7 @@
                 var dataSource = new kendo.data.DataSource({
                     transport: {
                         read: {
-                            url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
+                            url: localStorage.getItem("urlMobAppApiLoan"),
                             type:"POST",
                             dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                             data: { apiaction:"manageapp",cust_id:localStorage.getItem("userID")} // search for tweets that contain "html5"
@@ -93,12 +90,6 @@
                     that.set('endedApp',value['appcount']);
                     that.set('endedAppList',value['appdetails']);
                 }
-                if(value['apptype']==='loanApa')
-                {
-                    that.set('loanApa',value['appcount']);
-                    that.set('loanApaList',value['appdetails']);
-                    
-                }
         	});   
           
         },
@@ -110,7 +101,6 @@
             that.set('postAppTab',true);
             that.set('endedAppTab',false);
             that.set('savedAppTab',false);
-            that.set('loanApaTab',false);
         },
         endedAppClick:function(e)
         {
@@ -120,7 +110,6 @@
             that.set('postAppTab',false);
             that.set('endedAppTab',true);
             that.set('savedAppTab',false);
-            that.set('loanApaTab',false);
         },
         savedAppClick:function(e)
         {
@@ -130,17 +119,6 @@
             that.set('postAppTab',false);
             that.set('endedAppTab',false);
             that.set('savedAppTab',true);
-            that.set('loanApaTab',false);
-        },
-        loanApaClick:function(e)
-        {
-            var that=this;
-            $('#tabstrip ul li').removeClass('k-state-active');
-            $('#tabstrip ul li.lon_icon').addClass('k-state-active');
-            that.set('postAppTab',false);
-            that.set('endedAppTab',false);
-            that.set('savedAppTab',false);
-            that.set('loanApaTab',true);
         },
         refreshViewLoan:function()
         {
@@ -159,7 +137,7 @@
                 var dataSource = new kendo.data.DataSource({
                     transport: {
                         read: {
-                            url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
+                            url: localStorage.getItem("urlMobAppApiLoan"),
                             type:"POST",
                             dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                             data: { apiaction:"manageapp",cust_id:localStorage.getItem("userID")} // search for tweets that contain "html5"
@@ -203,8 +181,6 @@
             var that = this;
             that.set("showrefreshLoan",true);
         }
-
-        
     });
    
     app.loanApp = {

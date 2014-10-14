@@ -1,8 +1,8 @@
 (function (global) {
         app = global.app = global.app || {};
     
-    // Handle device back button tap
-    var onBackKeyDown = function(e) {
+        // Handle device back button tap
+        var onBackKeyDown = function(e) {
         if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home'){
             e.preventDefault();
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
@@ -40,7 +40,6 @@
     };
 
     var onDeviceReady = function() {
-        
         StatusBar.overlaysWebView(false);
         StatusBar.backgroundColorByHexString('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
@@ -48,7 +47,6 @@
         window.connectionInfo = new ConnectionApp();
 		window.connectionInfo.checkConnection();
         navigator.splashscreen.hide();
-       // document.addEventListener("menubutton",omenu, false);
     };
 
     // Handle "deviceready" event
@@ -94,7 +92,5 @@
     localStorage.setItem("urlMobAppApiFile","http://sandbox.biz2services.com/mobapp/api/file/");
     localStorage.setItem("urlMobAppApiUser","http://sandbox.biz2services.com/mobapp/api/user/");
     localStorage.setItem("urlMobAppApiLoan","http://sandbox.biz2services.com/mobapp/api/loanapp/");
-    
- 
     
 })(window);

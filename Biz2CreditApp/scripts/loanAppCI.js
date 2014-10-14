@@ -544,9 +544,14 @@
             {
                 
                     app.loginService.viewModel.showloder();
+                    keyindex=1;
+                
                     $.each(data['findetails']['owner_details'], function( index, value ) {
-             
-                        if(index=== 0 ||  index==='0')
+                        if(value['own_no']===1 || value['own_no']==='1')
+                        {
+                            pownemail = value['own_email'];
+                        }
+                        if(value['own_no']===1 || value['own_no']==='1')
                         {
                             var jobTitleRequest = value['own_jobtitle'];
                             if(data['findetails']['blegal'] ===app.loansetting.viewModel.select_b_l_s)
@@ -590,35 +595,36 @@
                         else
                         {
                             $("#add-ownerForm").trigger('click');
-                            viewCModel.set("OwnerFirstName"+index,(value['own_fname']!== 'undefined') ? value['own_fname'] : "");
-                            viewCModel.set("OwnerLastName"+index,(value['own_lname']!== 'undefined') ? value['own_lname'] : "");
-                            viewCModel.set("email"+index,(value['own_email']!== 'undefined') ? value['own_email'] : "");
+                            viewCModel.set("OwnerFirstName"+keyindex,(value['own_fname']!== 'undefined') ? value['own_fname'] : "");
+                            viewCModel.set("OwnerLastName"+keyindex,(value['own_lname']!== 'undefined') ? value['own_lname'] : "");
+                            viewCModel.set("email"+keyindex,(value['own_email']!== 'undefined') ? value['own_email'] : "");
                             //viewCModel.set("OwnJobTitle"+index,(EditFormData['0']['OwnJobTitle'+index]!== 'undefined') ? EditFormData['0']['OwnJobTitle'+index] : "");
-                            viewCModel.set("OwnerCivic"+index,(value['own_civic']!== '0') ? value['own_civic'] : "");
-                            viewCModel.set("OwnerStreetAddress"+index,(value['own_street']!== 'undefined') ? value['own_street'] : "");
-                            viewCModel.set("own_state"+index,(value['own_state']!== '0') ? value['own_state'] : "");
-                            createCityCmbEdit(index,(value['own_state']!== '0') ? value['own_state'] : "" , value['own_city']);
-                            viewCModel.set("own_city"+index,(value['own_city']!== 'undefined') ? value['own_city'] : "");
-                            viewCModel.set("OwnZipCode"+index,(value['own_zip']!== 'undefined') ? value['own_zip'] : "");
+                            viewCModel.set("OwnerCivic"+keyindex,(value['own_civic']!== '0') ? value['own_civic'] : "");
+                            viewCModel.set("OwnerStreetAddress"+keyindex,(value['own_street']!== 'undefined') ? value['own_street'] : "");
+                            viewCModel.set("own_state"+keyindex,(value['own_state']!== '0') ? value['own_state'] : "");
+                            createCityCmbEdit(keyindex,(value['own_state']!== '0') ? value['own_state'] : "" , value['own_city']);
+                            viewCModel.set("own_city"+keyindex,(value['own_city']!== 'undefined') ? value['own_city'] : "");
+                            viewCModel.set("OwnZipCode"+keyindex,(value['own_zip']!== 'undefined') ? value['own_zip'] : "");
                             var own_DOB = value['own_dob'].split('-');
-                            viewCModel.set("owner_month"+index,(Number(own_DOB[1])!== 0) ? Number(own_DOB[1]) : "");
-                            viewCModel.set("owner_day"+index,(own_DOB[2]!== '00') ? own_DOB[2] : "");
-                            viewCModel.set("owner_year"+index,(own_DOB[0]!== '0000') ? own_DOB[0] : "");
+                            viewCModel.set("owner_month"+keyindex,(Number(own_DOB[1])!== 0) ? Number(own_DOB[1]) : "");
+                            viewCModel.set("owner_day"+keyindex,(own_DOB[2]!== '00') ? own_DOB[2] : "");
+                            viewCModel.set("owner_year"+keyindex,(own_DOB[0]!== '0000') ? own_DOB[0] : "");
                             
-                            viewCModel.set("own_percent"+index,(value['own_percent']!== '0') ? value['own_percent'] : "");
-                            viewCModel.set("own_id"+index,(value['id']!== 'undefined') ? value['id'] : "");
-                            viewCModel.set("isCheckScore"+index,(value['check_credit_score']!== 'undefined') ? value['check_credit_score'] : "");
-                            viewCModel.set("creditScore"+index,(value['credittype']!== 'undefined') ? value['credittype'] : "");
-                            viewCModel.set("reasonlscore"+index,(value['low_rpt_reason']!== 'undefined') ? value['low_rpt_reason'] : "");
+                            viewCModel.set("own_percent"+keyindex,(value['own_percent']!== '0') ? value['own_percent'] : "");
+                            viewCModel.set("own_id"+keyindex,(value['id']!== 'undefined') ? value['id'] : "");
+                            viewCModel.set("isCheckScore"+keyindex,(value['check_credit_score']!== 'undefined') ? value['check_credit_score'] : "");
+                            viewCModel.set("creditScore"+keyindex,(value['credittype']!== 'undefined') ? value['credittype'] : "");
+                            viewCModel.set("reasonlscore"+keyindex,(value['low_rpt_reason']!== 'undefined') ? value['low_rpt_reason'] : "");
                             if(data['findetails']['blegal'] === app.loansetting.viewModel.select_b_l_s)
                             {
-                                viewCModel.set("OwnJobTitle"+index,value['own_jobtitle']);
-                                $("#OwnJobTitle"+index+" option[value='"+value['own_jobtitle']+"']").prop("selected",true);
+                                viewCModel.set("OwnJobTitle"+keyindex,value['own_jobtitle']);
+                                $("#OwnJobTitle"+keyindex+" option[value='"+value['own_jobtitle']+"']").prop("selected",true);
                             }
                             else
                             {
-                                $('#OwnJobTitle'+index+' option[value=""]').prop("selected",true);
+                                $('#OwnJobTitle'+keyindex+' option[value=""]').prop("selected",true);
                             }
+                            keyindex++;
                         }
                     	
                 	});      
@@ -645,6 +651,9 @@
                     } else {
                         app.loanAppCI.viewModel.checkownerFlag();
                     }
+                    ownerpValidate();
+                    that.set("primaryOwner",pownemail);
+                    $("#cmbowners option[value='"+pownemail+"']").prop("selected", true); 
             }
         },
         getownerForm:function(index) {
@@ -886,7 +895,7 @@
             }
             else
             {
-           	 dataParam['contact_act'] ='Save & Exit';
+           	 dataParam['contact_act'] ='Save_Exit';
             }
             
             var that = this;
@@ -912,7 +921,7 @@
             primaryOwner = that.get("primaryOwner");
             if(primaryOwner !== '')
             {
-              dataParam['primaryOwner'] = primaryOwner;
+              dataParam['cmbowners'] = primaryOwner;
             }
             
             dataParam['cust_id'] = localStorage.getItem("userID");
@@ -938,6 +947,7 @@
             dataParam['ownerdeleteIds'] = ownerdeleteIds;
             dataParam['deldbownerids'] = deldbownerids;
             dataParam['totownerDiv'] = totownerDiv;
+            
             
             for(var i=1; i<=totownerDiv;i++)
             {
@@ -992,8 +1002,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                       // $msg= "Contact Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",'false2');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
