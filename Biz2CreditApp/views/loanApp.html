@@ -74,12 +74,12 @@
         <span>BIZ#: fid #</span>
         #if(matchCount > 1 ){#
             <span>#:matchCount# Matches</span>
-        #}#
+        #}else{#
         #if(matchCount === 1){#
             <span>1 Match </span>
         #}else{#
             <span>0 Match </span> 
-        #}#
+        #}}#
         <span>#= kendo.toString(kendo.parseDate(fDate), 'MM/dd/yyyy') #
         </span>
     </li>
