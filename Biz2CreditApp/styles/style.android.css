@@ -450,6 +450,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app .refreshloan {width:17%;height: 62px;background-size:29%;background-position: 17px 18px;}
 #tabstrip-manage-app #tabstrip ul li a { height:85px;padding: 43px 0 0px 0%;}
 #tabstrip-manage-app #tabstrip ul li a span{margin:3% 0 0 42%; height:35px; width:35px; line-height:30px;}
+.tabOne.withMatch .head span:nth-child(2) { font-size:15px;}
 }
 @media (min-width:0px) and (max-width:600px) {
 .docs-header .km-widget .docs-search { width:8%; margin:0;}
@@ -469,6 +470,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #dynamicCl.km-popup-wrapper {width: 220px !important; height:245px !important;}
 /*******Android css************/
 .docs-header .km-widget .docs-docu { width:63%; font-size:1em; padding:1.2% 0 0;}
+
 .modal-mess-Popup {padding:0; width:98%; margin:0 0 0 1.3%; }
 .modal-mess-one {padding:0; width:98%; margin:0 0 0 1.3%; }
 .folder-events .scheduleSection .buttonArea .km-button{padding:0.6em 0;}
@@ -729,6 +731,7 @@ html body .backButton {background-size: 50% !important;width: 73%;background-pos
 #tabstrip-manage-app .refresh-loading {background-position: center 9px;background-size: 95%;}
 #tabstrip-manage-app .docs-popup {width: 47px;}
 #aplicn_frm #credit_show p.mercPr .IN3, #aplicn_frm select.IN1b.ipsm1, #aplicn_frm #credit_show .rw_lin p.imp33,#aplicn_frm .rws.rw1 .IN1 {width: 100% !important;}
+.tabOne.withMatch .head span:nth-child(2) { font-size:12px;}
 }
 @media (min-width:0px) and (max-width:370px) {
 .logo { margin:6% auto;}

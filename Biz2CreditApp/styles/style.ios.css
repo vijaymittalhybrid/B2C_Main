@@ -237,6 +237,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span, .tabOne .head span:last-child {width: 16%; font-size:15px;}
 .tabOne .head span:last-child, .tabOne .head span:first-child { font-size:16px;}
 #tabstrip-manage-app #tabstrip .tabOne ul.tabui li span:first-child, .tabOne .head span:first-child {width: 84%;font-size:15px;}
+.tabOne.withMatch .head span:nth-child(2) { font-size:15px;}
 #tabstrip-manage-app #tabstrip ul li a, #tabstrip-manage-app #tabstrip .tabOne ul.tabui li a {font-size:15px;}
 #tabstrip-manage-app #tabstrip ul li a{height:85px;}
 #tabstrip-manage-app #tabstrip ul li a span{height: 30px;width: 30px;line-height: 26px;font-size: 14px;}
@@ -488,6 +489,7 @@ html body #tabstrip-manage-app .backButton {background-size:45% !important;width
 #tabstrip-manage-app #tabstrip ul li a {height: 65px;}
 #tabstrip-manage-app .refresh-loading {background-size: 95%;}
 #tabstrip-manage-app .refreshloan {background-size: 60%;background-position: 5px 16px;height: 55px;}
+.tabOne.withMatch .head span:nth-child(2) { font-size:12px;}
 }
 @media (min-width:0px) and (max-width:320px) { 
 #blackBlk .desbrdIcon .dasimg {width:19%;}
