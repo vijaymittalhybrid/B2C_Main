@@ -170,7 +170,7 @@
                                 $('#crdscorerYes0').show();
                                 var crtype = (data['findetails']['owner_details'][index]["credittype"]!== '0') ? data['findetails']['owner_details'][index]["credittype"] : "";
                                 $("#credittype0 option[value='"+crtype+"']").prop("selected",true);
-                                viewCModel.set("credittype0",data['findetails']['owner_details'][index]["credittype"]);
+                                viewCModel.set("credittype0",crtype);
                                 if(data['findetails']['owner_details'][index]["credittype"] <659) {
                                     $("#ifless0").show();
                                     $('#ifless0').removeClass('ifless');
@@ -452,16 +452,16 @@
                 {
                     if(dataParam['personal_act'] === "Next")
                     {
-                        $msg= "Personal Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Personal Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                         apps.navigate('views/loanAppFP.html');
                     }
                     else
                     {
-                    	$msg= "Personal Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                    	//$msg= "Personal Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loansetting.viewModel.resetLoanAppBIForm();
                         app.loanAppCI.viewModel.resetLoanAppCIForm();
                         app.loanAppPI.viewModel.resetLoanAppPIForm(); 

@@ -532,7 +532,8 @@
             
             that.set("legal_business_name",data['findetails']['orgname']);
             that.set("dba_name",data['findetails']['dbaname']);
-            that.set("street_no",data['findetails']['civic']);
+            that.set("street_no",(data['findetails']['civic']!== '0') ? data['findetails']['civic'] : "");
+            
             that.set("street_name",data['findetails']['baddr']);
             that.set("apt_suite_unit",data['findetails']['street1']);
             that.set("select_state",(data['findetails']['state']!== '0') ? data['findetails']['state'] : "");
@@ -562,10 +563,12 @@
             else
             {
                 $("#yettostart").prop("checked",false);
-                that.set("select_buss_s_m",data['findetails']['dbs_month']);
-                that.set("select_buss_s_y",data['findetails']['dbs_year']);
-                that.set("average_annual_revenue",app.loansetting.viewModel.setCommaNumber(data['findetails']['revenue']));
-                that.set("buss_operating_expenses",app.loansetting.viewModel.setCommaNumber(data['findetails']['operatingexp']));
+                that.set("select_buss_s_m",(data['findetails']['dbs_month']!== '0') ? data['findetails']['dbs_month'] : "");
+                that.set("select_buss_s_y",(data['findetails']['dbs_year']!== '0') ? data['findetails']['dbs_year'] : "");
+                var annual_revenue = app.loansetting.viewModel.setCommaNumber(data['findetails']['revenue']);
+                var operating_expenses = app.loansetting.viewModel.setCommaNumber(data['findetails']['operatingexp']);
+                that.set("average_annual_revenue",(annual_revenue!== '0') ? annual_revenue : "");
+                that.set("buss_operating_expenses",(operating_expenses!== '0') ? operating_expenses : "");
                 
                 $('#dbs_month').removeAttr("disabled");
                 $('#dbs_year').removeAttr("disabled");
@@ -592,15 +595,27 @@
                 that.set("datefirstProcessed_day",(d[2]!== '00') ? d[2] : "");
                 that.set("datefirstProcessed_year",(d[0]!== '0000') ? d[0] : "");
                 that.set("c_c_card_processor",data['findetails']['creditcardproc']);
-                that.set("merchant_id",data['findetails']['merchantid']);
-                that.set("MonthlyVolumeAmountsList1",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_sale']));
-                that.set("MonthlyVolumeTicketsList1",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_transaction']));
-                that.set("MonthlyVolumeAmountsList2",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_sale']));
-                that.set("MonthlyVolumeTicketsList2",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_transaction']));
-                that.set("MonthlyVolumeAmountsList3",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_sale']));
-                that.set("MonthlyVolumeTicketsList3",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_transaction']));
-                that.set("MonthlyVolumeAmountsList4",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_sale']));
-                that.set("MonthlyVolumeTicketsList4",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_transaction']));
+                that.set("merchant_id",(data['findetails']['merchantid']!== '0') ? data['findetails']['merchantid'] : "");
+                
+                var MAmountsList1=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_sale']);
+                var MTicketsList1=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_transaction']);
+                
+                var MAmountsList2=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_sale']);
+                var MTicketsList2=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_transaction']);
+                
+                var MAmountsList3=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_sale']);
+                var MTicketsList3=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_transaction']);
+                
+                var MAmountsList4=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_sale']);
+                var MTicketsList4=app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_transaction']);
+                that.set("MonthlyVolumeAmountsList1",(MAmountsList1!== '0') ? MAmountsList1 : "");
+                that.set("MonthlyVolumeTicketsList1",(MTicketsList1!== '0') ? MTicketsList1 : "");
+                that.set("MonthlyVolumeAmountsList2",(MAmountsList2!== '0') ? MAmountsList2 : "");
+                that.set("MonthlyVolumeTicketsList2",(MTicketsList2!== '0') ? MTicketsList2 : "");
+                that.set("MonthlyVolumeAmountsList3",(MAmountsList3!== '0') ? MAmountsList3 : "");
+                that.set("MonthlyVolumeTicketsList3",(MTicketsList3!== '0') ? MTicketsList3 : "");
+                that.set("MonthlyVolumeAmountsList4",(MAmountsList4!== '0') ? MAmountsList4 : "");
+                that.set("MonthlyVolumeTicketsList4",(MTicketsList4!== '0') ? MTicketsList4 : "");
             }
             else
             {
@@ -634,7 +649,8 @@
                 $('#busInfobx2').show();
                 $('#busInfobx').hide();
                 $('.businf:radio[value="'+data['findetails']['busi_pro_info_type']+'"]').prop("checked",true);
-                that.set("monthly_rent",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_rent']));
+                var b_m_rent= app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_rent']);
+                that.set("monthly_rent",(b_m_rent!== '0') ? b_m_rent : "");
                 that.set("landlord_name",data['findetails']['busi_landlord']);
                 that.set("contact_number",data['findetails']['busi_cont_number']);
             }
@@ -645,8 +661,11 @@
                 $('.busimort:radio[value="'+data['findetails']['busi_out_mort_type']+'"]').prop("checked",true);
                 $("#outstandingMortagageDiv").show();
                 that.set("mortgage_bank",data['findetails']['busi_mort_bank']);
-                that.set("outs_bal",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_out_balance']));
-                that.set("month_mort_amount",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_mort_amount']));
+                var b_o_bal=app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_out_balance']);
+                var m_m_amount=app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_mort_amount']);
+                
+                that.set("outs_bal",(b_o_bal!== '0') ? b_o_bal : "");
+                that.set("month_mort_amount",(m_m_amount!== '0') ? m_m_amount : "");
             }
             else
             {
