@@ -102,7 +102,6 @@
             });
             if(sessionStorage.getItem("LoanAppFPEditMode") ==='1')
             {
-                sessionStorage.setItem("LoanAppPIEditMode",'0');
                 sessionStorage.setItem("LoanAppFPEditMode",'0');
                 app.loanFP.viewModel.setFPeditForm();
             }      
@@ -111,13 +110,9 @@
        setFPeditForm:function(){
             var that=this;
             var data =manageData;
-            var minLoanAmount =  app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['ammount']).toString());
-            var maxLoanAmount =  app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['max_amount']).toString());
-
             that.set("funding_priority",(Number(data['findetails']['priority1'])!== 0) ? Number(data['findetails']['priority1']) : "");
-
-            that.set("min_loan_amount",(minLoanAmount!== '0') ? minLoanAmount : "");
-            that.set("max_loan_amount",(maxLoanAmount!== '0') ? maxLoanAmount : "");
+            that.set("min_loan_amount",data['findetails']['ammount']);
+            that.set("max_loan_amount",data['findetails']['max_amount']);
             var planChk = data['findetails']['plansids'].split(",");
             $.each(planChk,function(index,value){
                 if($.isNumeric(index))

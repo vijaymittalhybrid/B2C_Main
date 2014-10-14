@@ -619,19 +619,18 @@
 
         var uniqeownp = ownpers.unique();
         if(uniqeownp.length===1 && sownp >1  && totaldivs >0){                   
-            var pownemail = $("#pownemail").val();
+        var pownemail = $("#pownemail").val();
+        $('#cmbowners option[value!=""]').remove();
+        for(var s =0; s<emails.length; s++){
+            $("#cmbowners").append('<option value="'+emails[s]+'">'+emails[s]+'</option>');
+        }                    
+        if(pownemail !==''){
+            $("#cmbowners option[value='"+pownemail+"']").prop("selected", true);                      
+        }                    
+        $('#secmbowners').show();                    
+        } else {
             $('#cmbowners option[value!=""]').remove();
-            for(var s =0; s<emails.length; s++){
-                $("#cmbowners").append('<option value="'+emails[s]+'">'+emails[s]+'</option>');
-            }                    
-            if(pownemail !==''){
-                $("#cmbowners option[value='"+pownemail+"']").prop("selected", true);                      
-            }                    
-            $('#secmbowners').show();                    
-        } 
-        else {
-                $('#cmbowners option[value!=""]').remove();
-                $("#secmbowners").hide();
+            $("#secmbowners").hide();
         }
 }
     </script>

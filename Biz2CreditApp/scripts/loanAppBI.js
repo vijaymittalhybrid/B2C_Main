@@ -69,7 +69,6 @@
                 
             	app.loansetting.viewModel.creditCardValidate();
             }
-           
         },
         show:function(e) {
             e.sender.reload=false;
@@ -499,7 +498,7 @@
             var dataS = new kendo.data.DataSource({
                 transport: {
                 read: {
-                    url: localStorage.getItem("urlMobAppApiLoan"),
+                    url: 'http://sandbox.biz2services.com/mobapp/api/loanapp',
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: { apiaction:"getloanappinfo",cust_id:localStorage.getItem("userID"),fid:localStorage.getItem("fid")}
@@ -564,8 +563,8 @@
                 $("#yettostart").prop("checked",false);
                 that.set("select_buss_s_m",data['findetails']['dbs_month']);
                 that.set("select_buss_s_y",data['findetails']['dbs_year']);
-                that.set("average_annual_revenue",app.loansetting.viewModel.setCommaNumber(data['findetails']['revenue']));
-                that.set("buss_operating_expenses",app.loansetting.viewModel.setCommaNumber(data['findetails']['operatingexp']));
+                that.set("average_annual_revenue",data['findetails']['revenue']);
+                that.set("buss_operating_expenses",data['findetails']['operatingexp']);
                 
                 $('#dbs_month').removeAttr("disabled");
                 $('#dbs_year').removeAttr("disabled");
@@ -593,14 +592,14 @@
                 that.set("datefirstProcessed_year",(d[0]!== '0000') ? d[0] : "");
                 that.set("c_c_card_processor",data['findetails']['creditcardproc']);
                 that.set("merchant_id",data['findetails']['merchantid']);
-                that.set("MonthlyVolumeAmountsList1",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_sale']));
-                that.set("MonthlyVolumeTicketsList1",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_lastmonth_transaction']));
-                that.set("MonthlyVolumeAmountsList2",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_sale']));
-                that.set("MonthlyVolumeTicketsList2",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_1month_ago_transaction']));
-                that.set("MonthlyVolumeAmountsList3",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_sale']));
-                that.set("MonthlyVolumeTicketsList3",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_2month_ago_transaction']));
-                that.set("MonthlyVolumeAmountsList4",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_sale']));
-                that.set("MonthlyVolumeTicketsList4",app.loansetting.viewModel.setCommaNumber(data['findetails']['cc_3month_ago_transaction']));
+                that.set("MonthlyVolumeAmountsList1",data['findetails']['cc_lastmonth_sale']);
+                that.set("MonthlyVolumeTicketsList1",data['findetails']['cc_lastmonth_transaction']);
+                that.set("MonthlyVolumeAmountsList2",data['findetails']['cc_1month_ago_sale']);
+                that.set("MonthlyVolumeTicketsList2",data['findetails']['cc_1month_ago_transaction']);
+                that.set("MonthlyVolumeAmountsList3",data['findetails']['cc_2month_ago_sale']);
+                that.set("MonthlyVolumeTicketsList3",data['findetails']['cc_2month_ago_transaction']);
+                that.set("MonthlyVolumeAmountsList4",data['findetails']['cc_3month_ago_sale']);
+                that.set("MonthlyVolumeTicketsList4",data['findetails']['cc_3month_ago_transaction']);
             }
             else
             {
@@ -634,7 +633,7 @@
                 $('#busInfobx2').show();
                 $('#busInfobx').hide();
                 $('.businf:radio[value="'+data['findetails']['busi_pro_info_type']+'"]').prop("checked",true);
-                that.set("monthly_rent",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_rent']));
+                that.set("monthly_rent",data['findetails']['busi_month_rent']);
                 that.set("landlord_name",data['findetails']['busi_landlord']);
                 that.set("contact_number",data['findetails']['busi_cont_number']);
             }
@@ -645,8 +644,8 @@
                 $('.busimort:radio[value="'+data['findetails']['busi_out_mort_type']+'"]').prop("checked",true);
                 $("#outstandingMortagageDiv").show();
                 that.set("mortgage_bank",data['findetails']['busi_mort_bank']);
-                that.set("outs_bal",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_out_balance']));
-                that.set("month_mort_amount",app.loansetting.viewModel.setCommaNumber(data['findetails']['busi_month_mort_amount']));
+                that.set("outs_bal",data['findetails']['busi_out_balance']);
+                that.set("month_mort_amount",data['findetails']['busi_month_mort_amount']);
             }
             else
             {
@@ -673,25 +672,25 @@
                     $("#yeardisbursed"+index+" option[value='"+yeardisbursedval+"']").prop("selected",true);  
                     
                     
-                    var txtOutCreditVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['outstanding']).toString());
+                    var txtOutCreditVal = Number(data['findetails']['finloan_details'][index-1]['outstanding']);
                     var txtInterestCreditVal = Number(data['findetails']['finloan_details'][index-1]['interestrate']);
                     var txtPerYearCreditVal =data['findetails']['finloan_details'][index-1]['interesttime'];
                     var tpcompanyVal = data['findetails']['finloan_details'][index-1]['tpcompany'];
-                    var ocadvanceVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['funded_amt']).toString());
+                    var ocadvanceVal = Number(data['findetails']['finloan_details'][index-1]['funded_amt']);
                     var funded_termVal = Number(data['findetails']['finloan_details'][index-1]['term']);
                     var collateraltypeVal = data['findetails']['finloan_details'][index-1]['collateral'];  
-                    var txtOutAmountTermVal =app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['outstandingamount']).toString());
+                    var txtOutAmountTermVal =Number(data['findetails']['finloan_details'][index-1]['outstandingamount']);
                     var txtInterestTermVal = Number(data['findetails']['finloan_details'][index-1]['termintrate']);
                     var txtPaymentModeTermVal = data['findetails']['finloan_details'][index-1]['termpaymentmode'];
                     //var txtTermVal =data['findetails']['finloan_details'][index-1]['term'];
                     var txtFrequncyTermVal = data['findetails']['finloan_details'][index-1]['frequency'];
-                    var txtAmountTermVal = app.loansetting.viewModel.setCommaNumber(Number(data['findetails']['finloan_details'][index-1]['principleamount']).toString());
+                    var txtAmountTermVal = Number(data['findetails']['finloan_details'][index-1]['principleamount']);
                     var txtYearTermVal = data['findetails']['finloan_details'][index-1]['terminttime'];
                     
                     viewFModel.set("yeardisbursed"+index,yeardisbursedval);
                     if(debtTypeText === "Business Credit Card")
                     {   
-                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== '0') ? txtOutCreditVal : "");
+                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== 0) ? txtOutCreditVal : "");
                         viewFModel.set("txtInterestCredit"+index,(txtInterestCreditVal!== 0) ? txtInterestCreditVal : "");
                         viewFModel.set("txtPerYearCredit"+index,txtPerYearCreditVal);
                     }
@@ -699,14 +698,14 @@
                     if(debtTypeText === "Cash Advance")
                     {
                         viewFModel.set("tpcompany"+index,tpcompanyVal);
-                        viewFModel.set("ocadvance"+index,(ocadvanceVal!== '0') ? ocadvanceVal : "");
+                        viewFModel.set("ocadvance"+index,(ocadvanceVal!== 0) ? ocadvanceVal : "");
                         viewFModel.set("funded_term"+index,(funded_termVal!== 0) ? funded_termVal : "");
                     }
                     
                     if(debtTypeText === "Line of credit")
                     {
                         viewFModel.set("collateraltype"+index,collateraltypeVal);
-                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== '0') ? txtOutCreditVal : "");
+                        viewFModel.set("txtOutCredit"+index,(txtOutCreditVal!== 0) ? txtOutCreditVal : "");
                         viewFModel.set("txtInterestCredit"+index,(txtInterestCreditVal!== 0) ? txtInterestCreditVal : "");
                         viewFModel.set("txtPerYearCredit"+index,txtPerYearCreditVal);
                     }
@@ -714,12 +713,12 @@
                     if(debtTypeText === "Term loan")
                     {
                         viewFModel.set("collateraltype"+index,collateraltypeVal);
-                        viewFModel.set("txtOutAmountTerm"+index,(txtOutAmountTermVal!== '0') ? txtOutAmountTermVal : "");
+                        viewFModel.set("txtOutAmountTerm"+index,(txtOutAmountTermVal!== 0) ? txtOutAmountTermVal : "");
                         viewFModel.set("txtInterestTerm"+index,(txtInterestTermVal!== 0) ? txtInterestTermVal : "");
                         viewFModel.set("txtPaymentModeTerm"+index,txtPaymentModeTermVal);
                         viewFModel.set("txtTerm"+index,(funded_termVal!== 0) ? funded_termVal : "");
                         viewFModel.set("txtFrequncyTerm"+index,txtFrequncyTermVal);
-                        viewFModel.set("txtAmountTerm"+index,(txtAmountTermVal!== '0') ? txtAmountTermVal : "");
+                        viewFModel.set("txtAmountTerm"+index,(txtAmountTermVal!== 0) ? txtAmountTermVal : "");
                         viewFModel.set("txtYearTerm"+index,txtYearTermVal);
                     }
                 }
@@ -1386,7 +1385,8 @@
             
             
         	//business have outstanding debt
-        	if($(".outDebt[type='radio']:checked").val()==='Yes')
+        
+        	if(document.getElementById('debttype').checked)
             {
                 debttypeYES			    			  = that.get("debttype_yes"),
             	dataParam['debttype']					= debttypeYES;
@@ -1481,15 +1481,10 @@
                     }
                 }
             }
-            else if($(".outDebt[type='radio']:checked").val()==='No')
+            else
             {
                 debttypeNO			  			     = that.get("debttype_no"),
            	 dataParam['debttype']					= debttypeNO;
-            }
-            else
-            {
-                
-           	 dataParam['debttype']					= '';
 
             }
             dataParam['totbusinessDebtYesDiv']=totbusinessDebtYesDiv; 
@@ -1595,8 +1590,8 @@
                     }
                     else
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //localStorage.setItem("fid",data[0]['results']['fid']);
+                        $msg= "Business Information submitted successfully";
+                        localStorage.setItem("fid",data[0]['results']['fid']);
                         app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
@@ -1778,13 +1773,7 @@
             {
             	var that = this;
             	that.set("currentfidStatus",true);
-            },
-            setCommaNumber:function(val)
-            {
-                var num = val.replace(/[^0-9]+/g, '').replace(/,/gi, "").split("").reverse().join("");     
-                var num2 =  app.scheduleService.viewModel.RemoveRougeChar(num.replace(/(.{3})/g,"$1,").split("").reverse().join(""));
-                return num2;								
-            },
+            }
 
     });
    
