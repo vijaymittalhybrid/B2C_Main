@@ -151,7 +151,7 @@
                         }
                         else
                         {
-                            if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600')
+                            if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && (data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600') && (data['findetails']['owner_details'][index]["low_rpt_reason"] ===15 || data['findetails']['owner_details'][index]["low_rpt_reason"] ==='15'))
                             {  
                                 viewCModel.set("check_credit_score0",'Y');
                                 $('#crdscorerYes0').show();
@@ -203,7 +203,7 @@
                         }
                         else
                         {
-                            if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600')
+                            if(data['findetails']['owner_details'][index]["check_credit_score"]=== 'N' && (data['findetails']['owner_details'][index]["credittype"]===600 || data['findetails']['owner_details'][index]["credittype"]==='600') && (data['findetails']['owner_details'][index]["low_rpt_reason"] ===15 || data['findetails']['owner_details'][index]["low_rpt_reason"] ==='15'))
                             {  
                                 viewCModel.set("check_credit_score"+keyindex,'Y');
                                 $('#crdscorerYes'+keyindex).show();
