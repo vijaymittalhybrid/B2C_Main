@@ -62,7 +62,7 @@
                         html +='<div class="rwfil">';
                         html +='<div class="rw_lin clearfix">';
                         html +='<div  id="creditScoreTextOwn'+c+'" class="labl_tx2">Would you like us to check your credit score for free?*</div></div><div class="rw_lin clearfix opt lblBtM"> <span>';
-						html +=   '<label for="crdye">Do you know your credit score?</label>';
+						html +=   '<label for="crdye" id="labelmsg'+c+'">Do you know your credit score?</label>';
                         
                         html +=   '<input name="check_credit_score'+c+'" onclick="getCheckcscore('+c+',this.value);"   data-bind="checked:check_credit_score'+c+'"  id="check_credit_score'+c+'" type="radio" value="Y" class="crYes'+c+'" >';
                         html +=   '<label for="crdye" >Yes</label></span> <span>';
@@ -307,11 +307,17 @@
                     });
 
                     if(c === 0 ) {
-                        creditScorenodel ="Would you like us to check "+ app.loanAppCI.viewModel.Owner_FirstName +"'s credit score for free?*";
+                        //creditScorenodel ="Would you like us to check "+ app.loanAppCI.viewModel.Owner_FirstName +"'s credit score for free?*";
+                        creditScorenodel='';
+                        var labelMsg = '<b>Do you know the credit score of ' + app.loanAppCI.viewModel.Owner_FirstName+'</b>';
+                        $("#labelmsg"+c).html(labelMsg);
                         $("#creditScoreTextOwn"+c).html(creditScorenodel);
                         $('#ownercscore'+c+'').show();
                     } else {
-                        creditScorenodel ="Would you like us to check "+ viewCModel.get('OwnerFirstName'+c) +"'s credit score for free?*";
+                         creditScorenodel=' ';
+                        //creditScorenodel ="Would you like us to check "+ viewCModel.get('OwnerFirstName'+c) +"'s credit score for free?*";
+                        var labelMsg = '<b>Do you know the credit score of ' +viewCModel.get('OwnerFirstName'+c)+'</b>';
+                        $("#labelmsg"+c).html(labelMsg);
                         $("#creditScoreTextOwn"+c).html(creditScorenodel);
                         $('#ownercscore'+c+'').show();
                     }
@@ -452,16 +458,16 @@
                 {
                     if(dataParam['personal_act'] === "Next")
                     {
-                        //$msg= "Personal Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                         apps.navigate('views/loanAppFP.html');
                     }
                     else
                     {
-                    	//$msg= "Personal Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                    	$msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         app.loansetting.viewModel.resetLoanAppBIForm();
                         app.loanAppCI.viewModel.resetLoanAppCIForm();
                         app.loanAppPI.viewModel.resetLoanAppPIForm(); 
