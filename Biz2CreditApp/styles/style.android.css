@@ -96,6 +96,7 @@ html body .backButton{ height:88px;background-size: 19% !important;background-po
 #tabstrip-manage-app .refreshloan{width: 12%;background-size: 26%;background-position:50px 27px; height:88px;}
 #tabstrip-manage-app .refresh-loading{height:88px;}
 .home .popup, #tabstrip-Setting .popup, #tabstrip-loanapp-bi .popup, #tabstrip-loanapp-ci .popup, #tabstrip-loanapp-fp .popup, #tabstrip-loanapp-pi .popup{width:65px;}
+.rwfil.aut.clearfix p + p .IN1.ipsm1{ width:250px !important;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -353,6 +354,7 @@ ul.mobile li a:hover{ display:block; font-size:14px; background-color:#000; colo
 html body .backButton { width:81%; background-size: 28% !important;}
 #tabstrip-manage-app #tabstrip div:nth-child(2) .tabOne .actArw {margin: 0 0 0 14%;}
 #tabstrip-manage-app #tabstrip .tabOne {margin: 6% 0 0;}
+.rwfil.aut.clearfix p + p .IN1.ipsm1{ width:100% !important;}
 }
 @media (min-width:0px) and (max-width:640px) {
 .logo { margin:3% auto;}
@@ -559,7 +561,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #tabstrip-manage-app .recent-activity { padding:10px;}
 html body .backButton {width: 84%;}
 #tabstrip-manage-app .refresh-loading {background-size: 56%;}
-#aplicn_tp ul.app_nav li.dn span {background-position: center 75px;}
+#aplicn_tp ul.app_nav li.dn span {background-position: center 50px;}
 
 }
 @media (min-width:0px) and (max-width:580px) {
@@ -671,6 +673,7 @@ html body #aplicn_frm ul.low_creditop li.opt2 label.error {font-size:11px;}
 #tabstrip-manage-app #tabstrip ul li a span{ left:37%;}
 #tabstrip-manage-app #tabstrip ul li.k-state-active .actArw{ left:38%;}
 html body .backButton {width: 80%;}
+#aplicn_tp ul.app_nav li.dn span {background-position: center 75px;}
 }
 @media (min-width:0px) and (max-width:410px) {
 .logLogo {margin: 17% auto;}
