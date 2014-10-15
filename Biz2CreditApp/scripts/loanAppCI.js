@@ -348,6 +348,7 @@
                 app.loanAppCI.viewModel.addDynamicOwner(++index);
                 var form = app.loanAppCI.viewModel.getownerForm(index)
                 //$('#totownerDiv').val(index);
+               
                 app.loanAppCI.viewModel.setHiddenField(index);
                 var tot= parseInt($('#ownercurrntControl').val())+1;
                 $('#ownercurrntControl').val(tot);
@@ -628,9 +629,8 @@
                         }
                     	
                 	});      
-                
-                    var totownerDiv = data['findetails']['owner_details'].length;
-                    that.set("totownerDiv",totownerDiv-1);
+
+                    totownerDiv = that.get("totownerDiv");
                     var total_per = 0; 
                     for(var c=0; c<=totownerDiv; c++){ 
                         if(c===0) {
@@ -864,6 +864,7 @@
         setHiddenField:function(index)
         {
                 var that =this;
+            console.log(index);
                 that.set("totownerDiv",index);
         },
         setHiddenFieldDeleteIds:function(ids)
