@@ -144,12 +144,6 @@
 
                 if(totaldivs >0) 
                 {
-                    /*
-                    var deldids = strdeldivids.split(",");                                 
-                    if($.inArray(c, deldids ) ) {
-                    alert("found"+c);
-                    }
-                    */
                     var total_per = 0;
                     for( var c=1; c<=totaldivs; c++)
                     {                                    
@@ -346,9 +340,7 @@
             addownerForm.on("click.myPlugin", function() {
                 
                 app.loanAppCI.viewModel.addDynamicOwner(++index);
-                var form = app.loanAppCI.viewModel.getownerForm(index)
-                //$('#totownerDiv').val(index);
-               
+                var form = app.loanAppCI.viewModel.getownerForm(index);
                 app.loanAppCI.viewModel.setHiddenField(index);
                 var tot= parseInt($('#ownercurrntControl').val())+1;
                 $('#ownercurrntControl').val(tot);
