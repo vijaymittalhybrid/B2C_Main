@@ -864,7 +864,6 @@
         setHiddenField:function(index)
         {
                 var that =this;
-            console.log(index);
                 that.set("totownerDiv",index);
         },
         setHiddenFieldDeleteIds:function(ids)
