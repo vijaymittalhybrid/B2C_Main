@@ -77,30 +77,6 @@
             $(".km-scroll-container").css("-webkit-transform", "");
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
-
-            /*$('.srh_men  .scmsk').mouseover(function() {
-                $("#log_BX").hide();
-                $("#socl_BX").hide();
-                $("#srch_BX").slideToggle(300);
-                $('.log_men').removeClass("act");
-                $('.soc_men').removeClass("act");
-                $('.srh_men').toggleClass("act");
-                $('.soc_men .scmsk').show();
-                $('.srh_men .scmsk').hide();
-                $('.log_men .scmsk').show();
-            });  
-            $('#srch_BX .clsmnub').click(function() {
-                $("#srch_BX").slideToggle(300);
-                $('.log_men').removeClass("act");
-                $('.srh_men').removeClass("act");
-                $('.soc_men').removeClass("act");
-                $('.soc_men .scmsk').show();
-                $('.srh_men .scmsk').show();
-                $('.log_men .scmsk').show();
-            }); */
-
-            //$(".reld_info").tooltip({ effect: 'slide', position: 'bottom center'});
-            // $(".que_hint").tooltip({ effect: 'slide', position: 'bottom center'});
             $(".que_hint").kendoTooltip({
                 autoHide: false,
                 width: 240,
@@ -110,32 +86,7 @@
                 	return e.target.context.nextElementSibling.innerHTML;
                 },
             });
-            // menu 
-            /*$('.subms').hide();
-            $('.subnv ').click(function() {
-            	$(".subms").slideToggle(300);
-            	$('.subnv').toggleClass("act");
-            });*/
-
-            // application
-           /* $('.montrnt.yes').hide();
-            $('.crYes ').click(function() {
-            	$('.montrnt').hide();
-            	$('.montrnt.yes').show();
-            });
-            $('.crNo ').click(function() {
-            	$('.montrnt').show();
-            	$('.montrnt.yes').hide();
-            });*/
-
-
-
-           /* $('.own2').hide();
-            $('.admr').click(function() {	
-            	$('.own2').show(); 
-            	$('.addbtns').hide();
-            });*/
-
+            
             /*--------------function for select--------------*/
 
             $('#count_number').change(function() {
@@ -239,10 +190,7 @@
                 	$('#crdscrNo').hide();
                 }
             });
-           /* $('.tpar').click(function() {
-            	//alert('debug');
-            });*/
-
+            
             $("#yettostart").click(function() {
                 if($(this).is(':checked')) {
                     $('#dbs_month').val("");
@@ -316,8 +264,6 @@
             
                 app.loansetting.viewModel.addOutDebtVar(++index);
                 var form = app.loansetting.viewModel.getForm(index);
-                //$('#totbusinessDebtYesDiv').val(index);
-                
                 app.loansetting.viewModel.setHiddenField(index);
 
                 var tot = parseInt($('#currntControl').val()) + 1;
@@ -342,9 +288,7 @@
                     $("#debt" + currentIndex).remove();
                     $("#loan_" + currentIndex).remove();
                     $('#currntControl').val($('#currntControl').val() - 1);
-                    //divId.push(currentIndex);
                     app.loansetting.viewModel.setHiddenFieldDeleteIds(currentIndex);
-                    //$('#deleteIds').val(divId);
                     if ($('#currntControl').val().trim() === '0' || $('#currntControl').val().trim() === 0) {
                         $(".outDebt").prop("checked", false); 
                         $('#outsta_debt').hide();
@@ -991,25 +935,25 @@
 		
 			if(value==="Cash Advance") {
                 $("#tpcompany"+NumOfDiv).rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
-                }
+                    required: true,
+                    messages: {
+                    required: "This value is required"
+                    }
                 });
                 $("#ocadvance"+NumOfDiv).rules("add", {
-                required: true,
-                number: true,
-                messages: {
-                required: "This value is required",
-                number: "Please enter digit only"
-                }
+                    required: true,
+                    number: true,
+                    messages: {
+                    required: "This value is required",
+                    number: "Please enter digit only"
+                    }
                 }); 
 
                 $("#funded_term"+NumOfDiv).rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
-                }
+                    required: true,
+                    messages: {
+                    required: "This value is required"
+                    }
                 });
 
        	 }
