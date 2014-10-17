@@ -487,7 +487,7 @@
             that.set("zip_code",data['findetails']['zipcode']);
             that.set("mobile_number",data['findetails']['businessphone']);
             that.set("select_b_l_s",data['findetails']['blegal']);
-            that.set("industry",data['findetails']['loanParentIndustry']);
+            that.set("industry",(data['findetails']['loanParentIndustry']!== '0') ? data['findetails']['loanParentIndustry'] : "");
             displayorgCategoryEdit(data['findetails']['loanParentIndustry'],data['findetails']['loanIndustry']);
             that.set("sub_industry",data['findetails']['loanIndustry']);
             
@@ -1541,8 +1541,8 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        $msg= "Business Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                       // $msg= "Business Information submitted successfully";
+                       // app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         if(sessionStorage.getItem("setprefilStatus")==='false')
                         {
@@ -1558,8 +1558,8 @@
                     }
                     else
                     {
-                        $msg= "Business Information submitted successfully";
-                        localStorage.setItem("fid",data[0]['results']['fid']);
+                        //$msg= "Business Information submitted successfully";
+                        //localStorage.setItem("fid",data[0]['results']['fid']);
                         app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
@@ -1568,14 +1568,14 @@
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    $msg= "Business Information not submitted successfully.";
-                    app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    //$msg= "Business Information not submitted successfully.";
+                    //app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    $msg= "Please enter all fields.";
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                    //$msg= "Please enter all fields.";
+                    //app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{

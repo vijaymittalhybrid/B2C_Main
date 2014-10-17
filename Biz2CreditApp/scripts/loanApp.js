@@ -14,9 +14,9 @@
         endedAppTab:false,
         savedAppTab:false,
         showrefreshLoan:true,
-        
         show:function()
         {
+
              if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
@@ -72,26 +72,30 @@
         setManageStatus:function(data)
         {
             var that = this;
+            var blankArray =[];
+            blankArray['fid']='';
+            blankArray['updatetime']='';
+            blankArray['matchCount']='';
             $.each(data, function( index, value ) {
+                
             	
                 if(value['apptype']==='posted')
                 {
                     that.set('postApp',value['appcount']);
-                    that.set('postAppList',value['appdetails']);
+                    that.set('postAppList',(value['appdetails']!== false) ? value['appdetails'] : []);
                     
                 }
                 if(value['apptype']==='saved')
                 {
                   that.set('savedApp',value['appcount']);
-                  that.set('savedAppList',value['appdetails']);
+                  that.set('savedAppList',(value['appdetails']!== false) ? value['appdetails'] : []);
                 }
                 if(value['apptype']==='ended')
                 {
                     that.set('endedApp',value['appcount']);
-                    that.set('endedAppList',value['appdetails']);
+                    that.set('endedAppList',(value['appdetails']!== false) ? value['appdetails'] : []);
                 }
         	});   
-          
         },
         postAppClick:function(e)
         {
@@ -122,6 +126,7 @@
         },
         refreshViewLoan:function()
         {
+
             if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
@@ -161,8 +166,9 @@
                     var data = that.data(); 
                     if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
                     {
-                         app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
                          app.loanApp.viewModel.setShowrefreshLoanTrue();
+                         app.loanApp.viewModel.setManageStatus(data[0]['results']['results']);
+                         
                     }    
 
                 });
