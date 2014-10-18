@@ -1254,7 +1254,7 @@
 			dataParam['collateral'] =collateral;
             //for Checkbox yettostart
            
-            if(document.getElementById('yettostart').checked)
+            if($("#yettostart").is(':checked'))
             {
                 yettostart							  = that.get("yettostart"),
                 dataParam['yettostart']				 = yettostart;   
