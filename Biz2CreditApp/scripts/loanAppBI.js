@@ -1303,25 +1303,25 @@
                 merchantID 	    					  = that.get("merchant_id").trim(),
                 dataParam['merchantid']				  = merchantID;
 
-                MonthlyVolumeAmountsList1   			 = that.get("MonthlyVolumeAmountsList1").trim(),
+                MonthlyVolumeAmountsList1   			 = that.get("MonthlyVolumeAmountsList1"),
                 dataParam['MonthlyVolumeAmountsList1']   = MonthlyVolumeAmountsList1;
 
                 MonthlyVolumeTicketsList1   			 = that.get("MonthlyVolumeTicketsList1").trim(),
                 dataParam['MonthlyVolumeTicketsList1']   = MonthlyVolumeTicketsList1;
 
-                MonthlyVolumeAmountsList2  			  = that.get("MonthlyVolumeAmountsList2").trim(),
+                MonthlyVolumeAmountsList2  			  = that.get("MonthlyVolumeAmountsList2"),
                 dataParam['MonthlyVolumeAmountsList2']   = MonthlyVolumeAmountsList2;
 
                 MonthlyVolumeTicketsList2   			 = that.get("MonthlyVolumeTicketsList2").trim(),
                 dataParam['MonthlyVolumeTicketsList2']   = MonthlyVolumeTicketsList2;
 
-                MonthlyVolumeAmountsList3   			 = that.get("MonthlyVolumeAmountsList3").trim(),
+                MonthlyVolumeAmountsList3   			 = that.get("MonthlyVolumeAmountsList3"),
                 dataParam['MonthlyVolumeAmountsList3']   = MonthlyVolumeAmountsList3;
 
                 MonthlyVolumeTicketsList3  			  = that.get("MonthlyVolumeTicketsList3").trim(),
                 dataParam['MonthlyVolumeTicketsList3']   = MonthlyVolumeTicketsList3;
 
-                MonthlyVolumeAmountsList4  			  = that.get("MonthlyVolumeAmountsList4").trim(),
+                MonthlyVolumeAmountsList4  			  = that.get("MonthlyVolumeAmountsList4"),
                 dataParam['MonthlyVolumeAmountsList4']   = MonthlyVolumeAmountsList4;
 
                 MonthlyVolumeTicketsList4  			  = that.get("MonthlyVolumeTicketsList4").trim(),
