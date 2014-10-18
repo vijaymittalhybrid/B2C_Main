@@ -1541,8 +1541,8 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                       // $msg= "Business Information submitted successfully";
-                       // app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         if(sessionStorage.getItem("setprefilStatus")==='false')
                         {
@@ -1558,8 +1558,8 @@
                     }
                     else
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //localStorage.setItem("fid",data[0]['results']['fid']);
+                        $msg= "Business Information submitted successfully";
+                        localStorage.setItem("fid",data[0]['results']['fid']);
                         app.loginService.viewModel.mobileNotification($msg,'info');
                     	app.loansetting.viewModel.resetLoanAppBIForm();
                         apps.navigate('#tabstrip-home');
@@ -1568,8 +1568,8 @@
                 }
                 else if(data[0]['results']['faultcode'] === 0 || data[0]['results']['faultcode'] === "0")
                 {
-                    //$msg= "Business Information not submitted successfully.";
-                    //app.loginService.viewModel.mobileNotification($msg,'info'); 
+                    $msg= "Business Information not submitted successfully.";
+                    app.loginService.viewModel.mobileNotification($msg,'info'); 
                     return;
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
