@@ -116,36 +116,7 @@
 })(window);
 $(document).ready(function(){
         
-    $('body').on("load","input.number",function(e) {
-													
-			var $this = $(this);
-			var num = $this.val().replace(/[^0-9]+/g, '').replace(/,/gi, "").split("").reverse().join("");     
-			var num2 =  app.scheduleService.viewModel.RemoveRougeChar(num.replace(/(.{3})/g,"$1,").split("").reverse().join(""));
-			$this.val(num2);								
-	});
-    
-    $('body').on("blur","input.number",function(e) {
-													
-			var $this = $(this);
-			var num = $this.val().replace(/[^0-9]+/g, '').replace(/,/gi, "").split("").reverse().join("");     
-			var num2 =  app.scheduleService.viewModel.RemoveRougeChar(num.replace(/(.{3})/g,"$1,").split("").reverse().join(""));
-			$this.val(num2);								
-	});
-    
-	$('body').on("keyup","input.number",function(e) {
-													
-				if(e.which >= 37 && e.which <= 40){
-				    e.preventDefault();
-				}
-				var $this = $(this);
-				var num = $this.val().replace(/[^0-9]+/g, '');
-				$this.val(num);							
-	});
-	$('body').on("focus","input.number",function(e) {
- 		var $this = $(this);
-		var num = $this.val().replace(/,/g,"");
-		$this.val(num);						
-	});
+
     $("body").removeAttr("style");
     $("body").css('height','100%');
     var todaysDate = new Date();
