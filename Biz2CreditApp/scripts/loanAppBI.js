@@ -1574,8 +1574,8 @@
                 }
                 else if(data[0]['results']['faultcode'] === 3 || data[0]['results']['faultcode'] === "3")
                 {
-                    //$msg= "Please enter all fields.";
-                    //app.loginService.viewModel.mobileNotification($msg,'info');
+                    $msg= "Please enter all fields.";
+                    app.loginService.viewModel.mobileNotification($msg,'info');
                     return;
                 }
                 else{
