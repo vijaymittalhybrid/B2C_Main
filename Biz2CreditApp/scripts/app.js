@@ -41,6 +41,8 @@
         alert(content);
          var content2 = $( ".km-scroll-container" ).attr( "style" );
         alert(content2);
+        var content3 = $(".km-vertical-scrollbar").attr( "style" );
+       alert(content3);
     };
 
     var onDeviceReady = function() {
