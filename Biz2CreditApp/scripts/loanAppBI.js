@@ -142,7 +142,7 @@
                 }
                 else{
                     if($('#currntControl').val()>0) {
-                    	navigator.notification.alert('Please delete all existing debts information');
+                    	navigator.notification.alert('Please delete all the existing debts information');
                     	$('input:radio[name=debttype]:nth(0)').prop('checked',true);
                         $('#outsta_debt').show();
                     } else {

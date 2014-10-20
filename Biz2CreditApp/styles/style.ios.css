@@ -192,6 +192,7 @@ input.IN1.ac_input.error + label.error + .IN1.ipsm3, input.IN1.ac_input.valid + 
 html body #tabstrip-manage-app .backButton {background-size: 26% !important;background-position: 5px 18px; width:82%; }
 #tabstrip-manage-app .refresh-loading{background-size: 48%;background-position: center 18px;}
 #tabstrip-manage-app .refreshloan {background-size: 27%;background-position: 29px 24px;}
+#priority1.IN1.fund, .IN4.number { width:100%!important;}
 }
 @media (min-width:0px) and (max-width:768px) {
 .logLogo {margin: 34% auto 10%;}
@@ -313,6 +314,7 @@ html body #tabstrip-manage-app .backButton {background-size: 24% !important;heig
 #dynamicCl.km-popup-wrapper {height:230px !important;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:10%;display: block;padding:3% 13% 5%;color: #fff;font-size: 1.2em;}        
 #tabstrip-Setting .docs-back {height:57px;}
+
 .docs-header .km-widget .docs-popup {width:47px;height: 50px;}
 #newuser {margin: 2em 0;}
 .forgtpass   {padding:10px 0 5px;}

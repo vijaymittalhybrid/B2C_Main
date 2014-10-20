@@ -140,7 +140,6 @@
             {
                 if(data['findetails']['owner_details'][index]['own_no']===1 || data['findetails']['owner_details'][index]['own_no']==='1')
                 {
-                    console.log(index);
                     if(data['findetails']['owner_details'][index]["check_credit_score"]!=='')
                     {
                         
