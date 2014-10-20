@@ -3,7 +3,7 @@
  */
 
 $.validator.setDefaults({
-	submitHandler: function() { alert("submitted!"); }
+	//submitHandler: function() { alert("submitted!"); }
 });
 
 $().ready(function() {
