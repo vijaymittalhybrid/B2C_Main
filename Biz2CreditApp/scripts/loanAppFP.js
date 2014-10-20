@@ -15,7 +15,7 @@
         show:function(e){
             e.sender.reload=false;
             e.view.reload=false; 
-            $(".km-scroll-container").css("-webkit-transform", "");
+            $(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
             $.validator.addMethod("greaterThan",
                 function (value, element, param) {
                     var $min = $(param);
