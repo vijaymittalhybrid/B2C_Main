@@ -1025,7 +1025,7 @@
                     messages: {
                         required: "This value is required",
                         number: "This value is required",
-                        minlength: "Please enter only 9 digit merchantid"
+                        minlength: "Please enter only 9 digit merchant id"
                     }
                 });
 

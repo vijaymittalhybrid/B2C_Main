@@ -447,3 +447,4 @@ background-position:5px 15px !important;height: 50px;position: relative;backgrou
 
 #priority1.IN1.fund { width:317px!important;}
 .IN4.number {width:320px!important;}
+#tabstrip-manage-app #tabstrip ul li a span, #tabstrip-manage-app #tabstrip ul li:last-child a span{overflow:hidden;}

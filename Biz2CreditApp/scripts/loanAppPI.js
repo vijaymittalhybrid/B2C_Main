@@ -405,6 +405,12 @@
                             dataParam['chk_reason'+c] ="";
                             dataParam['credittype'+c] = 600;
                         }
+                        else if(viewCModel.get('check_credit_score'+c)==='')
+                        {
+                            dataParam['check_credit_score'+c] = '';
+                            dataParam['chk_reason'+c] ="";
+                            dataParam['credittype'+c] = '';
+                        }
                         else
                         {
                             check_value = [];

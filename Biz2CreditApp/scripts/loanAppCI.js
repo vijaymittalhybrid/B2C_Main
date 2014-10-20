@@ -351,23 +351,23 @@
 
                 $("#OwnerFirstName"+index).rules("add", {
                 loginRegex: true,
-                messages: {
-                required: "Letters, numbers,space or underscores only please",
-                }
+                    messages: {
+                        loginRegex: "Letters, numbers,space or underscores only please",
+                    }
                 });
 
                 $("#OwnerFirstName"+index).rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
-                }
+                    required: true,
+                    messages: {
+                        required: "This value is required"
+                    }
                 });
 
                 $("#OwnerLastName"+index).rules("add", {
-                loginRegex: true,
-                messages: {
-                required: "Letters, numbers,space or underscores only please",
-                }
+                    loginRegex: true,
+                    messages: {
+                        loginRegex: "Letters, numbers,space or underscores only please",
+                    }
                 });
 
 
