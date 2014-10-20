@@ -1541,8 +1541,8 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         if(sessionStorage.getItem("setprefilStatus")==='false')
                         {
