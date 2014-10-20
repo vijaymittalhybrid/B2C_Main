@@ -406,7 +406,13 @@
                 }
                 }); 
 
-              
+                $("#OwnerCivic"+index).rules("add", {
+                number : true,
+                messages: {
+                number: "Please enter digits only"
+                }
+                });
+                
                 $("#OwnerStreetAddress"+index).rules("add", {
                 required: true,
                 messages: {
