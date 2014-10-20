@@ -37,15 +37,6 @@
     };
     var Keyboardisoff = function() {
       $("#tabstrip-sign-up").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
-      $(".km-scroll-wrapper").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
-        $(".km-vertical-scrollbar").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
-       var content = $( ".km-scroll-wrapper" ).attr( "style" );
-        alert(content);
-         var content2 = $( ".km-scroll-container" ).attr( "style" );
-        alert(content2);
-        var content3 = $(".km-vertical-scrollbar").attr( "style" );
-       alert(content3);
-        
     };
 
     var onDeviceReady = function() {
