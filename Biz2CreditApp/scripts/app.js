@@ -36,7 +36,7 @@
     };
     var Keyboardisoff = function() {
       $("#tabstrip-sign-up").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
-      $(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
+      $(".km-scroll-wrapper").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
     };
 
     var onDeviceReady = function() {
