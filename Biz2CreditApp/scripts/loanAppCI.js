@@ -35,7 +35,7 @@
                 autocreateCityCmb(app.loansetting.viewModel.select_state , '');
             }
             
-			$(".km-scroll-container").css("-webkit-transform", ""); 
+			$(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)"); 
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
             if(blegal === '' || blegal !== app.loansetting.viewModel.select_b_l_s)
@@ -412,14 +412,6 @@
                 required: "Please enter digits only"
                 }
                 });
-
-                $("#OwnerCivic"+index).rules("add", {
-                required: true,
-                messages: {
-                required: "This value is required"
-                }
-                });
-
                 $("#OwnerStreetAddress"+index).rules("add", {
                 required: true,
                 messages: {
