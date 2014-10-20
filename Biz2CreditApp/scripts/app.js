@@ -37,6 +37,10 @@
     var Keyboardisoff = function() {
       $("#tabstrip-sign-up").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
       $(".km-scroll-wrapper").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
+       var content = $( ".km-scroll-wrapper" ).attr( "style" );
+        alert(content);
+         var content2 = $( ".km-scroll-container" ).attr( "style" );
+        alert(content2);
     };
 
     var onDeviceReady = function() {
