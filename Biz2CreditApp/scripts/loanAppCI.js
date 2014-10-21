@@ -28,6 +28,9 @@
         reasonlscore0:'',
         primaryOwner:'',
         show:function(e) {
+            console.log(e);
+            alert('debug');
+            window.scrollTo(0,0);
             e.sender.reload=false;
             e.view.reload=false;
             if(sessionStorage.getItem("setprefilStatus").trim()==='true' && sessionStorage.getItem("LoanAppCIEditMode") ==='0')
@@ -987,8 +990,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        $msg= "Contact Information submitted successfully";
-                        app.loginService.viewModel.mobileNotification($msg,'info');
+                        //$msg= "Contact Information submitted successfully";
+                        //app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",'false2');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
