@@ -7,7 +7,7 @@
         show:function(e) {
             e.sender.reload=false;
             e.view.reload=false;
-            $(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
+            $(".km-native-scroller").scrollTop(0);
             $("#b2cApp3").validate({
                 rules: {
                     per_income: {
@@ -463,8 +463,8 @@
                 {
                     if(dataParam['personal_act'] === "Next")
                     {
-                        //$msg= "Personal Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Personal Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                         apps.navigate('views/loanAppFP.html');

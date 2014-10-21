@@ -72,9 +72,11 @@
            
         },
         show:function(e) {
+            
             e.sender.reload=false;
             e.view.reload=false;
-            $(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
+            
+            $(".km-native-scroller").scrollTop(0);
             $("#add-form").unbind('.myPlugin');
             $(".outDebt").unbind(".myPlugin");
             $(".que_hint").kendoTooltip({
@@ -1541,8 +1543,8 @@
                 {
                     if(dataParam['business_act'] === "Next")
                     {
-                        //$msg= "Business Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Business Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         localStorage.setItem("fid",data[0]['results']['fid']);
                         if(sessionStorage.getItem("setprefilStatus")==='false')
                         {

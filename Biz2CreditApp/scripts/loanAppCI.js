@@ -28,17 +28,14 @@
         reasonlscore0:'',
         primaryOwner:'',
         show:function(e) {
-            console.log(e);
-            alert('debug');
-            window.scrollTo(0,0);
+            
             e.sender.reload=false;
             e.view.reload=false;
+            $(".km-native-scroller").scrollTop(0);
             if(sessionStorage.getItem("setprefilStatus").trim()==='true' && sessionStorage.getItem("LoanAppCIEditMode") ==='0')
             {
                 autocreateCityCmb(app.loansetting.viewModel.select_state , '');
             }
-            
-			$(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)"); 
             $("#add-ownerForm").unbind(".myPlugin");
             blegal;
             if(blegal === '' || blegal !== app.loansetting.viewModel.select_b_l_s)
@@ -411,8 +408,10 @@
 
                 $("#OwnerCivic"+index).rules("add", {
                 number : true,
+                required: true,
                 messages: {
-                number: "Please enter digits only"
+                    number: "Please enter digits only",
+                    required: "This value is required"
                 }
                 });
                 
@@ -990,8 +989,8 @@
                 {
                     if(dataParam['contact_act'] === "Next")
                     {
-                        //$msg= "Contact Information submitted successfully";
-                        //app.loginService.viewModel.mobileNotification($msg,'info');
+                        $msg= "Contact Information submitted successfully";
+                        app.loginService.viewModel.mobileNotification($msg,'info');
                         
                         sessionStorage.setItem("setprefilStatus",'false2');
                         app.loanAppCI.viewModel.manageHiddenField(data[0]['results']['onwerids']);
