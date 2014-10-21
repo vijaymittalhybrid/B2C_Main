@@ -36,8 +36,8 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "BundleVersion": "1.4",
-  "DisplayName": "",
+  "BundleVersion": "1.5",
+  "DisplayName": "Biz2Credit",
   "Author": "",
   "Description": "Biz2CreditApp",
   "iOSDeviceFamily": [
