@@ -707,7 +707,7 @@
             str += "<p id='ownerCity"+NumOfDiv+"'>\
             <select class='IN1b ipsm3' name='own_city"+NumOfDiv+"' id='own_city"+NumOfDiv+"' data-bind='value:own_city"+NumOfDiv+"' original-title='Select City'><option value=''>Select City</option></select></p>";
 
-            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1 zipcod' name='OwnZipCode"+NumOfDiv+"' data-bind='value:OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' orignal-title='Zip Code' placeholder='Zip Code' value='' maxlength='5' /></p>";
+            str += "<p><input maxlength='5' type='text' class='IN1 ipsm1 zipcod' name='OwnZipCode"+NumOfDiv+"' data-bind='value:OwnZipCode"+NumOfDiv+"' id='OwnZipCode"+NumOfDiv+"' maxlength='5' orignal-title='Zip Code' placeholder='Zip Code' value='' maxlength='5' /></p>";
             str += '</div></div></div>';
 
             str += '<div class="clear"></div>';
