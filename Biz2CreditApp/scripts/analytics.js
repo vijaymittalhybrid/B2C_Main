@@ -26,8 +26,10 @@
         monitorCreateWithCustom:function(){
             var factory = window.plugins.EqatecAnalytics.Factory,
                 monitor = window.plugins.EqatecAnalytics.Monitor;
-            if (localStorage.getItem("isLoggedIn") !== null && localStorage.getItem("isLoggedIn") === true) {
+            if (localStorage.getItem("isLoggedIn") !== null && localStorage.getItem("isLoggedIn") === 'true') {
                 app.analyticsService.viewModel.setInstallationInfo( localStorage.getItem("userEmail"));
+                app.analyticsService.viewModel.trackFeature('User is login');
+                console.log('debug');
             }
                 
             var settings = factory.CreateSettings(productId,version);
