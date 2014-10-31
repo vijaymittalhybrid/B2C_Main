@@ -12,12 +12,13 @@
                //console.log(result);
                if(result.isCreated === "true" || result.isCreated === true)
                {
-                   console.log("Monitor is Available");
+                   alert("Monitor is Available");
                    app.analyticsService.viewModel.stopMonitor("Exit by Device Backbutton");
                    app.analyticsService.viewModel.checkMonitorstatus();
                }
                else
                {
+                    alert("Monitor");
                   //console.log("Sorry,Monitor is not created");
                    app.analyticsService.viewModel.monitorCreateWithCustom();
                }
