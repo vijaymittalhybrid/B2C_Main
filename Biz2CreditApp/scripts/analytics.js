@@ -56,7 +56,7 @@
                     console.log("error creating monitor :"+err);
                 }
             );
-            //console.log(monitor);
+            console.log(settings);
         },
         
         startMonitor:function(){
