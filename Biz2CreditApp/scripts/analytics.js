@@ -28,7 +28,7 @@
                 monitor = window.plugins.EqatecAnalytics.Monitor;
             if (localStorage.getItem("isLoggedIn") !== null && localStorage.getItem("isLoggedIn") === 'true') {
                 app.analyticsService.viewModel.setInstallationInfo( localStorage.getItem("userEmail"));
-                app.analyticsService.viewModel.trackFeature('User is login');
+                app.analyticsService.viewModel.trackFeature('Login.User is login');
                 console.log('debug');
             }
                 
