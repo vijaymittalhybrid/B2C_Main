@@ -13,6 +13,8 @@
                if(result.isCreated === "true" || result.isCreated === true)
                {
                    console.log("Monitor is Available");
+                   app.analyticsService.viewModel.stopMonitor("Exit by Device Backbutton");
+                   app.analyticsService.viewModel.checkMonitorstatus();
                }
                else
                {

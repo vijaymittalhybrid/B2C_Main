@@ -106,6 +106,7 @@
             localStorage.setItem("userEmail",userinfo['userEmail']);
             localStorage.setItem("userMobile",userinfo['userMobile']);
             that.setSettingsPage();
+            app.analyticsService.viewModel.setInstallationInfo(userinfo['userEmail']);
             that.navigateHome();
         },
         
