@@ -7,9 +7,10 @@
             e.preventDefault();
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
             if (confirmed === true || confirmed === 1) {
-               
-            	navigator.app.exitApp();
+                
                 app.analyticsService.viewModel.stopMonitor("Exit by Device Backbutton");
+            	navigator.app.exitApp();
+                
             }
 
             }, 'Biz2Credit', 'Yes,No');
