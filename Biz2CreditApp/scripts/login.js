@@ -107,6 +107,7 @@
             localStorage.setItem("userMobile",userinfo['userMobile']);
             that.setSettingsPage();
             app.analyticsService.viewModel.setInstallationInfo(userinfo['userEmail']);
+            app.analyticsService.viewModel.trackFeature('Login.User is login');
             that.navigateHome();
         },
         
