@@ -131,7 +131,7 @@
             that.clearForm();
             
             app.homesetting.viewModel.closeParentPopover();
-            app.analyticsService.viewModel.monitorStop();
+            app.analyticsService.viewModel.loginUserMonitorStop();
             app.analyticsService.viewModel.setAnalyticMonitor();
             app.analyticsService.viewModel.userStatus();
             

@@ -92,7 +92,14 @@
                 console.log('monitor stop');
             });
         },
-        
+        loginUserMonitorStop:function()
+        {   
+            var monitor = window.plugins.EqatecAnalytics.Monitor;
+            monitor.Stop(function()
+            {
+                console.log('monitor stop');
+            });
+        },
         userStatus:function()
         {   
            var loginStatus = localStorage.getItem("isLoggedIn");
