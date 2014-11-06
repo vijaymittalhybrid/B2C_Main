@@ -70,11 +70,11 @@
     };
    
     var onPause = function(e){
-        app.analyticsService.viewModel.monitorStop("Detect Status.App is running in background");
+        app.analyticsService.viewModel.trackFeature("Detect Status.App is running in background");
     };
     
     var onResume = function(){
-      app.analyticsService.viewModel.monitorStart("Detect Status.App is running in foreground");
+      app.analyticsService.viewModel.trackFeature("Detect Status.App is running in foreground");
     };
 
     // Handle "deviceready" event
