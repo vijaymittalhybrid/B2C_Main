@@ -46,7 +46,7 @@
             settings.LocationCoordinates.Latitude = latitude;
             settings.LocationCoordinates.Longitude = longitude;
             
-            console.log(settings);
+            //console.log(settings);
             
             factory.CreateMonitorWithSettings(settings,
                 function()
@@ -65,8 +65,19 @@
         monitorStart:function()
         {
             var monitor = window.plugins.EqatecAnalytics.Monitor;
+            var loginStatus = localStorage.getItem("isLoggedIn");
+
+            if(loginStatus === 'true' || loginStatus === true)
+            {
+                app.analyticsService.viewModel.setInstallationInfo(localStorage.getItem("userEmail"));
+            }
+            else
+            {
+                app.analyticsService.viewModel.setInstallationInfo("Anonymous User");
+            }
             monitor.Start(function()
             {
+                //console.log(monitor);
                 console.log('monitor start');
                 app.analyticsService.viewModel.trackFeature("Detect Status.App new session is start.");
             });
@@ -94,7 +105,7 @@
            else
            {
                app.analyticsService.viewModel.trackFeature("Login.User logout");
-               app.analyticsService.viewModel.setInstallationInfo("Not Register");
+               //app.analyticsService.viewModel.setInstallationInfo("Not Register");
            }
         },
         
@@ -107,7 +118,7 @@
         setInstallationInfo:function(installationId)
         {
             var monitor = window.plugins.EqatecAnalytics.Monitor;
-            console.log(installationId);
+            //console.log(installationId);
             monitor.SetInstallationInfo(installationId);
         },
         
