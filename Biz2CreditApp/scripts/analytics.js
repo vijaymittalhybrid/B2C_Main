@@ -98,9 +98,10 @@
             monitor.Stop(function()
             {
                 console.log('monitor stop');
+                app.analyticsService.viewModel.trackFeature("Login.User logout");
             });
         },
-        userStatus:function()
+        userLoginStatus:function()
         {   
            var loginStatus = localStorage.getItem("isLoggedIn");
            
@@ -111,7 +112,7 @@
            }
            else
            {
-               app.analyticsService.viewModel.trackFeature("Login.User logout");
+              
                //app.analyticsService.viewModel.setInstallationInfo("Not Register");
            }
         },

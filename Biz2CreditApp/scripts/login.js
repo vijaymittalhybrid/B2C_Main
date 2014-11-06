@@ -105,7 +105,7 @@
             localStorage.setItem("userID",userinfo['userID']);
             localStorage.setItem("userEmail",userinfo['userEmail']);
             localStorage.setItem("userMobile",userinfo['userMobile']);
-            app.analyticsService.viewModel.userStatus();
+            app.analyticsService.viewModel.userLoginStatus();
             that.setSettingsPage();
             that.navigateHome();
         },
@@ -133,7 +133,7 @@
             app.homesetting.viewModel.closeParentPopover();
             app.analyticsService.viewModel.loginUserMonitorStop();
             app.analyticsService.viewModel.setAnalyticMonitor();
-            app.analyticsService.viewModel.userStatus();
+            //app.analyticsService.viewModel.userStatus();
             
         },
         navigateHome: function()
