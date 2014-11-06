@@ -6,82 +6,130 @@
         version   = "1.5";
     
     AnalyticsModel = kendo.data.ObservableObject.extend({
-        
-        checkMonitorstatus:function(){
-           window.plugins.EqatecAnalytics.Factory.IsMonitorCreated(function(result){
-               //console.log(result);
-               if(result.isCreated === "true" || result.isCreated === true)
+       
+       setAnalyticMonitor:function(latitude,longitude)
+       {  
+           var factory = window.plugins.EqatecAnalytics.Factory;
+           
+           factory.IsMonitorCreated(function(result){
+               if(result.IsCreated === 'true' || result.IsCreated === true)
                {
-                   console.log("Monitor is Available");
-                  // app.analyticsService.viewModel.stopMonitor("Exit by Device Backbutton");
-                  // app.analyticsService.viewModel.checkMonitorstatus();
+                   console.log("monitor has been create");
+                   app.analyticsService.viewModel.monitorStart();
                }
                else
                {
-                    console.log("Monitor");
-                  //console.log("Sorry,Monitor is not created");
-                   app.analyticsService.viewModel.monitorCreateWithCustom();
+                   console.log("monitor not create");
+                   app.analyticsService.viewModel.monitorCreate(latitude,longitude);
                }
            });
-           
-        },
+       },
         
-        monitorCreateWithCustom:function(){
-            var factory = window.plugins.EqatecAnalytics.Factory,
-                monitor = window.plugins.EqatecAnalytics.Monitor;
-            if (localStorage.getItem("isLoggedIn") !== null && localStorage.getItem("isLoggedIn") === 'true') {
-                app.analyticsService.viewModel.setInstallationInfo( localStorage.getItem("userEmail"));
-                app.analyticsService.viewModel.trackFeature('Login.User is login');
-                console.log('debug');
-            }
-                
+        monitorCreate:function(latitude,longitude)
+        {
+            var factory = window.plugins.EqatecAnalytics.Factory;
             var settings = factory.CreateSettings(productId,version);
+            
+            settings.TestMode = 'true';
             settings.LoggingInterface = {
-                LogError:function(errorMsg)
-                {
-                    console.log("Error :"+errorMsg);
-                },
-                LogMessage:function(msg)
-                {
-                    console.log(msg);    
-                }
-            };
-            settings.TestMode = true;
+                                            LogError:function(errorMsg)
+                                            {
+                                                console.log("Error :"+errorMsg);
+                                            },
+                                            LogMessage:function(msg)
+                                            {
+                                                console.log(msg);    
+                                            }
+                                        };
+            settings.DailyNetworkUtilizationInKB = 5120;
+            settings.MaxStorageSizeInKB = 8192;
+            settings.LocationCoordinates.Latitude = latitude;
+            settings.LocationCoordinates.Longitude = longitude;
+            
+            console.log(settings);
+            
             factory.CreateMonitorWithSettings(settings,
-                function(){
-                    console.log("Monitor is create");
-                    app.analyticsService.viewModel.startMonitor();
+                function()
+                {
+                    console.log("Monitor create");
+                    app.analyticsService.viewModel.monitorStart();
                 },
-                function(err){
-                    console.log("error creating monitor :"+err);
+                function(msg)
+                {
+                    console.log("Error creating monitor :"+msg);
                 }
             );
-            console.log(settings);
-        },
-        
-        startMonitor:function(){
-            window.plugins.EqatecAnalytics.Monitor.Start(function(){
-                        console.log("Monitor is start");
-            });
-        },
-        
-        stopMonitor:function(reason){
-            console.log(reason);
-            app.analyticsService.viewModel.trackFeature(reason);
-            window.plugins.EqatecAnalytics.Monitor.Stop(function(reason) {
-                console.log("Monitor stopped");
-            });
             
         },
         
-        setInstallationInfo:function(email){
-           window.plugins.EqatecAnalytics.Monitor.SetInstallationInfo(email);
+        monitorStart:function()
+        {
+            var monitor = window.plugins.EqatecAnalytics.Monitor;
+            monitor.Start(function()
+            {
+                console.log('monitor start');
+                app.analyticsService.viewModel.trackFeature("Detect Status.App new session is start.");
+            });
         },
         
-        trackFeature:function(feature){
-            console.log(feature);
-            window.plugins.EqatecAnalytics.Monitor.TrackFeature(feature);
-        }
+        monitorStop:function()
+        {   
+            var monitor = window.plugins.EqatecAnalytics.Monitor;
+            app.analyticsService.viewModel.trackFeature("Detect Status.App is closed.");
+            monitor.Stop(function()
+            {
+                console.log('monitor stop');
+            });
+        },
+        
+        userStatus:function()
+        {   
+           var loginStatus = localStorage.getItem("isLoggedIn");
+           
+           if(loginStatus === 'true' || loginStatus === true)
+           {
+               app.analyticsService.viewModel.trackFeature("Login.User login with email:"+localStorage.getItem("userEmail"));
+               app.analyticsService.viewModel.setInstallationInfo(localStorage.getItem("userEmail"));
+           }
+           else
+           {
+               app.analyticsService.viewModel.trackFeature("Login.User logout");
+               app.analyticsService.viewModel.setInstallationInfo("Not Register");
+           }
+        },
+        
+        trackFeature:function(feature)
+        {
+            var monitor = window.plugins.EqatecAnalytics.Monitor;
+            monitor.TrackFeature(feature);
+        },
+        
+        setInstallationInfo:function(installationId)
+        {
+            var monitor = window.plugins.EqatecAnalytics.Monitor;
+            console.log(installationId);
+            monitor.SetInstallationInfo(installationId);
+        },
+        
+       /* monitorStatusChange:function(op){
+            
+            var monitor = window.plugins.EqatecAnalytics.Monitor;
+           
+            monitor.GetStatus(function(status) {
+
+                if(status.IsStarted === true)
+                {
+                    
+                    app.analyticsService.viewModel.monitorStop("Unknown User");
+                    app.analyticsService.viewModel.userStatus();
+                }
+                else
+                {
+                    app.analyticsService.viewModel.monitorStart();
+                    app.analyticsService.viewModel.userStatus();
+                }
+            });
+        }*/
     });
     app.analyticsService = {
         viewModel :new AnalyticsModel()

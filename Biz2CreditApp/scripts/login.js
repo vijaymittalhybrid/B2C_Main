@@ -105,9 +105,8 @@
             localStorage.setItem("userID",userinfo['userID']);
             localStorage.setItem("userEmail",userinfo['userEmail']);
             localStorage.setItem("userMobile",userinfo['userMobile']);
+            app.analyticsService.viewModel.userStatus();
             that.setSettingsPage();
-            app.analyticsService.viewModel.setInstallationInfo(userinfo['userEmail']);
-            app.analyticsService.viewModel.trackFeature('Login.User is login');
             that.navigateHome();
         },
         
@@ -123,12 +122,18 @@
             localStorage.removeItem("userMobile");
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("userMobile");
+            
             that.set("email", "");
             that.set("name", "");
             apps.navigate("#tabstrip-login");
+            
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();
+            
             app.homesetting.viewModel.closeParentPopover();
+            app.analyticsService.viewModel.monitorStop();
+            app.analyticsService.viewModel.setAnalyticMonitor();
+            app.analyticsService.viewModel.userStatus();
             
         },
         navigateHome: function()
@@ -177,6 +182,7 @@
                 }
                 else
                 {
+                     app.analyticsService.viewModel.trackFeature("Dashboard.User navigate to dashboard");
                      apps.navigate('#tabstrip-home');
                 }
                   
@@ -185,9 +191,10 @@
         },
         
         onSettingPage:function(e)
-        {	apps.navigate('#tabstrip-Setting');
-             app.homesetting.viewModel.closeParentPopover();
-            
+        {	
+            app.analyticsService.viewModel.trackFeature("Settings.User navigate to settings");
+            apps.navigate('#tabstrip-Setting');
+            app.homesetting.viewModel.closeParentPopover();
         },
         setSettingsPage:function()
         {
@@ -198,6 +205,7 @@
         },
         mobileNotification:function(msg,status)
         {
+            app.analyticsService.viewModel.trackFeature(msg);
             var toast =window.plugins.toast;
             var message =msg;
             toast.showLongBottom(message,
@@ -275,6 +283,7 @@
             	if(data[0]['results']['faultcode'] === 1)
                 {
                 	$msg= "New password has been created and sent successfully to your email account.";
+                    app.analyticsService.viewModel.trackFeature("Login.Successfully user forgot password functionality.");
                     app.loginService.viewModel.mobileNotification($msg,'info');
                     apps.navigate("#tabstrip-login");
                     kendo.history.navigate("#tabstrip-login");
@@ -345,12 +354,14 @@
             }
             else
             {
+                app.analyticsService.viewModel.trackFeature("Application.User navigate to loan application");
                 apps.navigate("views/loanAppBI.html");
             }
                  
         },
         mydocuments: function()
         {   
+             app.analyticsService.viewModel.trackFeature("Document.User navigate to document");
              apps.navigate("views/documents.html");
         },
         formValidateReset:function()
@@ -376,6 +387,7 @@
         },
         manageApp:function()
         {
+            app.analyticsService.viewModel.trackFeature("ManageApplication.User navigate to manage application");
             apps.navigate("views/loanApp.html");
         }
 

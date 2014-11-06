@@ -7,10 +7,8 @@
             e.preventDefault();
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
             if (confirmed === true || confirmed === 1) {
-                
-                app.analyticsService.viewModel.stopMonitor("Exit by Device Backbutton");
+                app.analyticsService.viewModel.monitorStop("User exit by Device Backbutton");
             	navigator.app.exitApp();
-                
             }
 
             }, 'Biz2Credit', 'Yes,No');
@@ -38,20 +36,45 @@
             
         }
     };
+    
+    
     var Keyboardisoff = function() {
       $("#tabstrip-sign-up").find(".km-scroll-container").css("-webkit-transform", "translate3d(0px, 0px, 0px)");
     };
 
-    var onDeviceReady = function() {
+    var onDeviceReady = function(e) {
         StatusBar.overlaysWebView(false);
         StatusBar.backgroundColorByHexString('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
         document.addEventListener("hidekeyboard", Keyboardisoff, false);
         window.connectionInfo = new ConnectionApp();
 		window.connectionInfo.checkConnection();
-        window.AnalyticsInfo = new AnalyticsApp();
-		window.AnalyticsInfo.init();
+        if(navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(oncallback);
+        }
+        else
+        {
+            app.analyticsService.viewModel.setAnalyticMonitor();
+        }
+        document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
         navigator.splashscreen.hide();
+    };
+    
+    var oncallback = function(position)
+    {
+        var latitude = position.coords.latitude,
+            longitude = position.coords.longitude;
+        app.analyticsService.viewModel.setAnalyticMonitor(latitude,longitude);
+    };
+   
+    var onPause = function(e){
+        app.analyticsService.viewModel.monitorStop("Detect Status.App is running in background");
+    };
+    
+    var onResume = function(){
+      app.analyticsService.viewModel.monitorStart("Detect Status.App is running in foreground");
     };
 
     // Handle "deviceready" event
@@ -84,15 +107,7 @@
     }
     
     /*Telerik Analytics*/
-    function AnalyticsApp(){
-        
-    }
-    
-    AnalyticsApp.prototype = {
-        init:function(){
-            app.analyticsService.viewModel.checkMonitorstatus();
-        }, 
-    }
+   
     
     
     if(localStorage.getItem("isLoggedIn") === 'true')
@@ -109,8 +124,8 @@
     localStorage.setItem("urlMobAppApiUser","https://www.biz2services.com/mobapp/api/user/");
     localStorage.setItem("urlMobAppApiLoan","https://www.biz2services.com/mobapp/api/loanapp/");*/
     
-   localStorage.setItem("urlMobAppApiFolder","http://sandbox.biz2services.com/mobapp/api/folder/");
-   localStorage.setItem("urlMobAppApiFile","http://sandbox.biz2services.com/mobapp/api/file/");
+    localStorage.setItem("urlMobAppApiFolder","http://sandbox.biz2services.com/mobapp/api/folder/");
+    localStorage.setItem("urlMobAppApiFile","http://sandbox.biz2services.com/mobapp/api/file/");
     localStorage.setItem("urlMobAppApiUser","http://sandbox.biz2services.com/mobapp/api/user/");
     localStorage.setItem("urlMobAppApiLoan","http://sandbox.biz2services.com/mobapp/api/loanapp/");
     
