@@ -95,10 +95,11 @@
         loginUserMonitorStop:function()
         {   
             var monitor = window.plugins.EqatecAnalytics.Monitor;
+            app.analyticsService.viewModel.trackFeature("Login.User logout");
             monitor.Stop(function()
             {
                 console.log('User logout and monitor stop');
-                app.analyticsService.viewModel.trackFeature("Login.User logout");
+                
             });
         },
         userLoginStatus:function()
