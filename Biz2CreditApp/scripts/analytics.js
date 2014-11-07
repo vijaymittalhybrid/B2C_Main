@@ -97,7 +97,7 @@
             var monitor = window.plugins.EqatecAnalytics.Monitor;
             monitor.Stop(function()
             {
-                console.log('monitor stop');
+                console.log('User logout and monitor stop');
                 app.analyticsService.viewModel.trackFeature("Login.User logout");
             });
         },
