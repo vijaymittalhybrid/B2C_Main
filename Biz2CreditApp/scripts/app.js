@@ -82,7 +82,7 @@
     var onResume = function(){
       app.analyticsService.viewModel.trackFeature("Detect Status.App is running in foreground");
       app.analyticsService.viewModel.monitorStart();
-        
+        alert('debug');
     };
 
     // Handle "deviceready" event
