@@ -71,10 +71,18 @@
    
     var onPause = function(e){
         app.analyticsService.viewModel.trackFeature("Detect Status.App is running in background");
+        app.analyticsService.viewModel.trackFeature("Detect Status.App is running in background");
+        var monitor = window.plugins.EqatecAnalytics.Monitor;
+            monitor.Stop(function()
+            {
+                console.log('monitor stop');
+            });
     };
     
     var onResume = function(){
       app.analyticsService.viewModel.trackFeature("Detect Status.App is running in foreground");
+      app.analyticsService.viewModel.monitorStart();
+        
     };
 
     // Handle "deviceready" event
