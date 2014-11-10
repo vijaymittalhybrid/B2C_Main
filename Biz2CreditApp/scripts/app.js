@@ -75,9 +75,19 @@
     };
     
     var onResume = function(){
-      app.analyticsService.viewModel.trackFeature("Detect Status.App is running in foreground");
-      app.analyticsService.viewModel.monitorStart();
-        alert('debug');
+        app.analyticsService.viewModel.trackFeature("Detect Status.App is running in foreground");
+        app.analyticsService.viewModel.monitorStart();
+        var loginStatus = localStorage.getItem("isLoggedIn");
+
+        if(loginStatus === 'true' || loginStatus === true)
+        {
+            app.analyticsService.viewModel.setInstallationInfo(localStorage.getItem("userEmail"));
+        }
+        else
+        {
+            app.analyticsService.viewModel.setInstallationInfo("Anonymous User");
+        }
+        alert('debug123');
     };
 
     // Handle "deviceready" event
