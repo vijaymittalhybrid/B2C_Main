@@ -82,13 +82,15 @@
 
         if(loginStatus === 'true' || loginStatus === true)
         {
+             alert(localStorage.getItem("userEmail"));
             app.analyticsService.viewModel.setInstallationInfo(localStorage.getItem("userEmail"));
         }
         else
         {
+              alert("Anonymous User");
             app.analyticsService.viewModel.setInstallationInfo("Anonymous User");
         }
-        alert('onResume');
+       
     };
 
     // Handle "deviceready" event
