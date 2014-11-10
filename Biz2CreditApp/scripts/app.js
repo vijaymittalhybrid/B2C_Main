@@ -47,6 +47,8 @@
         StatusBar.backgroundColorByHexString('#99cc00');
         document.addEventListener('backbutton', onBackKeyDown, false);
         document.addEventListener("hidekeyboard", Keyboardisoff, false);
+        document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
         window.connectionInfo = new ConnectionApp();
 		window.connectionInfo.checkConnection();
         if(navigator.geolocation)
@@ -57,8 +59,6 @@
         {
             app.analyticsService.viewModel.setAnalyticMonitor();
         }
-        document.addEventListener("pause", onPause, false);
-        document.addEventListener("resume", onResume, false);
         navigator.splashscreen.hide();
     };
     
@@ -70,6 +70,7 @@
     };
    
     var onPause = function(e){
+         alert('onPause');
         app.analyticsService.viewModel.trackFeature("Detect Status.App is running in background");
         app.analyticsService.viewModel.monitorStop();
     };
@@ -87,7 +88,7 @@
         {
             app.analyticsService.viewModel.setInstallationInfo("Anonymous User");
         }
-        alert('debug123');
+        alert('onResume');
     };
 
     // Handle "deviceready" event
