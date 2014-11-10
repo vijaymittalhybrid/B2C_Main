@@ -71,12 +71,7 @@
    
     var onPause = function(e){
         app.analyticsService.viewModel.trackFeature("Detect Status.App is running in background");
-        app.analyticsService.viewModel.trackFeature("Detect Status.App is running in background");
-        var monitor = window.plugins.EqatecAnalytics.Monitor;
-            monitor.Stop(function()
-            {
-                console.log('monitor stop');
-            });
+        app.analyticsService.viewModel.monitorStop();
     };
     
     var onResume = function(){
