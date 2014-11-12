@@ -51,6 +51,7 @@
         document.addEventListener("resume", onResume, false);
         window.connectionInfo = new ConnectionApp();
 		window.connectionInfo.checkConnection();
+        
         if(navigator.geolocation)
         {
             navigator.geolocation.getCurrentPosition(oncallback);
@@ -70,24 +71,21 @@
     };
    
     var onPause = function(e){
-         alert('onPause');
         app.analyticsService.viewModel.trackFeature("Detect Status.App is running in background");
         app.analyticsService.viewModel.monitorStop();
     };
     
-    var onResume = function(){
-        app.analyticsService.viewModel.trackFeature("Detect Status.App is running in foreground");
+    var onResume = function(){ 
         app.analyticsService.viewModel.monitorStart();
+        app.analyticsService.viewModel.trackFeature("Detect Status.App is running in foreground");
         var loginStatus = localStorage.getItem("isLoggedIn");
 
         if(loginStatus === 'true' || loginStatus === true)
         {
-             alert(localStorage.getItem("userEmail"));
             app.analyticsService.viewModel.setInstallationInfo(localStorage.getItem("userEmail"));
         }
         else
         {
-              alert("Anonymous User");
             app.analyticsService.viewModel.setInstallationInfo("Anonymous User");
         }
        
@@ -140,9 +138,9 @@
     localStorage.setItem("urlMobAppApiUser","https://www.biz2services.com/mobapp/api/user/");
     localStorage.setItem("urlMobAppApiLoan","https://www.biz2services.com/mobapp/api/loanapp/");*/
     
-    localStorage.setItem("urlMobAppApiFolder","http://sandbox.biz2services.com/mobapp/api/folder/");
-    localStorage.setItem("urlMobAppApiFile","http://sandbox.biz2services.com/mobapp/api/file/");
-    localStorage.setItem("urlMobAppApiUser","http://sandbox.biz2services.com/mobapp/api/user/");
-    localStorage.setItem("urlMobAppApiLoan","http://sandbox.biz2services.com/mobapp/api/loanapp/");
+    localStorage.setItem("urlMobAppApiFolder","https://sandbox.biz2services.com/mobapp/api/folder/");
+    localStorage.setItem("urlMobAppApiFile","https://sandbox.biz2services.com/mobapp/api/file/");
+    localStorage.setItem("urlMobAppApiUser","https://sandbox.biz2services.com/mobapp/api/user/");
+    localStorage.setItem("urlMobAppApiLoan","https://sandbox.biz2services.com/mobapp/api/loanapp/");
     
 })(window);

@@ -537,7 +537,21 @@
         applyFreshLoan:function(e)
         {
             app.loginService.viewModel.application(e);  
-        }
+        },
+        applyIteriaLoan:function(e)
+        {
+           /* console.log(e.target.dataset.fid);
+            localStorage.setItem("fid",e.target.dataset.fid);
+            app.iteriaService.viewModel.IteriaAPILoad();*/
+            if(e.button.context.id === 'applyIteria')
+            {
+               // app.iteriaService.viewModel.openModalView();
+                //app.iteriaService.viewModel.IteriaAPILoad();
+                app.iteriaService.viewModel.IteriaAPILoad();
+               // app.iteriaService.viewModel.submitSSNValue();
+            }
+            
+        },
 
   
     });
