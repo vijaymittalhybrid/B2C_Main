@@ -547,7 +547,7 @@
             {
                // app.iteriaService.viewModel.openModalView();
                 //app.iteriaService.viewModel.IteriaAPILoad();
-                app.iteriaService.viewModel.IteriaAPILoad();
+                app.iteriaService.viewModel.IteriaAPILoad(e);
                // app.iteriaService.viewModel.submitSSNValue();
             }
             

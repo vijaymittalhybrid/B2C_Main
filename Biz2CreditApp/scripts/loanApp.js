@@ -228,7 +228,6 @@
                 dataSource.fetch(function(){
                     var that = this;
                     var data = that.data(); 
-                    console.log(data);
                     apps.hideLoading();
                     if(data[0]['results']['faultcode']===1 && data[0]['results']['faultmsg']==='success')
                     {

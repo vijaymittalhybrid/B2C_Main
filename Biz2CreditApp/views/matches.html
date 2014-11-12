@@ -100,7 +100,7 @@
 				</div>
 				<div class="row3">
                     #if(lenderorg_id ==="334" || lenderorg_id ===334){#
-                        <a class="appy" id ="applyIteria" data-bind="click:applyIteriaLoan" data-role='button'>Itria Apply</a>
+                        <a class="appy" id ="applyIteria"  data-appid="#= appid #" data-bind="click:applyIteriaLoan" data-role='button'>Itria Apply</a>
                     #}else{#
                         #if(statusid === "1"){#
                             <a class="appy" data-bind="click: matchAppy" data-role='button'>Apply</a>

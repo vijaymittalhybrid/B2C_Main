@@ -71,8 +71,10 @@
                 }
             });
         },
-        IteriaAPILoad:function()
+        IteriaAPILoad:function(e)
         {
+            var appid = e.data['appid'];
+            //console.log(e);
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
                 transport:{
@@ -80,7 +82,7 @@
                         url:localStorage.getItem("urlMobAppApiLoan"),
                         type:"POST",
                         dataType: "json",
-                        data:{apiaction:"getownersbyappid",appid:localStorage.getItem("fid")}
+                        data:{apiaction:"getownersbyappid",appid:appid}
                     }
                 },
                 schema: {
