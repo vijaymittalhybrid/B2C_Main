@@ -9,45 +9,75 @@
         hnowners:'',*/
         loanpro_auth:0,
         authorization:0,
-        controlFielddLoad:function(ownerDiv)
+        show:function(e)
         {
             if(typeof viewIModel === 'undefined')
             {
                 viewIModel = kendo.observable();
             }
-            
-            html = '';
-            $('#controlField').html('');
-            
-            totaldivs = ownerDiv;
-            
-            for(c=1;c<=totaldivs;c++){
+            var appid = e.view.params.appid;
+            app.loginService.viewModel.showloder();
+            var dataSource = new kendo.data.DataSource({
+                transport:{
+                    read:{
+                        url:localStorage.getItem("urlMobAppApiLoan"),
+                        type:"POST",
+                        dataType: "json",
+                        data:{apiaction:"getownersbyappid",appid:appid}
+                    }
+                },
+                schema: {
+                    data: function(data)
+                    {
+                    	return [data];
+                    }
+                },
+            });
+            dataSource.fetch(function(){
+                Data = this.data();
                 
-                app.iteriaService.viewModel.addDynamicBind(c);
-                html='<div class="field">'
-                html+='<div class="own_name">Please enter Testing\'s social security number</div>';
-                html+='<input type="text" id="own_ssno'+c+'" name="own_ssno'+c+'"  class="IN3" data-bind="value:own_ssno'+c+'"  title="Enter your Social Security Number"  maxlength="9"/>';
-                html+='<input type="hidden" id="own_percent'+c+'" name="own_percent'+c+'" data-bind="value:own_percent'+c+'" value="" />';
-                html+='<input type="hidden" id="hown_ssno'+c+'" name="hown_ssno'+c+'" data-bind="value:hown_ssno'+c+'" value="" />';
-                html+='<input type="hidden" id="hown_ssnoedit'+c+'" name="hown_ssnoedit'+c+'" data-bind="value:hown_ssnoedit'+c+'"/>';
-                if(c === totaldivs)
+                app.loginService.viewModel.hideloder();
+                var data = Data[0]['results']["ownerList"];
+                if(Data[0]['results']['faultcode'] === 1 || Data[0]['results']['faultcode'] === '1')
                 {
-                    html+='<a class="que_hint">&nbsp;</a>';
-                    html+='</div>';
-                    html+='<div class="tooltip" > <span class="tpar"></span>';
-                    html+='<div><h6>Why do I need to enter my Social Security Number (SSN)?</h6>';
-                    html+='<p>Virtually all lenders need a SSN in order to process a loan application. They will use it to obtain a credit report on your business and verify certain information to avoid complications such as fraud. &nbsp;Once verified, the lender will then be able to generate loan offers with exact terms for you to review. &nbsp;Not only is this a necessary step, but it will also allow them to give you the best rates possible. &nbsp;</p>';
-                    html+='<p style="color:#8CBB01;"><b>Note</b>: As part of our privacy policy, Biz2Credit does not store your SSN.  Feel free to reach out to a loan specialist if you have any questions.</p>';
-                    html+='</div></div>';
+                    app.iteriaService.viewModel.setOwnerData(data);
+                    var ownerDiv = Data[0]['results']["ownerList"]['length'];
+                    html = '';
+                    $('#controlField').html('');
+                    
+                    totaldivs = ownerDiv;
+                    
+                    for(c=1;c<=totaldivs;c++){
+                        
+                        app.iteriaService.viewModel.addDynamicBind(c);
+                        html='<div class="field">'
+                        html+='<div class="own_name">Please enter Testing\'s social security number</div>';
+                        html+='<input type="text" id="own_ssno'+c+'" name="own_ssno'+c+'"  class="IN3" data-bind="value:own_ssno'+c+'"  title="Enter your Social Security Number"  maxlength="9"/>';
+                        html+='<input type="hidden" id="own_percent'+c+'" name="own_percent'+c+'" data-bind="value:own_percent'+c+'" value="" />';
+                        html+='<input type="hidden" id="hown_ssno'+c+'" name="hown_ssno'+c+'" data-bind="value:hown_ssno'+c+'" value="" />';
+                        html+='<input type="hidden" id="hown_ssnoedit'+c+'" name="hown_ssnoedit'+c+'" data-bind="value:hown_ssnoedit'+c+'"/>';
+                        if(c === totaldivs)
+                        {
+                            html+='<a class="que_hint">&nbsp;</a>';
+                            html+='</div>';
+                            html+='<div class="tooltip" > <span class="tpar"></span>';
+                            html+='<div><h6>Why do I need to enter my Social Security Number (SSN)?</h6>';
+                            html+='<p>Virtually all lenders need a SSN in order to process a loan application. They will use it to obtain a credit report on your business and verify certain information to avoid complications such as fraud. &nbsp;Once verified, the lender will then be able to generate loan offers with exact terms for you to review. &nbsp;Not only is this a necessary step, but it will also allow them to give you the best rates possible. &nbsp;</p>';
+                            html+='<p style="color:#8CBB01;"><b>Note</b>: As part of our privacy policy, Biz2Credit does not store your SSN.  Feel free to reach out to a loan specialist if you have any questions.</p>';
+                            html+='</div></div>';
+                        }
+                        else
+                        {
+                            html+='</div>';
+                        }
+                       
+                        $('#controlField').append(html);
+                        app.iteriaService.viewModel.addBindDynamicIteria(c);
+                    }
                 }
-                else
-                {
-                    html+='</div>';
-                }
-               
-                $('#controlField').append(html);
-                app.iteriaService.viewModel.addBindDynamicIteria(c);
-            }
+            });
+            
+           
            
             /*Tooltip*/
             $(".que_hint").kendoTooltip({
@@ -71,61 +101,21 @@
                 }
             });
         },
-        IteriaAPILoad:function(e)
-        {
-            var appid = e.data['appid'];
-            //console.log(e);
-            app.loginService.viewModel.showloder();
-            var dataSource = new kendo.data.DataSource({
-                transport:{
-                    read:{
-                        url:localStorage.getItem("urlMobAppApiLoan"),
-                        type:"POST",
-                        dataType: "json",
-                        data:{apiaction:"getownersbyappid",appid:appid}
-                    }
-                },
-                schema: {
-                    data: function(data)
-                    {
-                    	return [data];
-                    }
-                },
-            });
-            dataSource.fetch(function(){
-                Data = this.data();
-                
-                var ownerDiv = Data[0]['results']["ownerList"]['length'];
-                app.iteriaService.viewModel.controlFielddLoad(ownerDiv);
-                
-                var data = Data[0]['results']["ownerList"];
-                if(Data[0]['results']['faultcode'] === 1 || Data[0]['results']['faultcode'] === '1')
-                {
-                    app.iteriaService.viewModel.setOwnerData(data);
-                    app.loginService.viewModel.hideloder();
-                    app.iteriaService.viewModel.openModalView();
-                }
-            });
-        },
+        
         setOwnerData:function(data)
         {
             dataParam={};
             var that = this;
+            var totaldivs = Data[0]['results']["ownerList"]['length'];
             for(i=0;i<totaldivs;i++)
             {
                  viewIModel.set('own_ssno'+(i+1),data[i]['own_ssno']);
                  viewIModel.set('own_percent'+(i+1),data[i]['own_percent']);
             }
-            //that.set("custid",);
             that.set("appid",data[0]['caseid']);
-           // that.set("matchID",);
             that.set("hnowners",data.length);
-            app.iteriaService.viewModel.openModalView();
         },
-        openModalView:function()
-        {
-           $("#iteriaModalView").data("kendoMobileModalView").open();
-        },
+        
         validationssn:function()
         {
             var nowners =  document.getElementById("hnowners").value; 

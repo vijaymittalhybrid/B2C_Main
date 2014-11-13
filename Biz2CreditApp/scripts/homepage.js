@@ -540,14 +540,16 @@
         },
         applyIteriaLoan:function(e)
         {
+            
            /* console.log(e.target.dataset.fid);
             localStorage.setItem("fid",e.target.dataset.fid);
             app.iteriaService.viewModel.IteriaAPILoad();*/
             if(e.button.context.id === 'applyIteria')
             {
+                var appid = e.data['appid'];
                // app.iteriaService.viewModel.openModalView();
                 //app.iteriaService.viewModel.IteriaAPILoad();
-                app.iteriaService.viewModel.IteriaAPILoad(e);
+                apps.navigate("views/iteria.html?appid="+appid);
                // app.iteriaService.viewModel.submitSSNValue();
             }
             
