@@ -32,10 +32,15 @@
                     	return [data];
                     }
                 },
+                error: function (e) {
+                	apps.hideLoading();
+                	navigator.notification.alert("Server not responding properly.Please check your internet connection.",
+                	function () {apps.navigate("#:back");}, "Notification", 'OK');
+                },
             });
             dataSource.fetch(function(){
-                Data = this.data();
                 
+                Data = this.data();
                 app.loginService.viewModel.hideloder();
                 var data = Data[0]['results']["ownerList"];
                 if(Data[0]['results']['faultcode'] === 1 || Data[0]['results']['faultcode'] === '1')
@@ -72,27 +77,25 @@
                         }
                        
                         $('#controlField').append(html);
+                         /*Tooltip*/
+                        $(".que_hint").kendoTooltip({
+                            autoHide: false,
+                            width: 300,
+                            showOn: "click",
+                            callout: false,
+                            content: function(e) {
+                                console.log(e);
+                                return e.target.context.parentNode.nextElementSibling.innerHTML;
+                            }
+                        });
                         app.iteriaService.viewModel.addBindDynamicIteria(c);
                     }
                 }
             });
             
-           
-           
-            /*Tooltip*/
-            $(".que_hint").kendoTooltip({
-                autoHide: false,
-                width: 350,
-                showOn: "click",
-                callout: false,
-                content: function(e) {
-                    return e.target.context.parentNode.nextElementSibling.innerHTML;
-                }
-            });
-            
             $(".reld_info").kendoTooltip({
                 autoHide: false,
-                width: 450,
+                width: 300,
                 showOn: "click",
                 callout: false,
                 position: "top",
