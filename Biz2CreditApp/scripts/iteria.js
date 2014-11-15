@@ -11,6 +11,7 @@
         authorization:0,
         show:function(e)
         {
+            console.log(e);
             if(typeof viewIModel === 'undefined')
             {
                 viewIModel = kendo.observable();
@@ -216,7 +217,7 @@
         {
             dataParam={};
             var that = this;
-            
+            sessionStorage.setItem("IteriaApplyStatus",'true');
             dataParam['custid'] = that.get("custid");
             dataParam['appid'] = that.get("appid");
             dataParam['matchID'] = that.get("matchID");
@@ -235,7 +236,9 @@
         },
         appToNavigate:function()
         {
-            apps.navigate("views/documentPending.html");
+            console.log("appId"+this.get("appid"));
+            var appid = this.get("appid");
+            apps.navigate("views/documentPending.html?appid="+appid);
         },
         addDynamicBind:function(num)
         {

@@ -32,6 +32,10 @@
                 $("#MatchesListnew").html('');
             }
         },
+        backToMatchAPILoad:function()
+        {
+            apps.navigate("views/loanApp.html");
+        },
         homeShow: function (e) {
 			
             app.loginService.viewModel.formValidateReset();
@@ -68,6 +72,8 @@
                 var that = this;
                 app.loginService.viewModel.setSettingsPage();
                 var data = that.data();
+                console.log("homepage");
+                console.log(data);
                 app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
                 pos = 1;
                 var appId = data[0]['results']['data']['appid'];
@@ -542,10 +548,23 @@
         {
             if(e.button.context.id === 'applyIteria')
             {
-                var appid = e.data['appid'];
+                //var appid = e.data['appid'];
                 apps.navigate("views/iteria.html?appid="+appid);
             }  
         },
+        IteriaDocumentPending:function(e)
+        {
+            console.log(e.button.context.id);
+            console.log(e.data);
+            
+            if(e.button.context.id === 'IteriaDocumentPending')
+            {
+                console.log("error")
+                var appid = e.data['appid'];
+                apps.navigate("views/documentPending.html?appid="+appid);
+            } 
+            
+        }
 
   
     });

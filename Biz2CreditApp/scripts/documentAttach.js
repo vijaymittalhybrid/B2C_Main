@@ -3,9 +3,12 @@
         app = global.app = global.app || {};
     
     documentAttachModel = kendo.data.ObservableObject.extend({
-        show:function()
+        show:function(e)
         {
+            
             app.loginService.viewModel.showloder();
+            console.log("attach");
+            console.log(e);
             /*Upload Buutton*/
             $("#uploadify").kendoUpload({
                 async: {
@@ -67,11 +70,6 @@
                 app.documentAttach.viewModel.existingDocumentList(data);
                 app.documentAttach.viewModel.uplocadDocumentList(data);
             });
-
-            
-            
-            
-            
             app.documentAttach.viewModel.uploadDocumentClick();
         },
         existingDocumentList:function(docsData)
