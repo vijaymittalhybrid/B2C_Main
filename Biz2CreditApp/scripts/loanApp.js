@@ -16,6 +16,7 @@
         showrefreshLoan:true,
         show:function()
         {
+            sessionStorage.setItem("sessionMatchFID","");
             if(!window.connectionInfo.checkConnection()){
                 navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
                     if (confirmed === true || confirmed === 1) {
@@ -203,6 +204,7 @@
             else
             {
                 var fid = e.data['fid'];
+                sessionStorage.setItem("sessionMatchFID",fid);
                 app.loginService.viewModel.showloder();  
                 var dataSource = new kendo.data.DataSource({
                     transport: {

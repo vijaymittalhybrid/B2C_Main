@@ -10,8 +10,6 @@
         {
             console.log("document pending");
             console.log(e);
-            app.documentService.viewModel.setMatchCaseId(e.view.params.appid);
-            
             /*Upload Document Toggle*/
             $(".documentList .wrap-content h2").unbind('.myPlugin');
             $(".documentList .wrap-content .row .name a").unbind(".myPlugin");
@@ -31,15 +29,9 @@
             console.log(e);
             apps.navigate("views/document_attach.html");
         },
-        setMatchCaseId:function(data)
-        {
-            var that = this;
-            that.set("appfid",data);
-        },
         gobackMatchesPage:function()
         {
-            var that=this;
-            var appfid = that.get("appfid");
+            var appfid = sessionStorage.getItem("sessionMatchFID");
             console.log("hidden fid : "+appfid);
             app.loanApp.viewModel.updateMatchesByBackHandling(appfid);
         }

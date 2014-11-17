@@ -189,7 +189,7 @@
                 {
                     $msg= "Finacial Preference submitted successfully";
                     app.analyticsService.viewModel.trackFeature("Application.Loan application submitted successfully");
-                    app.loginService.viewModel.mobileNotification($msg,'info');
+                  //  app.loginService.viewModel.mobileNotification($msg,'info');
                     
                     app.loanAppPI.viewModel.ManageOwnerHideenField(dataParam);
                     app.homesetting.viewModel.homeShow(); 

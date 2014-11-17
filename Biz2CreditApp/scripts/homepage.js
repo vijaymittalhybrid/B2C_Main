@@ -546,21 +546,18 @@
         },
         applyIteriaLoan:function(e)
         {
+            var appid = sessionStorage.getItem("sessionMatchFID");
             if(e.button.context.id === 'applyIteria')
             {
-                //var appid = e.data['appid'];
                 apps.navigate("views/iteria.html?appid="+appid);
             }  
         },
         IteriaDocumentPending:function(e)
         {
-            console.log(e.button.context.id);
-            console.log(e.data);
-            
+            var appid = sessionStorage.getItem("sessionMatchFID");
+          
             if(e.button.context.id === 'IteriaDocumentPending')
             {
-                console.log("error")
-                var appid = e.data['appid'];
                 apps.navigate("views/documentPending.html?appid="+appid);
             } 
             
